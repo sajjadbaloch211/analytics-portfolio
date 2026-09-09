@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maya Chen — Data Analyst Portfolio</title>
+<meta name="description" content="Portfolio of Maya Chen, data analyst. SQL, Python, BI dashboards, experimentation and ML with measurable business impact.">
+<style>
+/* ============================================================
+   MAYA CHEN — DATA ANALYTICS PORTFOLIO (single file)
+   Theme: "Terminal Noir" — deep navy/ink, data-cyan accents,
+   glassmorphism cards, gradient text, scroll reveals.
+   ============================================================ */
+:root{
+  --bg:#070b14;
+  --bg-2:#0b1120;
+  --surface:rgba(15,23,42,.72);
+  --surface-2:rgba(22,32,55,.55);
+  --stroke:rgba(94,234,212,.14);
+  --stroke-2:rgba(148,163,184,.14);
+  --txt:#e7eefb;
+  --txt-2:#a8b6d1;
+  --txt-3:#64748b;
+  --cyan:#22d3ee;
+  --cyan-2:#67e8f9;
+  --teal:#2dd4bf;
+  --violet:#a78bfa;
+  --amber:#fbbf24;
+  --rose:#fb7185;
+  --grad:linear-gradient(92deg,#22d3ee 0%,#2dd4bf 45%,#a78bfa 100%);
+  --grad-soft:linear-gradient(135deg,rgba(34,211,238,.16),rgba(167,139,250,.10));
+  --mono:'Cascadia Code','JetBrains Mono',ui-monospace,'SF Mono',Consolas,monospace;
+  --sans:'Inter',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --r-lg:18px; --r-md:12px; --r-sm:8px;
+  --shadow:0 20px 60px -18px rgba(0,0,0,.65);
+  --glow:0 0 34px rgba(34,211,238,.28);
+  --ease:cubic-bezier(.22,.8,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(1100px 600px at 85% -10%,rgba(167,139,250,.09),transparent 60%),
+    radial-gradient(900px 520px at -10% 20%,rgba(34,211,238,.08),transparent 55%),
+    var(--bg);
+  color:var(--txt);
+  font-family:var(--sans);
+  font-size:16px;line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(34,211,238,.30);color:#fff}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.mono{font-family:var(--mono)}
+
+/* ---------- scrollbar ---------- */
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--bg-2)}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#155e75,#312e81);border-radius:6px}
+
+/* ---------- nav ---------- */
+.nav{
+  position:fixed;inset:0 0 auto;z-index:60;
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  background:rgba(7,11,20,.72);
+  border-bottom:1px solid var(--stroke-2);
+}
+.nav-inner{display:flex;align-items:center;gap:26px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-weight:700;font-size:.95rem;letter-spacing:.06em}
+.brand-dot{width:9px;height:9px;border-radius:50%;background:var(--cyan);box-shadow:var(--glow);animation:pulse 2.4s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 6px rgba(34,211,238,.12),var(--glow)}}
+.nav-links{display:flex;gap:4px;margin-left:auto}
+.nav-links a{
+  padding:8px 14px;border-radius:999px;font-size:.86rem;color:var(--txt-2);
+  transition:color .25s,background .25s;
+}
+.nav-links a:hover{color:var(--txt);background:rgba(34,211,238,.08)}
+.nav-cta{
+  padding:9px 18px;border-radius:999px;font-size:.84rem;font-weight:600;
+  background:var(--grad);color:#04121a;transition:transform .25s var(--ease),box-shadow .25s;
+}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:var(--glow)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:170px 0 110px;text-align:center;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:-40% -20% auto;height:130%;pointer-events:none;
+  background:conic-gradient(from 210deg at 50% 0%,transparent 55%,rgba(34,211,238,.055) 75%,transparent 95%);
+  animation:spin 26s linear infinite;
+}
+@keyframes spin{to{transform:rotate(1turn)}}
+.badge{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:7px 16px;border-radius:999px;
+  border:1px solid var(--stroke);background:var(--grad-soft);
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan-2);
+}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal)}
+.hero h1{
+  margin:26px 0 8px;font-size:clamp(2.6rem,6.2vw,4.6rem);line-height:1.06;
+  font-weight:800;letter-spacing:-.02em;
+}
+.hero h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{max-width:640px;margin:0 auto;color:var(--txt-2);font-size:1.08rem}
+.hero-sub strong{color:var(--txt)}
+.hero-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:26px 0 34px}
+.chip{
+  font-family:var(--mono);font-size:.72rem;padding:6px 13px;border-radius:999px;
+  border:1px solid var(--stroke-2);color:var(--txt-2);background:rgba(15,23,42,.5);
+}
+.chip b{color:var(--cyan-2);font-weight:500}
+.hero-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:14px 26px;border-radius:999px;font-weight:600;font-size:.92rem;
+  transition:transform .25s var(--ease),box-shadow .25s,background .25s;
+}
+.btn-primary{background:var(--grad);color:#04121a}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:var(--glow)}
+.btn-ghost{border:1px solid var(--stroke);color:var(--cyan-2);background:rgba(34,211,238,.06)}
+.btn-ghost:hover{background:rgba(34,211,238,.12);transform:translateY(-2px)}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:80px;
+  background:var(--stroke-2);border:1px solid var(--stroke-2);border-radius:var(--r-lg);overflow:hidden;
+  backdrop-filter:blur(10px);
+}
+.stat{background:rgba(9,14,26,.85);padding:26px 18px;transition:background .3s}
+.stat:hover{background:rgba(13,20,38,.95)}
+.stat b{display:block;font-family:var(--mono);font-size:1.9rem;font-weight:600;color:transparent;background:var(--grad);-webkit-background-clip:text;background-clip:text}
+.stat span{font-size:.78rem;color:var(--txt-3);letter-spacing:.05em;text-transform:uppercase}
+
+/* ---------- sections ---------- */
+section{padding:96px 0}
+.sec-head{margin-bottom:52px}
+.sec-kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px}
+.sec-kicker::before{content:"// "}
+.sec-title{font-size:clamp(1.9rem,4vw,2.7rem);font-weight:800;letter-spacing:-.015em}
+.sec-title .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sec-sub{margin-top:12px;color:var(--txt-2);max-width:640px}
+
+/* ---------- projects ---------- */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:22px}
+.card{
+  position:relative;border-radius:var(--r-lg);padding:26px;
+  background:var(--surface);border:1px solid var(--stroke-2);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  transition:transform .35s var(--ease),border-color .35s,box-shadow .35s;
+  overflow:hidden;
+}
+.card::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(420px 180px at 80% -10%,rgba(34,211,238,.10),transparent 60%);
+  opacity:0;transition:opacity .35s;
+}
+.card:hover{transform:translateY(-6px);border-color:var(--stroke);box-shadow:var(--shadow)}
+.card:hover::before{opacity:1}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:16px}
+.card-icon{
+  width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.2rem;
+  background:var(--grad-soft);border:1px solid var(--stroke);
+}
+.card-tag{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-3);padding:5px 10px;border:1px solid var(--stroke-2);border-radius:999px}
+.card h3{font-size:1.14rem;font-weight:700;margin-bottom:8px}
+.card p{color:var(--txt-2);font-size:.92rem}
+.card-stack{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0 14px}
+.stack-pill{font-family:var(--mono);font-size:.68rem;color:var(--cyan-2);background:rgba(34,211,238,.07);border:1px solid var(--stroke);padding:4px 10px;border-radius:6px}
+.card-impact{
+  margin-top:6px;padding:12px 14px;border-radius:var(--r-sm);
+  background:rgba(45,212,191,.07);border:1px solid rgba(45,212,191,.2);
+  font-family:var(--mono);font-size:.78rem;color:var(--teal);
+}
+.card-impact b{color:#5eead4;font-weight:600}
+
+/* ---------- skills / tools ---------- */
+.skills-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}
+.panel{
+  border-radius:var(--r-lg);padding:28px;
+  background:var(--surface);border:1px solid var(--stroke-2);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+}
+.panel h3{font-size:1.05rem;font-weight:700;margin-bottom:20px}
+.bar-row{margin-bottom:16px}
+.bar-head{display:flex;justify-content:space-between;font-size:.85rem;margin-bottom:7px}
+.bar-head span:last-child{font-family:var(--mono);color:var(--cyan-2);font-size:.75rem}
+.bar{height:7px;border-radius:99px;background:rgba(148,163,184,.12);overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:inherit;background:var(--grad);transition:width 1.2s var(--ease)}
+.tools-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px}
+.tool{
+  display:flex;align-items:center;gap:9px;padding:11px 13px;border-radius:var(--r-md);
+  background:rgba(15,23,42,.6);border:1px solid var(--stroke-2);
+  font-size:.83rem;color:var(--txt-2);transition:border-color .25s,transform .25s;
+}
+.tool:hover{border-color:var(--stroke);transform:translateY(-2px);color:var(--txt)}
+.tool .td{width:8px;height:8px;border-radius:3px;background:var(--cyan)}
+
+/* ---------- process timeline ---------- */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.step{
+  position:relative;padding:24px;border-radius:var(--r-md);
+  background:var(--surface-2);border:1px solid var(--stroke-2);
+}
+.step b{
+  display:inline-grid;place-items:center;width:38px;height:38px;border-radius:10px;margin-bottom:14px;
+  font-family:var(--mono);color:var(--cyan-2);background:rgba(34,211,238,.1);border:1px solid var(--stroke);
+}
+.step h4{font-size:.95rem;margin-bottom:7px}
+.step p{font-size:.85rem;color:var(--txt-2)}
+
+/* ---------- chatbot teaser + all sections ---------- */
+.bot-teaser{
+  border-radius:var(--r-lg);padding:42px;text-align:center;position:relative;overflow:hidden;
+  background:linear-gradient(140deg,rgba(34,211,238,.10),rgba(167,139,250,.08)),var(--surface);
+  border:1px solid var(--stroke);
+}
+.bot-teaser h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800;margin:14px 0 10px}
+.bot-teaser h2 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bot-teaser p{color:var(--txt-2);max-width:560px;margin:0 auto 26px}
+.sample-q{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.sq{
+  font-size:.8rem;padding:8px 15px;border-radius:999px;color:var(--txt-2);
+  border:1px solid var(--stroke-2);background:rgba(9,14,26,.6);
+  transition:color .25s,border-color .25s,transform .25s;cursor:pointer;
+}
+.sq:hover{color:var(--cyan-2);border-color:var(--stroke);transform:translateY(-2px)}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.contact-item{display:flex;gap:16px;align-items:center;padding:18px;border-radius:var(--r-md);background:var(--surface-2);border:1px solid var(--stroke-2);transition:border-color .3s,transform .3s}
+.contact-item:hover{border-color:var(--stroke);transform:translateY(-3px)}
+.contact-item .ci{font-size:1.3rem;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:var(--grad-soft);border:1px solid var(--stroke)}
+.contact-item b{display:block;font-size:.93rem}
+.contact-item span{font-size:.82rem;color:var(--txt-2)}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--stroke-2);padding:34px 0;margin-top:40px}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;color:var(--txt-3);font-size:.82rem}
+.foot .mono{color:var(--cyan)}
+
+/* =========================== CHATBOT =========================== */
+.chat-fab{
+  position:fixed;right:26px;bottom:26px;z-index:80;
+  width:60px;height:60px;border-radius:50%;
+  background:var(--grad);color:#04121a;font-size:1.5rem;
+  display:grid;place-items:center;
+  box-shadow:0 14px 38px -8px rgba(34,211,238,.55);
+  transition:transform .3s var(--ease),box-shadow .3s;
+}
+.chat-fab:hover{transform:scale(1.08)}
+.chat-fab .unread{
+  position:absolute;top:-3px;right:-3px;width:20px;height:20px;border-radius:50%;
+  background:var(--rose);color:#fff;font-size:.62rem;font-weight:700;
+  display:grid;place-items:center;border:2px solid var(--bg);
+  animation:pulse 2s infinite;
+}
+.chat-panel{
+  position:fixed;right:26px;bottom:26px;z-index:85;
+  width:min(400px,calc(100vw - 36px));height:min(600px,calc(100vh - 90px));
+  border-radius:22px;overflow:hidden;
+  background:rgba(8,12,22,.92);
+  border:1px solid var(--stroke);
+  backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+  box-shadow:0 30px 80px -20px rgba(0,0,0,.8);
+  display:none;flex-direction:column;
+  animation:panel-in .38s var(--ease);
+}
+.chat-panel.open{display:flex}
+@keyframes panel-in{from{opacity:0;transform:translateY(22px) scale(.96)}to{opacity:1;transform:none}}
+.chat-head{
+  display:flex;align-items:center;gap:12px;padding:16px 18px;
+  background:linear-gradient(90deg,rgba(34,211,238,.10),rgba(167,139,250,.08));
+  border-bottom:1px solid var(--stroke-2);
+}
+.bot-ava{
+  width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-size:1.1rem;
+  background:var(--grad);color:#04121a;font-weight:700;
+}
+.chat-head-txt b{display:block;font-size:.93rem}
+.chat-head-txt span{font-size:.72rem;color:var(--teal);display:flex;align-items:center;gap:6px}
+.chat-head-txt span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px var(--teal)}
+.chat-close{margin-left:auto;color:var(--txt-3);font-size:1.05rem;padding:6px;border-radius:8px;transition:color .2s,background .2s}
+.chat-close:hover{color:var(--txt);background:rgba(148,163,184,.12)}
+.chat-log{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:14px}
+.msg{max-width:86%;padding:12px 15px;border-radius:16px;font-size:.88rem;line-height:1.55;animation:msg-in .3s var(--ease)}
+@keyframes msg-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.msg.bot{
+  align-self:flex-start;background:rgba(30,41,59,.75);border:1px solid var(--stroke-2);
+  border-bottom-left-radius:4px;color:var(--txt);
+}
+.msg.bot b{color:var(--cyan-2);font-weight:600}
+.msg.bot code{font-family:var(--mono);font-size:.78rem;background:rgba(34,211,238,.10);padding:2px 6px;border-radius:5px;color:var(--cyan-2)}
+.msg.user{
+  align-self:flex-end;background:linear-gradient(135deg,#0e7490,#155e75);
+  border-bottom-right-radius:4px;color:#e0faff;
+}
+.msg b{font-weight:600}
+.msg .impact{color:#5eead4}
+.typing-msg{display:flex;gap:5px;align-items:center;padding:14px 16px}
+.typing-msg i{width:7px;height:7px;border-radius:50%;background:var(--cyan);opacity:.4;animation:bounce 1.2s infinite}
+.typing-msg i:nth-child(2){animation-delay:.18s}
+.typing-msg i:nth-child(3){animation-delay:.36s}
+@keyframes bounce{30%{transform:translateY(-5px);opacity:1}}
+.chat-quick{
+  display:flex;gap:8px;padding:10px 16px 0;flex-wrap:wrap;border-top:1px solid var(--stroke-2);padding-top:12px;margin:0 18px;
+}
+.cq{
+  font-size:.72rem;padding:6px 12px;border-radius:999px;color:var(--txt-2);
+  border:1px solid var(--stroke-2);transition:color .2s,border-color .2s;
+}
+.cq:hover{color:var(--cyan-2);border-color:var(--stroke)}
+.chat-input{
+  display:flex;gap:10px;padding:14px 18px;
+}
+.chat-input input{
+  flex:1;background:rgba(15,23,42,.7);border:1px solid var(--stroke-2);
+  border-radius:12px;padding:12px 15px;color:var(--txt);font-size:.88rem;outline:none;
+  transition:border-color .25s,box-shadow .25s;
+}
+.chat-input input:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(34,211,238,.12)}
+.chat-input button{
+  width:46px;border-radius:12px;background:var(--grad);color:#04121a;font-size:1.05rem;
+  display:grid;place-items:center;transition:transform .2s,box-shadow .2s;
+}
+.chat-input button:hover{transform:scale(1.06)}
+
+/* ---------- reveals ---------- */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- responsive ---------- */
+@media(max-width:900px){
+  .skills-grid,.contact-grid{grid-template-columns:1fr}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .nav-links{display:none}
+}
+@media(max-width:520px){
+  section{padding:64px 0}
+  .hero{padding:120px 0 70px}
+  .chat-panel{right:12px;bottom:12px;height:min(560px,calc(100vh - 60px))}
+  .chat-fab{right:16px;bottom:16px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="brand-dot"></span>maya.chen<span style="color:var(--cyan)">()</span></a>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta mono" href="#contact">Hire Me</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="badge rv"><span class="badge-dot"></span>Available for new projects · Q4 2026</span>
+    <h1 class="rv">Turning messy data into<br><span class="grad">decisions that ship.</span></h1>
+    <p class="hero-sub rv">I'm <strong>Maya Chen</strong> — a data analyst who lives at the intersection of <strong>SQL, Python and storytelling</strong>. I build the dashboards execs actually open and the experiments that move revenue.</p>
+    <div class="hero-tags rv">
+      <span class="chip"><b>SQL</b> · deep</span>
+      <span class="chip"><b>Python</b> · pandas / sklearn</span>
+      <span class="chip"><b>Tableau</b> · Power BI</span>
+      <span class="chip"><b>A/B Testing</b> · stats-backed</span>
+      <span class="chip"><b>dbt</b> · pipelines</span>
+    </div>
+    <div class="hero-btns rv">
+      <a class="btn btn-primary" href="#projects">View Projects ↓</a>
+      <a class="btn btn-ghost" href="#contact" id="heroChatBtn">◈ Talk to My AI Assistant</a>
+    </div>
+    <div class="hero-stats rv">
+      <div class="stat"><b data-count="6">0</b><span>Years experience</span></div>
+      <div class="stat"><b data-count="40">0</b><span>Projects delivered</span></div>
+      <div class="stat"><b>$<span data-count="12">0</span>M+</b><span>Revenue influenced</span></div>
+      <div class="stat"><b data-count="18">0</b><span>Stakeholders enabled</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="sec-kicker">case studies</p>
+      <h2 class="sec-title">Projects with <span class="grad">receipts.</span></h2>
+      <p class="sec-sub">Every project below ends with a number, not a vibe. Impact first — tools second.</p>
+    </div>
+    <div class="proj-grid">
+      <article class="card rv">
+        <div class="card-top"><div class="card-icon">📉</div><span class="card-tag">Churn</span></div>
+        <h3>Churn Early-Warning System</h3>
+        <p>Predictive model + Tableau alert layer flagging at-risk accounts 45 days ahead, wired into the CS team's Monday standup.</p>
+        <div class="card-stack"><span class="stack-pill">Python</span><span class="stack-pill">scikit-learn</span><span class="stack-pill">SQL</span><span class="stack-pill">Tableau</span></div>
+        <div class="card-impact">IMPACT → churn down <b>18%</b> · <b>$2.1M ARR</b> retained</div>
+      </article>
+      <article class="card rv">
+        <div class="card-top"><div class="card-icon">🧪</div><span class="card-tag">Experimentation</span></div>
+        <h3>Checkout Funnel A/B Program</h3>
+        <p>Designed and shipped 23 sequential experiments on the checkout flow — power analysis, guardrail metrics, CUPED variance reduction.</p>
+        <div class="card-stack"><span class="stack-pill">Python</span><span class="stack-pill">Statsmodels</span><span class="stack-pill">SQL</span></div>
+        <div class="card-impact">IMPACT → conversion <b>+14%</b> · <b>+~$3M</b> annualized</div>
+      </article>
+      <article class="card rv">
+        <div class="card-top"><div class="card-icon">📊</div><span class="card-tag">BI</span></div>
+        <h3>Exec KPI Command Center</h3>
+        <p>Single source of truth for the leadership team: dbt-modeled metrics layer, Power BI semantic model, row-level security, auto-narratives.</p>
+        <div class="card-stack"><span class="stack-pill">dbt</span><span class="stack-pill">Power BI</span><span class="stack-pill">Snowflake</span></div>
+        <div class="card-impact">IMPACT → reporting time <b>−70%</b> · adopted by <b>5</b> execs weekly</div>
+      </article>
+      <article class="card rv">
+        <div class="card-top"><div class="card-icon">🛒</div><span class="card-tag">Marketing</span></div>
+        <h3>Marketing Mix Modeling</h3>
+        <p>Multi-touch attribution model replacing last-click. Bayesian MMM in PyMC to rebalance a $4M quarterly budget across channels.</p>
+        <div class="card-stack"><span class="stack-pill">PyMC</span><span class="stack-pill">pandas</span><span class="stack-pill">Looker</span></div>
+        <div class="card-impact">IMPACT → CAC <b>−22%</b> · budget reallocated with confidence</div>
+      </article>
+      <article class="card rv">
+        <div class="card-top"><div class="card-icon">⚙️</div><span class="card-tag">Pipelines</span></div>
+        <h3>Self-Serve Data Platform</h3>
+        <p>dbt + Airflow pipelines with tests, docs and lineage. Analysts ship their own certified datasets — no more ticket queues.</p>
+        <div class="card-stack"><span class="stack-pill">dbt</span><span class="stack-pill">Airflow</span><span class="stack-pill">BigQuery</span></div>
+        <div class="card-impact">IMPACT → ad-hoc requests <b>−60%</b> · <b>12</b> certified models</div>
+      </article>
+      <article class="card rv">
+        <div class="card-top"><div class="card-icon">🎯</div><span class="card-tag">Pricing</span></div>
+        <h3>Dynamic Pricing Analysis</h3>
+        <p>Elasticity curves by segment + churn-risk-aware discount policy. Found the price point where LTV:CAC peaks.</p>
+        <div class="card-stack"><span class="stack-pill">Python</span><span class="stack-pill">SQL</span><span class="stack-pill">Tableau</span></div>
+        <div class="card-impact">IMPACT → margin <b>+9pts</b> · no measurable churn lift</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="sec-kicker">stack</p>
+      <h2 class="sec-title">The <span class="grad">toolbox.</span></h2>
+    </div>
+    <div class="skills-grid">
+      <div class="panel rv">
+        <h3>Core Skills</h3>
+        <div class="bar-row"><div class="bar-head"><span>SQL / Advanced Analytics</span><span>expert</span></div><div class="bar" data-lv="95"><i></i></div></div>
+        <div class="bar-row"><div class="bar-head"><span>Python (pandas · sklearn · PyMC)</span><span>expert</span></div><div class="bar" data-lv="92"><i></i></div></div>
+        <div class="bar-row"><div class="bar-head"><span>Statistics &amp; Experimentation</span><span>advanced</span></div><div class="bar" data-lv="90"><i></i></div></div>
+        <div class="bar-row"><div class="bar-head"><span>Data Viz &amp; Storytelling</span><span>advanced</span></div><div class="bar" data-lv="88"><i></i></div></div>
+        <div class="bar-row"><div class="bar-head"><span>dbt &amp; Data Modeling</span><span>advanced</span></div><div class="bar" data-lv="85"><i></i></div></div>
+        <div class="bar-row"><div class="bar-head"><span>ML — supervised / uplift</span><span>proficient</span></div><div class="bar" data-lv="80"><i></i></div></div>
+      </div>
+      <div class="panel rv">
+        <h3>Tools &amp; Platforms</h3>
+        <div class="tools-list">
+          <div class="tool"><span class="td"></span>Snowflake</div>
+          <div class="tool"><span class="td"></span>BigQuery</div>
+          <div class="tool"><span class="td"></span>Tableau</div>
+          <div class="tool"><span class="td"></span>Power BI</div>
+          <div class="tool"><span class="td"></span>Looker</div>
+          <div class="tool"><span class="td"></span>dbt</div>
+          <div class="tool"><span class="td"></span>Airflow</div>
+          <div class="tool"><span class="td"></span>Git</div>
+          <div class="tool"><span class="td"></span>Jupyter</div>
+          <div class="tool"><span class="td"></span>Excel</div>
+          <div class="tools-list" style="grid-column:1/-1;display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
+            <span class="stack-pill">also: Amplitude · Mixpanel · Hex · Figma for dashboards</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="sec-kicker">how i work</p>
+      <h2 class="sec-title">From question to <span class="grad">decision.</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step rv"><b>01</b><h4>Frame the question</h4><p>What decision will this analysis change? If there's no decision, there's no project.</p></div>
+      <div class="step rv"><b>02</b><h4>Wrangle &amp; validate</h4><p>SQL pipelines, sanity checks, and stakeholder sign-off on the data before anyone sees a chart.</p></div>
+      <div class="step rv"><b>03</b><h4>Analyze &amp; model</h4><p>Stats-first: significance, effect sizes, confidence. Models only when they earn their place.</p></div>
+      <div class="step rv"><b>04</b><h4>Storytell &amp; ship</h4><p>One-page narrative, one dashboard, one recommendation — with the tradeoffs made explicit.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CHATBOT TEASER ===== -->
+<section id="assistant">
+  <div class="wrap">
+    <div class="bot-teaser rv">
+      <span class="badge"><span class="badge-dot"></span>Powered by a carefully engineered system prompt</span>
+      <h2>Meet <span class="grad">DATTA</span> — my portfolio assistant.</h2>
+      <p>Datta knows my projects, stack, process and availability. Ask it anything — what I'd analyze first for your business, which project proves experimentation skills, or how I price work.</p>
+      <div class="sample-q">
+        <button class="sq" data-ask="What's your strongest project?">What's your strongest project?</button>
+        <button class="sq" data-ask="How would you approach analyzing churn for a SaaS?">How would you approach churn for a SaaS?</button>
+        <button class="sq" data-ask="What tools do you use daily?">What tools do you use daily?</button>
+        <button class="sq" data-ask="Are you available for hire?">Are you available?</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="sec-kicker">contact</p>
+      <h2 class="sec-title">Let's make your data <span class="grad">argue for you.</span></h2>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-item rv" href="mailto:hello@mayachen.dev">
+        <span class="ci">✉</span><span><b>hello@mayachen.dev</b><span>Replies within 24h on weekdays</span></span>
+      </a>
+      <a class="contact-item rv" href="https://linkedin.com" target="_blank" rel="noopener">
+        <span class="ci">in</span><span><b>LinkedIn</b><span>/in/mayachen-analytics</span></span>
+      </a>
+      <a class="contact-item rv" href="https://github.com" target="_blank" rel="noopener">
+        <span class="ci">⌥</span><span><b>GitHub</b><span>/mayachen — notebooks &amp; dbt repos</span></span>
+      </a>
+      <div class="contact-item rv">
+        <span class="ci">⏱</span><span><b>Response time</b><span>Usually same-day (CET, Berlin)</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span class="mono">maya.chen() · <span style="color:var(--cyan)">data → decisions</span></span>
+    <span>© 2026 — Built with vanilla HTML/CSS/JS + one very well-prompted bot.</span>
+  </div>
+</footer>
+
+<!-- ================= CHATBOT ================= -->
+<button class="chat-fab" id="chatFab" aria-label="Open chat">◈<span class="unread" id="unreadBadge">1</span></button>
+
+<div class="chat-panel" id="chatPanel" role="dialog" aria-label="Portfolio assistant chat">
+  <div class="chat-head">
+    <div class="bot-ava">D</div>
+    <div class="chat-head-txt">
+      <b>DATTA</b>
+      <span>online · portfolio assistant</span>
+    </div>
+    <button class="chat-close" id="chatClose" aria-label="Close chat">✕</button>
+  </div>
+  <div class="chat-log" id="chatLog"></div>
+  <div class="chat-quick" id="chatQuick">
+    <button class="cq" data-ask="What projects show SQL expertise?">SQL projects</button>
+    <button class="cq" data-ask="Walk me through your process.">Process</button>
+    <button class="cq" data-ask="What's your availability and how do you price work?">Availability</button>
+    <button class="cq" data-ask="Tell me about Maya's experimentation skills.">Experimentation</button>
+  </div>
+  <div class="chat-input">
+    <input type="text" id="chatIn" placeholder="Ask about projects, skills, process…" autocomplete="off" aria-label="Message">
+    <button id="chatSend" aria-label="Send message">➤</button>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   CHATBOT — the system prompt IS the product.
+   The intent engine below acts as a deterministic fallback
+   so the bot works fully offline; swap reply() with a real
+   LLM call and pass SYSTEM_PROMPT as the system message.
+   ============================================================ */
+
+// ─────────────── THE KILLER SYSTEM PROMPT ───────────────
+const SYSTEM_PROMPT = `
+# ROLE
+You are DATTA ("Data Analytics Technical Talent Assistant") — the AI portfolio
+assistant embedded in Maya Chen's data analytics portfolio website.
+You speak with the polish of a senior analyst who deeply respects both the
+numbers AND the reader's time.
+
+# PERSONA & VOICE
+- Warm, sharp, and confident — think "senior analyst explaining to a smart
+  PM over coffee", never robotic, never salesy.
+- Lead with the answer, then support it. No throat-clearing ("Great
+  question!"), no filler ("In today's fast-paced world…").
+- Structure beats walls of text: short paragraphs, tight bullets,
+  bold key phrases, numbers always concrete ("−18% churn", not "less churn").
+- Sprinkle light data-humor when it lands naturally (never forced, never
+  during serious topics like pricing or availability).
+- Adaptive: match the user's energy. One-word question → concise answer.
+  Strategic question → framework-level answer.
+
+# CORE KNOWLEDGE — MAYA CHEN
+Identity: Data analyst, 6 yrs experience, Berlin (CET), English-fluent.
+Mission: "Turning messy data into decisions that ship."
+
+Skills (with depth):
+- SQL — expert, window functions to CTE pipelines, 95/100
+- Python — pandas, scikit-learn, PyMC, statsmodels, 92/100
+- Statistics & A/B testing — power analysis, guardrail metrics, CUPED, 90/100
+- Data storytelling — exec-grade narratives, 88/100
+- dbt & data modeling — metrics layers, lineage, 85/100
+- ML — churn prediction, uplift modeling, 80/100
+
+Tools: Snowflake, BigQuery, Tableau, Power BI, Looker, dbt, Airflow,
+Git, Jupyter, Amplitude, Mixpanel, Hex.
+
+Signature projects (IMPACT numbers are the headline, always cite them):
+1. Churn Early-Warning System — Python + sklearn + Tableau alert layer,
+   flags at-risk accounts 45 days early. → churn −18%, $2.1M ARR retained.
+2. Checkout A/B Program — 23 experiments, CUPED variance reduction.
+   → conversion +14%, ~+$3M annualized.
+3. Exec KPI Command Center — dbt metrics layer + Power BI, auto-narratives.
+   → reporting time −70%, adopted by 5 execs weekly.
+4. Marketing Mix Modeling — Bayesian MMM in PyMC, $4M budget rebalance.
+   → CAC −22%.
+5. Self-Serve Data Platform — dbt + Airflow, tests/docs/lineage.
+   → ad-hoc tickets −60%, 12 certified models.
+6. Dynamic Pricing Analysis — elasticity curves, LTV:CAC peak.
+   → margin +9pts, no churn lift.
+
+Process: 1) Frame the decision, not the dataset 2) Wrangle & validate
+(Stakeholders sign off on data before charts) 3) Analyze stats-first
+(effect sizes, confidence) 4) Storytell — one page, one dashboard,
+one recommendation.
+
+Availability: Open for new projects Q4 2026. Freelance & full-time.
+Contact: hello@mayachen.dev (replies <24h weekdays), Berlin/CET.
+Pricing: scope-based — discovery → fixed quote. Bot should tease
+the "one 30-min scoping call" but never quote numbers.
+
+# BEHAVIOR RULES
+1. NEVER invent projects, metrics, dates or clients. If you don't know
+   something about Maya, say so and route to email.
+2. If asked something unrelated to Maya/analytics careers/hiring:
+   gently steer back ONCE ("That's outside my dataset — but if you're
+   curious about Maya's…"), then stay on-topic if pressed.
+3. When recommending an approach, always give: the recommendation,
+   the "why" (method/data), and the first concrete next step.
+4. For technical questions, it's fine to show a short SQL/Python sketch
+   (<10 lines) with a one-line takeaway, not full tutorials.
+5. If a visitor seems like a hiring manager, surface the strongest
+   matching project AND the impact number.
+6. If a visitor describes a business problem, respond with a 3-step
+   mini-analysis plan framed by Maya's process.
+7. Keep replies under 150 words unless the user explicitly asks to
+   elaborate. Bullet points > paragraphs.
+8. End strategically, not mechanically: a sharp follow-up question or
+   a pointer (project card, contact section) — never every reply.
+9. Handle off-hours/scheduling questions by pointing to email,
+   never invent availability windows beyond "Q4 2026".
+
+# OUTPUT FORMAT
+- Markdown-lite: **bold** for key numbers, short bullets, no headers.
+- Numbers formatted exactly as in the knowledge base.
+- Greeting (first message only): 2 lines max — welcome + 1 sample ask.
+`.trim();
+
+// ─────────────── INTENT ENGINE (offline "LLM") ───────────────
+const KB = {
+  greeting: {
+    match: [/^(hi|hey|hello|yo|sup|good (morning|afternoon|evening)|salam|assalam)\b/i, /^start$/i],
+    reply: () => `Hey! I'm <b>DATTA</b> — Maya's portfolio assistant. I know her projects, stack, and process down to the impact numbers.<br><br>Try: <i>"What's your strongest project?"</i> or <i>"How would you analyze churn for a SaaS?"</i>`
+  },
+  strongest: {
+    match: [/strongest|best project|flagship|most impressive|proudest/i],
+    reply: () => `The <b>Churn Early-Warning System</b> is the flagship — it's where everything comes together:<br><br>• <b>sklearn model</b> flagging at-risk accounts <b>45 days early</b><br>• Tableau alert layer the CS team checks every Monday<br>• Result: churn <b class="impact">−18%</b>, <b class="impact">$2.1M ARR</b> retained<br><br>But "strongest" depends on what you're hiring for — ask me about <code>A/B testing</code> or <code>dashboards</code> and I'll point you to the right proof.`
+  },
+  churn: {
+    match: [/churn|retention/i, /saas/i],
+    reply: () => `Great use case — it's literally Maya's flagship. Her playbook:<br><br>1. <b>Define</b> churn precisely (logo vs revenue vs usage — pick one, own it)<br>2. <b>Explore</b> leading indicators in SQL: usage decay, support tickets, seat shrinkage<br>3. <b>Model</b> with gradient boosting, but ship a <b>risk score + reason codes</b>, not just a probability<br>4. <b>Operationalize</b> — alerts into the CS workflow, then measure save-rate<br><br>That last step is why hers moved <b class="impact">$2.1M ARR</b>. Want the SQL feature sketch?`
+  },
+  abtest: {
+    match: [/\ba\/b\b/i, /\bab\s?test|\bexperiment|split test|cuped/i],
+    reply: () => `Experimentation is Maya's home turf — the <b>Checkout Funnel A/B Program</b>:<br><br>• <b>23 sequential experiments</b>, each with power analysis up front<br>• <b>Guardrail metrics</b> so a "win" never tanked refunds or support load<br>• <b>CUPED variance reduction</b> → faster reads, smaller samples<br>• Result: conversion <b class="impact">+14%</b>, ~<b class="impact">$3M</b> annualized<br><br>Her rule: an experiment without a decision attached isn't worth running.`
+  },
+  sql: {
+    match: [/\bsql\b|\bwindow function|\bcte\b|\bquer(y|ies)\b/i],
+    reply: () => `SQL is her <b>95/100 core skill</b> — three projects prove it:<br><br>• <b>Churn system</b> — feature pipelines in SQL, cohort windows<br>• <b>Exec KPI Center</b> — dbt-modeled metrics layer, one source of truth<br>• <b>Self-Serve Platform</b> — tested, documented queries analysts trust<br><br>Style note: she writes CTE-first, test-everything SQL — readable by the next analyst, not just the current one.`
+  },
+  dashboard: {
+    match: [/dashboard|bi|power ?bi|tableau|looker|visual/i],
+    reply: () => `Maya's dashboard philosophy: <b>if execs don't open it weekly, it failed</b>.<br><br>The <b>Exec KPI Command Center</b> — dbt semantic layer + Power BI:<br><br>• Reporting time <b class="impact">−70%</b><br>• <b>5 execs</b> using it weekly (the metric that matters)<br>• Auto-narratives so the numbers explain themselves<br><br>She builds in Tableau, Power BI and Looker — tool-agnostic, story-first.`
+  },
+  pricing: {
+    match: [/pric|cost|rate|budget|how much|fee|quote/i],
+    reply: () => `Pricing is scope-based — Maya prices the <b>decision</b>, not the hours.<br><br>The flow: a free <b>30-min scoping call</b> → a fixed quote with milestones. No surprises mid-project.<br><br>Want to book the call? <b>hello@mayachen.dev</b> — she replies within 24h on weekdays.`
+  },
+  why: {
+    match: [/why hire|why should|what makes (you|her|maya) different|stand out|unique|different from other/i],
+    reply: () => `Three things separate Maya from the average analyst:<br><br>• <b>Impact-anchored</b> — every project ends in a number ($12M+ revenue influenced)<br>• <b>Full-stack analyst</b> — SQL to Python to the exec narrative, no hand-offs<br>• <b>Decision-first</b> — analysis tied to a decision, or it doesn't ship<br><br>Ask about any project — the receipts are on the page.`
+  },
+  availability: {
+    match: [/available|availability|hire|hiring|open to|freelance|full[- ]?time|start/i],
+    reply: () => `Yes — Maya is <b>open for new projects starting Q4 2026</b>, freelance or full-time.<br><br>Fastest path: <b>hello@mayachen.dev</b> (replies <24h weekdays, Berlin/CET). Mention the decision you're trying to make with data — she'll tell you straight if she's the right fit.`
+  },
+  process: {
+    match: [/process|how do you work|workflow|methodolog|approach/i],
+    reply: () => `Maya's 4-step loop — question → decision, every time:<br><br>1. <b>Frame the decision</b> — no decision attached, no project<br>2. <b>Wrangle & validate</b> — stakeholders sign off on data <i>before</i> charts<br>3. <b>Analyze stats-first</b> — effect sizes and confidence before models<br>4. <b>Storytell & ship</b> — one page, one dashboard, one recommendation`
+  },
+  tools: {
+    match: [/tool|stack|tech|software|platform|daily/i],
+    reply: () => `Daily drivers:<br><br>• <b>SQL</b> on Snowflake / BigQuery<br>• <b>Python</b> — pandas, scikit-learn, PyMC, statsmodels<br>• <b>dbt</b> + Airflow for pipelines<br>• <b>Tableau / Power BI / Looker</b> for the story layer<br><br>Philosophy: tools are interchangeable; the <b>analytical thinking isn't</b>.`
+  },
+  contact: {
+    match: [/contact|email|reach|linkedin|github|get in touch/i],
+    reply: () => `<b>hello@mayachen.dev</b> — replies within 24h on weekdays.<br><br>Also: LinkedIn <code>/in/mayachen-analytics</code> · GitHub <code>/mayachen</code> (notebooks & dbt repos). Berlin, CET — working worldwide.`
+  },
+  ml: {
+    match: [/\bml\b|machine learning|model|sklearn|predict|uplift/i],
+    reply: () => `ML where it earns its place — Maya's two flagship applications:<br><br>• <b>Churn prediction</b> — sklearn, reason codes, <b class="impact">$2.1M ARR</b> saved<br>• <b>Bayesian MMM</b> — PyMC, marketing budget rebalance, CAC <b class="impact">−22%</b><br><br>Her bias: a simple model stakeholders act on beats a deep model they ignore.`
+  },
+  thanks: {
+    match: [/thank|thanks|thx|appreciate|awesome|great work|nice|cool|love it/i],
+    reply: () => `Anytime. If you want Maya's take on <b>your</b> data problem, describe it — I'll sketch how she'd attack it in 3 steps. Or hit <b>hello@mayachen.dev</b> for the real thing.`
+  },
+  bye: {
+    match: [/^(bye|goodbye|see you|later|cya|gtg)\b/i],
+    reply: () => `Later! Pro tip before you go: the <b>churn project card</b> is the one hiring managers screenshot. 👋`
+  }
+};
+
+const FALLBACK = (q) => {
+  const hints = [
+    `I can talk about Maya's <b>projects</b> (with impact numbers), <b>skills & tools</b>, <b>process</b>, <b>availability</b>, or <b>pricing</b>. What interests you?`,
+    `That one's outside my dataset — I'm tuned to Maya's portfolio. But if it's about analytics hiring or her work, ask away. For anything else: <b>hello@mayachen.dev</b>.`
+  ];
+  return hints[0];
+};
+
+// ─────────────── CHAT UI WIRING ───────────────
+const $ = (id) => document.getElementById(id);
+const chatPanel = $("chatPanel"), chatFab = $("chatFab"), chatLog = $("chatLog"),
+      chatIn = $("chatIn"), chatSend = $("chatSend"), chatClose = $("chatClose"),
+      unreadBadge = $("unreadBadge");
+
+// Build prompt preview message for the log (meta-transparency)
+const PROMPT_BANNER = `<div class="msg bot" style="border-left:3px solid var(--cyan)"><b>SYSTEM PROMPT (live):</b> ${SYSTEM_PROMPT.split("\n").length} lines · persona + knowledge base + guardrails. <i>Ask me anything to see it in action.</i></div>`;
+
+function addMsg(html, who = "bot") {
+  const div = document.createElement("div");
+  div.className = `msg ${who}`;
+  div.innerHTML = html;
+  chatLog.appendChild(div);
+  chatLog.scrollTop = chatLog.scrollHeight;
+  return div;
+}
+
+function addTyping() {
+  const t = document.createElement("div");
+  t.className = "msg bot typing-msg";
+  t.innerHTML = "<i></i><i></i><i></i>";
+  chatLog.appendChild(t);
+  chatLog.scrollTop = chatLog.scrollHeight;
+  return t;
+}
+
+function reply(query) {
+  // Intent engine — deterministic, offline, readable
+  for (const key in KB) {
+    const entry = KB[key];
+    const hit = entry.match.some(rx => rx.test(query));
+    if (hit) {
+      // context boost: "churn" + "saas" matches churn; fine-tune below
+      return entry.reply();
+    }
+  }
+  return FALLBACK(query);
+}
+
+let botHasReplied = false;
+function botRespond(query) {
+  const typing = addTyping();
+  const delay = 500 + Math.random() * 500;
+  setTimeout(() => {
+    typing.remove();
+    addMsg(reply(query));
+    botHasReplied = true;
+  }, delay);
+}
+
+function submit(value) {
+  const q = value.trim();
+  if (!q) return;
+  addMsg(escapeHtml(q), "user");
+  chatIn.value = "";
+  botRespond(q);
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+// Open/close
+function openChat() {
+  chatPanel.classList.add("open");
+  chatFab.style.display = "none";
+  unreadBadge.style.display = "none";
+  if (!botHasReplied) {
+    addMsg(`Hey! I'm <b>DATTA</b> — Maya's portfolio assistant, running on a carefully engineered system prompt.`, "bot");
+    setTimeout(() => addMsg(`I know her <b>projects & impact numbers</b>, <b>skills</b>, <b>process</b> and <b>availability</b>. Ask me anything — or tap a quick chip below.`, "bot"), 500);
+    botHasReplied = true;
+  }
+  setTimeout(() => chatIn.focus(), 60);
+}
+function closeChat() {
+  chatPanel.classList.remove("open");
+  chatFab.style.display = "grid";
+}
+chatFab.addEventListener("click", openChat);
+chatClose.addEventListener("click", closeChat);
+$("heroChatBtn").addEventListener("click", () => setTimeout(openChat, 350));
+
+// Input events
+chatSend.addEventListener("click", () => submit(chatIn.value));
+chatIn.addEventListener("keydown", (e) => { if (e.key === "Enter") submit(chatIn.value); });
+
+// Quick chips + teaser questions
+document.querySelectorAll("[data-ask]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const q = btn.dataset.ask;
+    openChat();
+    setTimeout(() => submit(q), 250);
+  });
+});
+
+// Escape closes chat
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeChat(); });
+
+// ─────────────── SCROLL REVEALS + COUNTERS + BARS ───────────────
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(en => {
+    if (!en.isIntersecting) return;
+    en.target.classList.add("in");
+    // counters
+    en.target.querySelectorAll?.("[data-count]").forEach(el => {
+      if (el.dataset.done) return;
+      el.dataset.done = "1";
+      const target = +el.dataset.count;
+      const t0 = performance.now();
+      const tick = (t) => {
+        const p = Math.min((t - t0) / 1400, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+    io.unobserve(en.target);
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll(".rv").forEach(el => io.observe(el));
+
+// skill bars fill when visible
+const barIo = new IntersectionObserver((entries) => {
+  entries.forEach(en => {
+    if (!en.isIntersecting) return;
+    const bar = en.target;
+    bar.querySelector("i").style.width = bar.dataset.lv + "%";
+    barIo.unobserve(bar);
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll(".bar").forEach(b => barIo.observe(b));
+</script>
+</body>
+</html>
