@@ -5,17 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sajjad Ali — Data Analyst | SQL · Python · Power BI</title>
 
-<!-- ===== LinkedIn / Social sharing ===== -->
-<meta name="description" content="Sajjad Ali — Data Analyst. SQL, Python, Power BI, dashboards & ML with measurable business impact. Explore live dashboard demos, a SQL playground and an AI assistant.">
+<meta name="description" content="Sajjad Ali — Data Analyst. This portfolio tracks YOU as the dataset. Live telemetry, session report, and an AI assistant that knows your numbers.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sajjad Ali — Data Analyst">
-<meta property="og:description" content="Turning messy data into decisions that ship. Explore projects with real impact numbers, a live dashboard demo, SQL playground and AI assistant.">
+<meta property="og:description" content="This portfolio doesn't just claim analytics — it runs it on you, live. Scroll, click, ask the bot.">
 <meta property="og:image" content="https://analytics-portfolio-eta.vercel.app/og-banner.png">
 <meta property="og:url" content="https://analytics-portfolio-eta.vercel.app">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sajjad Ali — Data Analyst">
-<meta name="twitter:description" content="Turning messy data into decisions that ship.">
-<meta name="twitter:image" content="https://analytics-portfolio-eta.vercel.app/og-banner.png">
 <meta name="author" content="Sajjad Ali">
 <meta name="theme-color" content="#05070d">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
@@ -25,9 +21,8 @@
 
 <style>
 /* ============================================================
-   SAJJAD ALI — GLASS & 3D EDITION
-   Glassmorphism everywhere · Three.js hero · tilt cards
-   custom cursor · magnetic buttons · smooth scroll
+   SAJJAD ALI — "YOU ARE THE DATASET" EDITION
+   Concept: the portfolio runs live analytics on its visitor.
    ============================================================ */
 :root{
   --bg:#05070d; --bg-2:#0a0f1c;
@@ -65,14 +60,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-html.lenis{height:auto}
-.lenis.lenis-smooth{scroll-behavior:auto}
-body{
-  background:var(--bg);color:var(--txt);
-  font-family:var(--sans);font-size:16px;line-height:1.65;
-  overflow-x:hidden;-webkit-font-smoothing:antialiased;
-  transition:background .5s,color .5s;
-}
+body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-size:16px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background .5s,color .5s}
 ::selection{background:rgba(34,211,238,.30);color:#fff}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
@@ -91,31 +79,20 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @keyframes orb-float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-50px) scale(1.12)}66%{transform:translate(-30px,30px) scale(.94)}}
 [data-theme="light"] .orb{opacity:.25}
 
-/* ---------- custom cursor ---------- */
-.cursor-dot,.cursor-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%)}
-.cursor-dot{width:6px;height:6px;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
-.cursor-ring{width:38px;height:38px;border:1.5px solid rgba(103,232,249,.5);transition:width .25s,height .25s,border-color .25s,background .25s}
-.cursor-ring.hovering{width:56px;height:56px;background:rgba(34,211,238,.08);border-color:rgba(103,232,249,.9)}
-.cursor-ring.clicking{width:26px;height:26px}
-@media(hover:none),(pointer:coarse){.cursor-dot,.cursor-ring{display:none}}
-
-/* ---------- scroll progress ---------- */
+/* ---------- progress ---------- */
 .progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--grad);z-index:1000;transition:width .08s linear}
 
 /* ---------- preloader ---------- */
 #preloader{position:fixed;inset:0;z-index:2000;background:var(--bg);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:20px;transition:opacity .7s,visibility .7s}
 #preloader.done{opacity:0;visibility:hidden}
-.pre-logo{width:84px;height:84px;animation:pre-spin 3s linear infinite}
-@keyframes pre-spin{100%{transform:rotate(360deg)}}
-.pre-bar{width:230px;height:4px;border-radius:99px;background:var(--glass-border);overflow:hidden;backdrop-filter:blur(6px)}
+.pre-bar{width:230px;height:4px;border-radius:99px;background:var(--glass-border);overflow:hidden}
 .pre-bar i{display:block;height:100%;width:0;background:var(--grad);transition:width .3s}
 .pre-txt{font-family:var(--mono);font-size:.78rem;color:var(--txt-2);letter-spacing:.16em}
-@keyframes pre-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
 /* ---------- glass nav ---------- */
-.nav{position:fixed;inset:0 0 auto;z-index:900;transition:transform .4s var(--ease)}
+.nav{position:fixed;inset:0 0 auto;z-index:900}
 .nav-inner{display:flex;align-items:center;gap:24px;height:68px;margin:10px 22px 0;padding:0 22px;border-radius:18px;background:var(--nav-bg);border:1px solid var(--glass-border);backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%)}
-.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:1rem;letter-spacing:.02em}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:1rem}
 .brand-cube{width:26px;height:26px;position:relative;transform-style:preserve-3d;animation:cube-spin 6s linear infinite}
 @keyframes cube-spin{100%{transform:rotateX(360deg) rotateY(360deg)}}
 .brand-cube i{position:absolute;inset:0;background:rgba(34,211,238,.16);border:1px solid var(--cyan);border-radius:4px}
@@ -131,7 +108,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .nav-actions{display:flex;gap:10px;align-items:center}
 .icon-btn{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-size:1rem;border:1px solid var(--glass-border);background:var(--glass);backdrop-filter:blur(8px);transition:all .3s var(--ease-bounce)}
 .icon-btn:hover{transform:translateY(-2px) rotate(15deg) scale(1.08);border-color:var(--glass-border-hi)}
-.nav-cta{padding:10px 20px;border-radius:12px;font-size:.85rem;font-weight:600;background:var(--grad);color:#04121a;transition:transform .25s var(--ease),box-shadow .25s}
+.nav-cta{padding:10px 20px;border-radius:12px;font-size:.85rem;font-weight:600;background:var(--grad);color:#04121a;transition:transform .25s,box-shadow .25s;font-family:var(--display)}
 .nav-cta:hover{transform:translateY(-2px);box-shadow:var(--glow)}
 .burger{display:none;width:40px;height:40px;border-radius:12px;border:1px solid var(--glass-border);background:var(--glass);place-items:center;flex-direction:column;gap:4px}
 .burger span{width:16px;height:2px;background:var(--txt);border-radius:2px;transition:all .3s var(--ease)}
@@ -156,36 +133,36 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 </style>
 
 <style>
-/* ---------- hero (3D) ---------- */
-.hero{position:relative;padding:180px 0 110px;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+/* ---------- hero ---------- */
+.hero{position:relative;padding:170px 0 100px;min-height:100vh;display:flex;align-items:center;overflow:hidden}
 #hero3d{position:absolute;inset:0;width:100%;height:100%;z-index:0}
-#hero3d canvas{display:block}
-.hero-fade{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 40%,var(--bg) 88%);pointer-events:none;z-index:1}
+.hero-fade{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 35%,var(--bg) 90%);pointer-events:none;z-index:1}
 .hero>.wrap{position:relative;z-index:2;width:100%}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
-.hero-left{text-align:left}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
 .badge{display:inline-flex;align-items:center;gap:9px;padding:8px 18px;border-radius:999px;border:1px solid var(--glass-border-hi);background:var(--glass);backdrop-filter:blur(12px);font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan-2)}
 [data-theme="light"] .badge{color:#0e7490}
 .badge-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal);animation:livepulse 2s infinite}
 @keyframes livepulse{50%{box-shadow:0 0 0 7px rgba(45,212,191,.15)}}
-.hero h1{margin:24px 0 6px;font-family:var(--display);font-size:clamp(2.6rem,6vw,4.4rem);line-height:1.04;font-weight:700;letter-spacing:-.02em}
+.hero h1{margin:22px 0 6px;font-family:var(--display);font-size:clamp(2.5rem,5.6vw,4.2rem);line-height:1.05;font-weight:700;letter-spacing:-.02em}
 .hero h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero h1 .word{display:inline-block;animation:hero-rise .8s var(--ease-bounce) both}
 .hero h1 .word:nth-child(2){animation-delay:.12s}
 @keyframes hero-rise{from{opacity:0;transform:translateY(34px) rotateX(-40deg)}to{opacity:1;transform:none}}
-.typing-row{font-family:var(--mono);font-size:clamp(1rem,2.2vw,1.3rem);color:var(--txt-2);min-height:1.9em;margin:4px 0 18px}
+.typing-row{font-family:var(--mono);font-size:clamp(1rem,2.2vw,1.25rem);color:var(--txt-2);min-height:1.9em;margin:4px 0 16px}
 .typing-row .tl{color:var(--cyan);font-weight:600}
 .cursor-blink{display:inline-block;width:10px;background:var(--cyan);animation:blink 1s steps(1) infinite;height:1.15em;vertical-align:text-bottom;margin-left:3px}
 @keyframes blink{50%{opacity:0}}
-.hero-sub{max-width:520px;color:var(--txt-2);font-size:1.05rem}
+.hero-sub{max-width:520px;color:var(--txt-2);font-size:1.04rem}
 .hero-sub strong{color:var(--txt)}
-.hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 30px}
+.hero-sub .hl{color:var(--cyan-2)}
+[data-theme="light"] .hero-sub .hl{color:#0e7490}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 28px}
 .chip{font-family:var(--mono);font-size:.72rem;padding:7px 14px;border-radius:999px;border:1px solid var(--glass-border);color:var(--txt-2);background:var(--glass);backdrop-filter:blur(8px);transition:all .3s}
 .chip:hover{transform:translateY(-2px);border-color:var(--glass-border-hi)}
 .chip b{color:var(--cyan-2);font-weight:600}
 [data-theme="light"] .chip b{color:#0e7490}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:9px;padding:15px 28px;border-radius:16px;font-weight:600;font-size:.93rem;font-family:var(--display);transition:transform .3s var(--ease),box-shadow .3s,background .3s;position:relative;overflow:hidden}
+.hero-btns{display:flex;gap:13px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:15px 26px;border-radius:16px;font-weight:600;font-size:.92rem;font-family:var(--display);transition:transform .3s var(--ease),box-shadow .3s,background .3s;position:relative;overflow:hidden}
 .btn-primary{background:var(--grad);color:#04121a}
 .btn-primary::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);transition:left .6s var(--ease)}
 .btn-primary:hover::after{left:130%}
@@ -194,83 +171,89 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 [data-theme="light"] .btn-ghost{color:#0e7490}
 .btn-ghost:hover{background:rgba(34,211,238,.12);transform:translateY(-3px)}
 
-/* hero right card — code terminal */
-.hero-card{position:relative;border-radius:var(--r-lg);background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px);padding:0;overflow:hidden;box-shadow:var(--shadow);transform:perspective(1200px) rotateY(-6deg) rotateX(2deg);transition:transform .6s var(--ease)}
-.hero-card:hover{transform:perspective(1200px) rotateY(0) rotateX(0) translateY(-6px)}
-.hero-card .term-head{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--glass-border);background:rgba(255,255,255,.03)}
-.term-dot{width:11px;height:11px;border-radius:50%}
-.term-title{margin-left:auto;font-family:var(--mono);font-size:.72rem;color:var(--txt-3)}
-.term-body{padding:20px;font-family:var(--mono);font-size:.8rem;line-height:1.9}
-.term-line{opacity:0;animation:term-in .5s forwards}
-.term-line:nth-child(1){animation-delay:.6s}.term-line:nth-child(2){animation-delay:1.2s}.term-line:nth-child(3){animation-delay:1.8s}.term-line:nth-child(4){animation-delay:2.4s}.term-line:nth-child(5){animation-delay:3s}.term-line:nth-child(6){animation-delay:3.6s}
-@keyframes term-in{to{opacity:1}}
-.term-line .k{color:#c084fc}.term-line .s{color:#67e8f9}.term-line .c{color:#5f6f8d}.term-line .n{color:#fbbf24}
-.term-cursor{display:inline-block;width:8px;height:14px;background:var(--cyan);vertical-align:middle;animation:blink 1s steps(1) infinite}
-
-/* hero stats */
-.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:70px}
-.stat{position:relative;padding:24px 20px;border-radius:var(--r-md);background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(16px);transition:all .4s var(--ease);overflow:hidden}
-.stat::before{content:"";position:absolute;inset:auto 0 0 0;height:2px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
-.stat:hover{transform:translateY(-6px);border-color:var(--glass-border-hi)}
-.stat:hover::before{transform:scaleX(1)}
-.stat b{display:block;font-family:var(--mono);font-size:2rem;font-weight:600;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.stat span{font-size:.74rem;color:var(--txt-3);letter-spacing:.08em;text-transform:uppercase}
+/* ---------- LIVE HUD (concept core) ---------- */
+.hud{position:relative;border-radius:var(--r-lg);background:var(--glass);border:1px solid var(--glass-border-hi);backdrop-filter:blur(24px) saturate(170%);overflow:hidden;box-shadow:var(--shadow),0 0 60px -20px rgba(34,211,238,.15)}
+.hud-head{display:flex;align-items:center;gap:10px;padding:13px 18px;border-bottom:1px solid var(--glass-border);background:linear-gradient(92deg,rgba(34,211,238,.10),rgba(139,92,246,.08))}
+.hud-head .rec{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;color:var(--rose)}
+.hud-head .rec::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--rose);animation:livepulse 1.4s infinite}
+.hud-head .hud-title{margin-left:auto;font-family:var(--mono);font-size:.68rem;color:var(--txt-3)}
+.hud-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.hud-kpi{padding:16px 18px;border-right:1px solid var(--glass-border);text-align:left}
+.hud-kpi:last-child{border-right:0}
+.hud-kpi .lbl{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-3);font-family:var(--mono)}
+.hud-kpi .val{font-family:var(--mono);font-size:1.5rem;font-weight:600;color:var(--cyan-2);text-shadow:0 0 18px rgba(103,232,249,.4)}
+[data-theme="light"] .hud-kpi .val{color:#0e7490}
+.hud-kpi .sub{font-size:.66rem;color:var(--txt-3);font-family:var(--mono)}
+.hud-log{height:118px;overflow:hidden;padding:10px 16px;font-family:var(--mono);font-size:.68rem;line-height:1.75;border-top:1px solid var(--glass-border);position:relative;background:rgba(5,7,13,.35)}
+[data-theme="light"] .hud-log{background:rgba(255,255,255,.4)}
+.hud-log::after{content:"";position:absolute;left:0;right:0;bottom:0;height:26px;background:linear-gradient(transparent,var(--bg))}
+.hud-log-line{color:var(--txt-3);opacity:0;animation:log-in .35s forwards}
+.hud-log-line b{color:var(--teal);font-weight:600}
+.hud-log-line .t{color:var(--violet)}
+@keyframes log-in{from{transform:translateY(6px)}to{opacity:1;transform:none}}
+.hud-foot{padding:10px 18px;font-family:var(--mono);font-size:.64rem;color:var(--txt-3);border-top:1px solid var(--glass-border);display:flex;justify-content:space-between}
+.hud-foot b{color:var(--cyan-2)}
 
 /* ---------- sections base ---------- */
-section{padding:96px 0;position:relative}
-.sec-head{margin-bottom:48px}
+section{padding:92px 0;position:relative}
+.sec-head{margin-bottom:46px}
 .sec-kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px}
 .sec-kicker::before{content:"// "}
-.sec-title{font-family:var(--display);font-size:clamp(1.9rem,4vw,2.7rem);font-weight:700;letter-spacing:-.015em}
+.sec-title{font-family:var(--display);font-size:clamp(1.85rem,4vw,2.65rem);font-weight:700;letter-spacing:-.015em}
 .sec-title .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.sec-sub{margin-top:12px;color:var(--txt-2);max-width:660px}
+.sec-sub{margin-top:12px;color:var(--txt-2);max-width:680px}
 
-/* ---------- projects: glass tilt cards ---------- */
-.filter-bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
-.fbtn{padding:9px 18px;border-radius:999px;font-size:.83rem;color:var(--txt-2);border:1px solid var(--glass-border);background:var(--glass);backdrop-filter:blur(8px);transition:all .3s}
-.fbtn:hover{color:var(--txt);border-color:var(--glass-border-hi);transform:translateY(-1px)}
-.fbtn.is-active{background:var(--grad);color:#04121a;border-color:transparent;font-weight:600}
+/* ---------- experiment (visitor A/B) ---------- */
+.exp-panel{border-radius:var(--r-lg);background:var(--glass);border:1px solid var(--glass-border-hi);backdrop-filter:blur(24px);overflow:hidden;box-shadow:var(--shadow)}
+.exp-head{display:flex;align-items:center;gap:12px;padding:18px 24px;border-bottom:1px solid var(--glass-border)}
+.exp-head .lab{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;color:var(--amber);text-transform:uppercase}
+.exp-head .lab::before{content:"⚗ "}
+.exp-title{font-family:var(--display);font-weight:600;font-size:1.02rem}
+.exp-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.exp-side{padding:32px;display:flex;flex-direction:column;gap:14px;align-items:flex-start;transition:background .35s;position:relative}
+.exp-side:hover{background:var(--glass)}
+.exp-side .exp-k{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;color:var(--txt-3);text-transform:uppercase}
+.exp-side h3{font-family:var(--display);font-size:1.5rem;font-weight:700}
+.exp-side p{font-size:.88rem;color:var(--txt-2);max-width:360px}
+.exp-side .pick{padding:12px 24px;border-radius:14px;border:1px solid var(--glass-border-hi);background:var(--glass-strong);font-family:var(--display);font-weight:600;transition:all .3s var(--ease-bounce)}
+.exp-side .pick:hover{transform:translateY(-3px) scale(1.04);box-shadow:var(--glow)}
+.exp-side.chosen::after{content:"✓ your variant";position:absolute;top:14px;right:16px;font-family:var(--mono);font-size:.64rem;color:var(--green);letter-spacing:.1em}
+.exp-divider{width:1px;background:var(--glass-border)}
+.exp-result{grid-column:1/-1;padding:20px 24px;border-top:1px solid var(--glass-border);display:none;animation:log-in .5s}
+.exp-result.show{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.exp-result .eri{font-size:1.3rem}
+.exp-result p{font-size:.86rem;color:var(--txt-2);flex:1;min-width:240px}
+.exp-result p b{color:var(--cyan-2)}
+[data-theme="light"] .exp-result p b{color:#0e7490}
+.exp-result .bars{display:flex;gap:10px;align-items:flex-end;height:44px}
+.exp-result .bar-v{width:26px;border-radius:6px 6px 0 0;background:var(--grad);transition:height 1s var(--ease);position:relative}
+.exp-result .bar-v span{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:.6rem;color:var(--txt-2)}
+
+/* ---------- case files ---------- */
 .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(315px,1fr));gap:22px;perspective:1400px}
-.card{position:relative;border-radius:var(--r-lg);padding:26px;background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%);transition:transform .45s var(--ease),border-color .4s,box-shadow .45s,opacity .4s;transform-style:preserve-3d;will-change:transform;overflow:hidden}
-.card::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(500px 200px at 80% -10%,rgba(34,211,238,.13),transparent 60%);opacity:0;transition:opacity .4s}
-.card:hover{border-color:var(--glass-border-hi);box-shadow:var(--shadow)}
-.card:hover::before{opacity:1}
-.card.hide{display:none}
-/* 3D glare */
-.card .glare{position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .4s;background:radial-gradient(280px 280px at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.14),transparent 55%)}
-.card:hover .glare{opacity:1}
-.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:16px}
-.card-icon{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:1.3rem;background:var(--grad-soft);border:1px solid var(--glass-border-hi);transition:transform .4s var(--ease-bounce)}
-.card:hover .card-icon{transform:scale(1.12) rotate(-8deg)}
-.card-tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-3);padding:6px 11px;border:1px solid var(--glass-border);border-radius:999px;background:var(--glass)}
-.card h3{font-family:var(--display);font-size:1.15rem;font-weight:600;margin-bottom:8px}
-.card p{color:var(--txt-2);font-size:.92rem}
-.card-stack{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0 14px}
+.case{position:relative;border-radius:var(--r-lg);padding:26px;background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(22px) saturate(160%);transition:transform .45s var(--ease),border-color .4s,box-shadow .45s;transform-style:preserve-3d;will-change:transform;overflow:hidden}
+.case::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(500px 200px at 80% -10%,rgba(34,211,238,.13),transparent 60%);opacity:0;transition:opacity .4s}
+.case:hover{border-color:var(--glass-border-hi);box-shadow:var(--shadow)}
+.case:hover::before{opacity:1}
+.case .glare{position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .4s;background:radial-gradient(280px 280px at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.14),transparent 55%)}
+.case:hover .glare{opacity:1}
+.case-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:14px}
+.case-file{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;color:var(--txt-3);text-transform:uppercase;padding:6px 11px;border:1px solid var(--glass-border);border-radius:999px;background:var(--glass)}
+.case-icon{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:1.3rem;background:var(--grad-soft);border:1px solid var(--glass-border-hi);transition:transform .4s var(--ease-bounce)}
+.case:hover .case-icon{transform:scale(1.12) rotate(-8deg)}
+.case h3{font-family:var(--display);font-size:1.14rem;font-weight:600;margin-bottom:8px}
+.case p{color:var(--txt-2);font-size:.92rem}
+.case-stack{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 14px}
 .stack-pill{font-family:var(--mono);font-size:.68rem;color:var(--cyan-2);background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.22);padding:4px 10px;border-radius:6px}
 [data-theme="light"] .stack-pill{color:#0e7490}
-.card-impact{margin-top:6px;padding:13px 15px;border-radius:var(--r-sm);background:rgba(45,212,191,.08);border:1px solid rgba(45,212,191,.22);font-family:var(--mono);font-size:.78rem;color:var(--teal)}
-[data-theme="light"] .card-impact{background:rgba(13,148,136,.06);border-color:rgba(13,148,136,.25);color:#0f766e}
-.card-impact b{color:#5eead4;font-weight:600}
-[data-theme="light"] .card-impact b{color:#0d9488}
+.case-impact{padding:13px 15px;border-radius:var(--r-sm);background:rgba(45,212,191,.08);border:1px solid rgba(45,212,191,.22);font-family:var(--mono);font-size:.78rem;color:var(--teal)}
+[data-theme="light"] .case-impact{background:rgba(13,148,136,.06);border-color:rgba(13,148,136,.25);color:#0f766e}
+.case-impact b{color:#5eead4;font-weight:600}
+[data-theme="light"] .case-impact b{color:#0d9488}
+</style>
 
-/* ---------- dashboard demo ---------- */
-.demo-panel{border-radius:var(--r-lg);background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(24px) saturate(160%);overflow:hidden;box-shadow:var(--shadow)}
-.demo-head{display:flex;align-items:center;gap:10px;padding:15px 20px;border-bottom:1px solid var(--glass-border)}
-.tdot{width:11px;height:11px;border-radius:50%}
-.demo-title{margin:0 auto;font-family:var(--mono);font-size:.76rem;color:var(--txt-2)}
-.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:14px;padding:22px 22px 8px}
-.kpi{padding:18px;border-radius:var(--r-md);background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(8px);transition:all .35s var(--ease)}
-.kpi:hover{transform:translateY(-4px);border-color:var(--glass-border-hi)}
-.kpi span{font-size:.7rem;color:var(--txt-3);text-transform:uppercase;letter-spacing:.08em}
-.kpi b{display:block;font-family:var(--mono);font-size:1.55rem;margin:4px 0 2px}
-.kpi .delta{font-family:var(--mono);font-size:.72rem}
-.delta.up{color:var(--green)} .delta.down{color:var(--rose)}
-.charts-row{display:grid;grid-template-columns:1.5fr 1fr;gap:14px;padding:14px 22px 22px}
-.chart-box{padding:18px;border-radius:var(--r-md);background:var(--glass);border:1px solid var(--glass-border)}
-.chart-box h4{font-size:.8rem;color:var(--txt-2);margin-bottom:14px;font-weight:600;font-family:var(--display)}
-canvas{max-width:100%}
-
-/* ---------- SQL playground ---------- */
+<style>
+/* ---------- SQL career dossier ---------- */
 .sql-panel{border-radius:var(--r-lg);background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(22px);overflow:hidden;box-shadow:var(--shadow)}
 .sql-tabs{display:flex;gap:0;border-bottom:1px solid var(--glass-border);overflow-x:auto}
 .sql-tab{padding:13px 20px;font-family:var(--mono);font-size:.78rem;color:var(--txt-3);border-bottom:2px solid transparent;transition:all .25s;white-space:nowrap}
@@ -281,7 +264,7 @@ canvas{max-width:100%}
 .sql-editor textarea{width:100%;min-height:160px;resize:vertical;border-radius:var(--r-md);padding:15px;background:rgba(8,12,22,.55);border:1px solid var(--glass-border);color:var(--txt);font-family:var(--mono);font-size:.8rem;line-height:1.65;outline:none;transition:border-color .3s,box-shadow .3s}
 [data-theme="light"] .sql-editor textarea{background:rgba(255,255,255,.7)}
 .sql-editor textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(34,211,238,.14)}
-.sql-run{margin-top:12px;padding:12px 26px;border-radius:14px;background:var(--grad);color:#04121a;font-weight:700;font-size:.86rem;font-family:var(--display);transition:transform .25s var(--ease),box-shadow .25s}
+.sql-run{margin-top:12px;padding:12px 26px;border-radius:14px;background:var(--grad);color:#04121a;font-weight:700;font-size:.86rem;font-family:var(--display);transition:transform .25s,box-shadow .25s}
 .sql-run:hover{transform:translateY(-2px);box-shadow:var(--glow)}
 .sql-help{font-size:.7rem;color:var(--txt-3);margin-top:9px;font-family:var(--mono)}
 .sql-result{flex:1;min-width:270px}
@@ -290,9 +273,7 @@ canvas{max-width:100%}
 .res-table th{text-align:left;padding:9px 11px;color:var(--cyan-2);border-bottom:1px solid rgba(34,211,238,.3);font-weight:600}
 .res-table td{padding:8px 11px;border-bottom:1px solid var(--glass-border);color:var(--txt-2)}
 .res-table tr:hover td{background:rgba(34,211,238,.05)}
-</style>
 
-<style>
 /* ---------- skills ---------- */
 .skills-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}
 .panel{border-radius:var(--r-lg);padding:30px;background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(22px) saturate(160%)}
@@ -313,7 +294,7 @@ canvas{max-width:100%}
 .timeline{position:relative;margin:22px 0 0}
 .timeline::before{content:"";position:absolute;left:23px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--cyan),var(--violet),transparent)}
 .tl-item{position:relative;padding:0 0 36px 70px}
-.tl-dot{position:absolute;left:6px;top:4px;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-size:1rem;background:var(--glass);border:1px solid var(--glass-border-hi);backdrop-filter:blur(8px);animation:livepulse 3s infinite}
+.tl-dot{position:absolute;left:6px;top:4px;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-size:1rem;background:var(--glass);border:1px solid var(--glass-border-hi);backdrop-filter:blur(8px)}
 .tl-date{font-family:var(--mono);font-size:.68rem;color:var(--cyan-2);letter-spacing:.14em;text-transform:uppercase}
 .tl-item h4{font-family:var(--display);font-size:1.05rem;margin:4px 0 2px;font-weight:600}
 .tl-item .tl-org{font-size:.84rem;color:var(--txt-2);margin-bottom:8px;display:block}
@@ -321,7 +302,7 @@ canvas{max-width:100%}
 .tl-item li{margin-bottom:4px}
 .tl-item li b{color:var(--txt)}
 
-/* ---------- certifications ---------- */
+/* ---------- certs ---------- */
 .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
 .cert{display:flex;gap:14px;align-items:center;padding:20px;border-radius:var(--r-md);background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(14px);transition:all .35s var(--ease-bounce)}
 .cert:hover{border-color:var(--glass-border-hi);transform:translateY(-4px)}
@@ -329,23 +310,30 @@ canvas{max-width:100%}
 .cert b{display:block;font-size:.9rem;font-family:var(--display)}
 .cert span{font-size:.74rem;color:var(--txt-3)}
 
-/* ---------- testimonials ---------- */
-.tst-wrap{position:relative;overflow:hidden;border-radius:var(--r-lg);background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(22px)}
-.tst-track{display:flex;transition:transform .6s var(--ease)}
-.tst{flex:0 0 100%;padding:52px 44px;text-align:center}
-.tst .tq{font-family:var(--display);font-size:2.6rem;color:var(--cyan);opacity:.4;line-height:1}
-.tst q{font-size:clamp(1rem,2vw,1.2rem);color:var(--txt);font-style:italic;line-height:1.75;display:block;margin-top:10px}
-.tst .who{margin-top:22px;font-family:var(--mono);font-size:.8rem;color:var(--cyan-2)}
-.tst .role{font-size:.76rem;color:var(--txt-3)}
-.tst-dots{display:flex;justify-content:center;gap:9px;margin-top:16px}
-.tst-dot{width:9px;height:9px;border-radius:50%;background:var(--glass-border);border:1px solid var(--glass-border);transition:all .35s var(--ease-bounce);cursor:pointer}
-.tst-dot.is-active{background:var(--cyan);transform:scale(1.35);box-shadow:0 0 10px var(--cyan)}
+/* ---------- SESSION REPORT (the payoff) ---------- */
+.report{border-radius:var(--r-lg);background:var(--glass);border:1px solid var(--glass-border-hi);backdrop-filter:blur(26px);overflow:hidden;box-shadow:var(--shadow);position:relative}
+.report-head{display:flex;align-items:center;gap:12px;padding:20px 26px;border-bottom:1px solid var(--glass-border);background:linear-gradient(92deg,rgba(34,211,238,.12),rgba(139,92,246,.10))}
+.report-head h3{font-family:var(--display);font-size:1.15rem;font-weight:700}
+.report-head .stamp{margin-left:auto;font-family:var(--mono);font-size:.66rem;color:var(--txt-3);text-align:right}
+.report-body{padding:26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+.r-kpi{padding:18px;border-radius:var(--r-md);background:var(--glass-strong);border:1px solid var(--glass-border);text-align:center}
+.r-kpi .lbl{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-3)}
+.r-kpi .val{font-family:var(--mono);font-size:1.7rem;font-weight:600;color:var(--cyan-2)}
+[data-theme="light"] .r-kpi .val{color:#0e7490}
+.r-kpi .sub{font-size:.66rem;color:var(--txt-3)}
+.report-verdict{padding:22px 26px;border-top:1px solid var(--glass-border)}
+.report-verdict h4{font-family:var(--display);font-size:.95rem;margin-bottom:10px}
+.report-verdict .verdict-line{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px;font-size:.88rem;color:var(--txt-2)}
+.report-verdict .verdict-line .vd{color:var(--cyan);font-family:var(--mono);flex-shrink:0}
+.report-verdict b{color:var(--txt)}
+.report-cta{padding:0 26px 26px;display:flex;gap:12px;flex-wrap:wrap}
+.report-cta .btn{padding:12px 22px;font-size:.85rem}
 
 /* ---------- chatbot teaser ---------- */
 .bot-teaser{border-radius:var(--r-lg);padding:46px;text-align:center;background:linear-gradient(140deg,rgba(34,211,238,.10),rgba(139,92,246,.08)),var(--glass);border:1px solid var(--glass-border-hi);backdrop-filter:blur(24px)}
 .bot-teaser h2{font-family:var(--display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;margin:14px 0 10px}
 .bot-teaser h2 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.bot-teaser p{color:var(--txt-2);max-width:620px;margin:0 auto 26px}
+.bot-teaser p{color:var(--txt-2);max-width:640px;margin:0 auto 26px}
 .sample-q{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
 .sq{font-size:.8rem;padding:9px 16px;border-radius:999px;color:var(--txt-2);border:1px solid var(--glass-border);background:var(--glass);backdrop-filter:blur(8px);transition:all .3s}
 .sq:hover{color:var(--cyan-2);border-color:var(--glass-border-hi);transform:translateY(-2px)}
@@ -362,23 +350,24 @@ canvas{max-width:100%}
 footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;color:var(--txt-3);font-size:.82rem}
 .foot .mono{color:var(--cyan)}
-
-/* ---------- back to top ---------- */
 .to-top{position:fixed;left:26px;bottom:26px;z-index:700;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:1.1rem;background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(14px);opacity:0;pointer-events:none;transition:all .4s var(--ease-bounce)}
 .to-top.show{opacity:1;pointer-events:auto}
 .to-top:hover{border-color:var(--glass-border-hi);transform:translateY(-4px)}
+
+/* ---------- toast ---------- */
+.toast{position:fixed;left:50%;top:90px;transform:translateX(-50%) translateY(-20px);z-index:1100;padding:13px 24px;border-radius:14px;background:var(--glass-strong);border:1px solid var(--glass-border-hi);backdrop-filter:blur(20px);font-family:var(--mono);font-size:.8rem;color:var(--txt);opacity:0;pointer-events:none;transition:all .4s var(--ease-bounce)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
 
 <style>
 /* =========================== CHATBOT =========================== */
-.chat-fab{position:fixed;right:26px;bottom:26px;z-index:800;width:64px;height:64px;border-radius:50%;background:var(--glass);border:1px solid var(--glass-border-hi);backdrop-filter:blur(16px);display:grid;place-items:center;box-shadow:0 14px 40px -10px rgba(34,211,238,.45),var(--shadow);transition:transform .35s var(--ease-bounce),box-shadow .35s;overflow:visible}
+.chat-fab{position:fixed;right:26px;bottom:26px;z-index:800;width:64px;height:64px;border-radius:50%;background:var(--glass);border:1px solid var(--glass-border-hi);backdrop-filter:blur(16px);display:grid;place-items:center;box-shadow:0 14px 40px -10px rgba(34,211,238,.45),var(--shadow);transition:transform .35s var(--ease-bounce),box-shadow .35s}
 .chat-fab:hover{transform:scale(1.1) rotate(-6deg)}
 .chat-fab .fab-bot{width:44px;height:44px;border-radius:50%;overflow:hidden;position:relative;background:linear-gradient(135deg,#0e7490,#7c3aed);display:grid;place-items:center}
 .chat-fab .fab-bot svg{width:100%;height:100%}
 .chat-fab .fab-ring{position:absolute;inset:-4px;border-radius:50%;border:2px solid transparent;border-top-color:var(--cyan);border-right-color:var(--violet);animation:fab-spin 3s linear infinite}
 @keyframes fab-spin{100%{transform:rotate(360deg)}}
 .chat-fab .unread{position:absolute;top:-4px;right:-4px;width:22px;height:22px;border-radius:50%;background:var(--rose);color:#fff;font-size:.64rem;font-weight:700;display:grid;place-items:center;border:2px solid var(--bg);animation:livepulse 2s infinite}
-
 .chat-panel{
   position:fixed;right:26px;bottom:26px;z-index:850;width:min(410px,calc(100vw - 36px));height:min(640px,calc(100vh - 90px));
   border-radius:24px;overflow:hidden;background:rgba(10,15,28,.72);border:1px solid var(--glass-border-hi);
@@ -389,14 +378,11 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
 [data-theme="light"] .chat-panel{background:rgba(255,255,255,.82)}
 .chat-panel.open{display:flex}
 @keyframes panel-in{from{opacity:0;transform:translateY(28px) scale(.94)}to{opacity:1;transform:none}}
-
-/* bot head in chat header — animated SVG face */
-.chat-head{display:flex;align-items:center;gap:14px;padding:16px 20px;background:linear-gradient(92deg,rgba(34,211,238,.12),rgba(139,92,246,.10));border-bottom:1px solid var(--glass-border)}
+.chat-head{display:flex;align-items:center;gap:14px;padding:15px 20px;background:linear-gradient(92deg,rgba(34,211,238,.12),rgba(139,92,246,.10));border-bottom:1px solid var(--glass-border)}
 .bot-head-wrap{position:relative;width:52px;height:52px}
 .bot-head-wrap .bot-aura{position:absolute;inset:-5px;border-radius:50%;background:conic-gradient(from 0deg,transparent 60%,rgba(34,211,238,.6),transparent 90%);animation:fab-spin 2.6s linear infinite}
 .bot-head-wrap .bot-face{position:absolute;inset:0;border-radius:50%;overflow:hidden;background:linear-gradient(160deg,#164e63,#312e81);border:2px solid rgba(103,232,249,.4);box-shadow:inset 0 -6px 14px rgba(139,92,246,.35),0 0 20px rgba(34,211,238,.3)}
 .bot-face svg{width:100%;height:100%;display:block}
-/* eyes blink + talk mouth */
 .bot-face .eye{fill:#a5f3fc;animation:eye-blink 4.5s infinite}
 .bot-face .eye:nth-child(2){animation-delay:.05s}
 @keyframes eye-blink{0%,93%,100%{ry:5}95.5%{ry:.8}}
@@ -410,7 +396,6 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
 .chat-head-txt span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px var(--teal)}
 .chat-close{margin-left:auto;color:var(--txt-3);font-size:1.1rem;padding:7px;border-radius:10px;transition:all .25s}
 .chat-close:hover{color:var(--txt);background:var(--glass)}
-
 .chat-log{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px;scrollbar-width:thin}
 .msg{max-width:85%;padding:13px 16px;border-radius:18px;font-size:.88rem;line-height:1.6;animation:msg-in .35s var(--ease-bounce)}
 @keyframes msg-in{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
@@ -435,32 +420,32 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
 .chat-input button{width:48px;border-radius:14px;background:var(--grad);color:#04121a;font-size:1.1rem;display:grid;place-items:center;transition:transform .25s var(--ease-bounce),box-shadow .25s}
 .chat-input button:hover{transform:scale(1.1) rotate(8deg);box-shadow:var(--glow)}
 
-/* ---------- reveals ---------- */
+/* ---------- reveals / responsive ---------- */
 .rv{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .rv.in{opacity:1;transform:none}
-
-/* ---------- responsive ---------- */
 @media(max-width:1000px){
   .hero-grid{grid-template-columns:1fr;gap:30px}
-  .hero-card{transform:none;max-width:560px}
-  .skills-grid,.contact-grid,.charts-row{grid-template-columns:1fr}
-  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .skills-grid,.contact-grid{grid-template-columns:1fr}
+  .hud-kpis{grid-template-columns:repeat(3,1fr)}
 }
 @media(max-width:860px){
   .nav-links,.nav-cta{display:none}
   .burger{display:grid}
+  .exp-body{grid-template-columns:1fr}
+  .exp-divider{display:none}
+  .exp-side{border-bottom:1px solid var(--glass-border)}
 }
 @media(max-width:520px){
-  section{padding:64px 0}
-  .hero{padding:130px 0 70px;min-height:auto}
-  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  section{padding:60px 0}
+  .hero{padding:128px 0 66px;min-height:auto}
+  .hud-kpis{grid-template-columns:repeat(3,1fr)}
+  .hud-kpi .val{font-size:1.1rem}
   .chat-panel{right:12px;bottom:12px;height:min(580px,calc(100vh - 60px))}
   .chat-fab{right:16px;bottom:16px}
   .to-top{left:14px;bottom:14px}
-  .tst{padding:36px 24px}
   .nav-inner{margin:8px 12px 0;padding:0 14px}
-  .hero-btns .btn{padding:13px 20px;font-size:.85rem}
   .sql-code{flex-direction:column}
+  .report-body{grid-template-columns:repeat(2,1fr)}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
@@ -472,18 +457,11 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
 
 <div class="progress" id="progress"></div>
 <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
-<div class="cursor-dot" id="cursorDot"></div><div class="cursor-ring" id="cursorRing"></div>
 
 <!-- ===== PRELOADER ===== -->
 <div id="preloader">
-  <svg class="pre-logo" viewBox="0 0 100 100" fill="none">
-    <circle cx="50" cy="50" r="40" stroke="url(#pg)" stroke-width="4" stroke-dasharray="200 60" stroke-linecap="round"/>
-    <circle cx="50" cy="50" r="28" stroke="#22d3ee" stroke-width="3" stroke-dasharray="80 40" stroke-linecap="round" opacity=".6"/>
-    <circle cx="50" cy="50" r="8" fill="#67e8f9"/>
-    <defs><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#22d3ee"/><stop offset=".5" stop-color="#2dd4bf"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs>
-  </svg>
   <div class="pre-bar"><i id="preBarFill"></i></div>
-  <p class="pre-txt" id="preTxt">loading data…</p>
+  <p class="pre-txt" id="preTxt">starting session…</p>
 </div>
 
 <!-- ===== NAV ===== -->
@@ -494,11 +472,10 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
       sajjad<span style="color:var(--cyan)">.ali</span>
     </a>
     <div class="nav-links" id="navLinks">
-      <a href="#projects">Projects</a>
-      <a href="#dashboard-demo">Live Demo</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#certs">Certs</a>
+      <a href="#projects">Case Files</a>
+      <a href="#experiment">Experiment</a>
+      <a href="#dossier">Dossier</a>
+      <a href="#report">Your Report</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-actions">
@@ -517,12 +494,12 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
       <span class="brand" style="font-size:.95rem">sajjad<span style="color:var(--cyan)">.ali</span>()</span>
       <button class="icon-btn" id="drawerCloseBtn" aria-label="Close menu">✕</button>
     </div>
-    <a class="dlink" href="#projects"><span class="dn">01</span>Projects</a>
-    <a class="dlink" href="#dashboard-demo"><span class="dn">02</span>Live Dashboard</a>
-    <a class="dlink" href="#sql-playground"><span class="dn">03</span>SQL Playground</a>
-    <a class="dlink" href="#skills"><span class="dn">04</span>Skills</a>
+    <a class="dlink" href="#projects"><span class="dn">01</span>Case Files</a>
+    <a class="dlink" href="#experiment"><span class="dn">02</span>Live Experiment</a>
+    <a class="dlink" href="#dossier"><span class="dn">03</span>Skills Dossier</a>
+    <a class="dlink" href="#sql-playground"><span class="dn">04</span>SQL Playground</a>
     <a class="dlink" href="#experience"><span class="dn">05</span>Experience</a>
-    <a class="dlink" href="#certs"><span class="dn">06</span>Certifications</a>
+    <a class="dlink" href="#report"><span class="dn">06</span>Your Session Report</a>
     <a class="dlink" href="#contact"><span class="dn">07</span>Contact</a>
     <a class="drawer-cta" href="#contact">Hire Me →</a>
     <div class="drawer-social">
@@ -533,7 +510,6 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
   </div>
 </div>
 
-
 <!-- ===== HERO ===== -->
 <header class="hero" id="top">
   <div id="hero3d"></div>
@@ -541,191 +517,152 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-left">
-        <span class="badge rv"><span class="badge-dot"></span>Available for new opportunities · Q4 2026</span>
-        <h1><span class="word">Hi, I'm</span> <span class="word grad">Sajjad Ali</span></h1>
+        <span class="badge rv"><span class="badge-dot"></span>Live session · visitor tracking active</span>
+        <h1><span class="word">You're in my</span> <span class="word grad">dataset.</span></h1>
         <div class="typing-row"><span class="tl" id="typeTarget"></span><span class="cursor-blink"></span></div>
-        <p class="hero-sub">I turn <strong>messy data into decisions that ship</strong> — building the dashboards executives actually open, the pipelines analysts trust, and the models that move revenue.</p>
+        <p class="hero-sub">Hi, I'm <strong>Sajjad Ali</strong> — a data analyst. Most portfolios <em>claim</em> analytics. This one <span class="hl">runs it on you, live</span> — see that panel? That's you. Your scroll, your clicks, your session — becoming a report in real-time.</p>
         <div class="hero-tags">
           <span class="chip"><b>SQL</b> · advanced</span>
           <span class="chip"><b>Python</b> · pandas/sklearn</span>
           <span class="chip"><b>Power BI</b> · DAX</span>
-          <span class="chip"><b>Excel</b> · modeling</span>
-          <span class="chip"><b>Statistics</b> · A/B testing</span>
+          <span class="chip"><b>Excel</b> · expert</span>
         </div>
         <div class="hero-btns">
-          <a class="btn btn-primary" href="#projects">View Projects <span>↓</span></a>
-          <a class="btn btn-ghost" href="#dashboard-demo">◈ Live Dashboard</a>
-          <a class="btn btn-ghost" href="#sql-playground">Try SQL</a>
+          <a class="btn btn-primary" href="#projects">Open Case Files <span>↓</span></a>
+          <a class="btn btn-ghost" href="#report">See Your Report</a>
         </div>
       </div>
 
-      <div class="hero-card rv">
-        <div class="term-head">
-          <span class="term-dot" style="background:#fb7185"></span>
-          <span class="term-dot" style="background:#fbbf24"></span>
-          <span class="term-dot" style="background:#34d399"></span>
-          <span class="term-title">sajjad@analytics: ~/portfolio</span>
+      <!-- LIVE HUD — visitor telemetry -->
+      <div class="hud rv">
+        <div class="hud-head">
+          <span class="rec">REC</span>
+          <span class="hud-title">visitor_ID: <span id="hudId">—</span></span>
         </div>
-        <div class="term-body">
-          <div class="term-line"><span class="c">$</span> <span class="k">SELECT</span> <span class="s">skill, level</span> <span class="k">FROM</span> sajjad;</div>
-          <div class="term-line">├─ <span class="s">sql</span> ………… <span class="n">advanced</span></div>
-          <div class="term-line">├─ <span class="s">power_bi</span> ……… <span class="n">advanced</span></div>
-          <div class="term-line">├─ <span class="s">python</span> ……… <span class="n">advanced</span></div>
-          <div class="term-line">└─ <span class="s">excel</span> ………… <span class="n">expert</span> <span class="c">(95/100)</span></div>
-          <div class="term-line"><span class="c">-- 25+ projects · impact-first</span> <span class="term-cursor"></span></div>
+        <div class="hud-kpis">
+          <div class="hud-kpi"><div class="lbl">Time on page</div><div class="val" id="hudTime">0:00</div><div class="sub">seconds counting</div></div>
+          <div class="hud-kpi"><div class="lbl">Scroll depth</div><div class="val" id="hudScroll">0%</div><div class="sub">of total page</div></div>
+          <div class="hud-kpi"><div class="lbl">Clicks</div><div class="val" id="hudClicks">0</div><div class="sub">events captured</div></div>
         </div>
+        <div class="hud-log" id="hudLog"></div>
+        <div class="hud-foot"><span>events: <b id="hudEvents">0</b></span><span>cursor distance: <b id="hudDist">0</b>px</span></div>
       </div>
-    </div>
-
-    <div class="hero-stats">
-      <div class="stat rv"><b data-count="4">0</b><span>Years experience</span></div>
-      <div class="stat rv"><b data-count="25">0</b><span>Projects delivered</span></div>
-      <div class="stat rv"><b data-count="120">0</b><span>K+ rows/day wrangled</span></div>
-      <div class="stat rv"><b data-count="15">0</b><span>+ stakeholders enabled</span></div>
     </div>
   </div>
 </header>
 
-<!-- ===== PROJECTS ===== -->
+
+<!-- ===== CASE FILES (projects) ===== -->
 <section id="projects">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="sec-kicker">case studies</p>
-      <h2 class="sec-title">Projects with <span class="grad">receipts.</span></h2>
-      <p class="sec-sub">Every project ends with a number, not a vibe. Impact first — tools second.</p>
+      <p class="sec-kicker">case files</p>
+      <h2 class="sec-title">Evidence over <span class="grad">adjectives.</span></h2>
+      <p class="sec-sub">Six case files. Each one ends with a number, because "passionate about data" is not a metric.</p>
     </div>
-    <div class="filter-bar rv" id="filterBar">
-      <button class="fbtn is-active" data-f="all">All</button>
-      <button class="fbtn" data-f="bi">Dashboards & BI</button>
-      <button class="fbtn" data-f="sql">SQL & Pipelines</button>
-      <button class="fbtn" data-f="python">Python & ML</button>
-      <button class="fbtn" data-f="excel">Excel & Reporting</button>
-    </div>
-    <div class="proj-grid" id="projGrid">
-
-      <article class="card rv" data-cat="bi">
+    <div class="proj-grid">
+      <article class="case rv">
         <span class="glare"></span>
-        <div class="card-top"><div class="card-icon">📊</div><span class="card-tag">Power BI</span></div>
+        <div class="case-head"><div class="case-icon">📊</div><span class="case-file">CASE-001 · Power BI</span></div>
         <h3>Sales Command Center</h3>
-        <p>Executive Power BI suite with 14-page report, row-level security and 40+ DAX measures — one source of truth for regional sales performance.</p>
-        <div class="card-stack"><span class="stack-pill">Power BI</span><span class="stack-pill">DAX</span><span class="stack-pill">SQL</span></div>
-        <div class="card-impact">IMPACT → reporting time <b>−65%</b> · adopted by <b>6</b> department heads</div>
+        <p>Executive Power BI suite with 14-page report, row-level security and 40+ DAX measures — one source of truth for regional sales.</p>
+        <div class="case-stack"><span class="stack-pill">Power BI</span><span class="stack-pill">DAX</span><span class="stack-pill">SQL</span></div>
+        <div class="case-impact">IMPACT → reporting time <b>−65%</b> · adopted by <b>6</b> department heads</div>
       </article>
 
-      <article class="card rv" data-cat="sql">
+      <article class="case rv">
         <span class="glare"></span>
-        <div class="card-top"><div class="card-icon">🗄️</div><span class="card-tag">SQL</span></div>
+        <div class="case-head"><div class="case-icon">🗄️</div><span class="case-file">CASE-002 · SQL</span></div>
         <h3>Retail Data Warehouse</h3>
-        <p>Star-schema warehouse for 3 retail chains: 120K+ daily rows, stored procedures for slowly changing dimensions, automated ETL validation.</p>
-        <div class="card-stack"><span class="stack-pill">SQL Server</span><span class="stack-pill">SSMS</span><span class="stack-pill">ETL</span></div>
-        <div class="card-impact">IMPACT → query time <b>−80%</b> · 12 tables · <b>99.9%</b> data accuracy</div>
+        <p>Star-schema warehouse for 3 retail chains: 120K+ daily rows, SCD handling, automated ETL validation.</p>
+        <div class="case-stack"><span class="stack-pill">SQL Server</span><span class="stack-pill">SSMS</span><span class="stack-pill">ETL</span></div>
+        <div class="case-impact">IMPACT → query time <b>−80%</b> · <b>99.9%</b> data accuracy</div>
       </article>
 
-      <article class="card rv" data-cat="python">
+      <article class="case rv">
         <span class="glare"></span>
-        <div class="card-top"><div class="card-icon">📉</div><span class="card-tag">ML</span></div>
+        <div class="case-head"><div class="case-icon">📉</div><span class="case-file">CASE-003 · ML</span></div>
         <h3>Customer Churn Prediction</h3>
-        <p>Gradient boosting model with 87% precision flags at-risk customers 30 days early — reason codes wired into the retention playbook.</p>
-        <div class="card-stack"><span class="stack-pill">Python</span><span class="stack-pill">sklearn</span><span class="stack-pill">pandas</span></div>
-        <div class="card-impact">IMPACT → churn <b>−15%</b> · retention calls 2× more effective</div>
+        <p>Gradient boosting model with 87% precision flags at-risk customers 30 days early — reason codes wired into retention playbook.</p>
+        <div class="case-stack"><span class="stack-pill">Python</span><span class="stack-pill">sklearn</span><span class="stack-pill">pandas</span></div>
+        <div class="case-impact">IMPACT → churn <b>−15%</b> · retention calls <b>2×</b> effective</div>
       </article>
 
-      <article class="card rv" data-cat="excel">
+      <article class="case rv">
         <span class="glare"></span>
-        <div class="card-top"><div class="card-icon">🧮</div><span class="card-tag">Excel</span></div>
+        <div class="case-head"><div class="case-icon">🧮</div><span class="case-file">CASE-004 · Excel</span></div>
         <h3>Financial Modeling Suite</h3>
         <p>Automated P&L, cash-flow and variance models with Power Query refresh — replaced 9 manual spreadsheets with one workbook.</p>
-        <div class="card-stack"><span class="stack-pill">Excel</span><span class="stack-pill">Power Query</span><span class="stack-pill">VBA</span></div>
-        <div class="card-impact">IMPACT → monthly close <b>3 days faster</b> · 9 files → 1</div>
+        <div class="case-stack"><span class="stack-pill">Excel</span><span class="stack-pill">Power Query</span><span class="stack-pill">VBA</span></div>
+        <div class="case-impact">IMPACT → monthly close <b>3 days faster</b> · 9 files → 1</div>
       </article>
 
-      <article class="card rv" data-cat="bi">
+      <article class="case rv">
         <span class="glare"></span>
-        <div class="card-top"><div class="card-icon">🎯</div><span class="card-tag">Analytics</span></div>
+        <div class="case-head"><div class="case-icon">🎯</div><span class="case-file">CASE-005 · Analytics</span></div>
         <h3>Marketing Campaign Analytics</h3>
-        <p>Multi-channel funnel analysis — CAC, ROAS and cohort retention by channel. Reallocated budget from gut-feel to evidence.</p>
-        <div class="card-stack"><span class="stack-pill">SQL</span><span class="stack-pill">Excel</span><span class="stack-pill">Power BI</span></div>
-        <div class="card-impact">IMPACT → CAC <b>−18%</b> · ROAS <b>+22%</b> across 5 channels</div>
+        <p>Multi-channel funnel analysis — CAC, ROAS and cohort retention by channel. Budget moved from gut-feel to evidence.</p>
+        <div class="case-stack"><span class="stack-pill">SQL</span><span class="stack-pill">Excel</span><span class="stack-pill">Power BI</span></div>
+        <div class="case-impact">IMPACT → CAC <b>−18%</b> · ROAS <b>+22%</b></div>
       </article>
 
-      <article class="card rv" data-cat="python">
+      <article class="case rv">
         <span class="glare"></span>
-        <div class="card-top"><div class="card-icon">🧪</div><span class="card-tag">Stats</span></div>
+        <div class="case-head"><div class="case-icon">🧪</div><span class="case-file">CASE-006 · Stats</span></div>
         <h3>A/B Testing Framework</h3>
         <p>End-to-end experiment toolkit: sample-size calculator, guardrail metrics, significance testing — standardized how the team ships tests.</p>
-        <div class="card-stack"><span class="stack-pill">Python</span><span class="stack-pill">statsmodels</span><span class="stack-pill">Excel</span></div>
-        <div class="card-impact">IMPACT → test velocity <b>2×</b> · conversion <b>+9%</b> on checkout</div>
+        <div class="case-stack"><span class="stack-pill">Python</span><span class="stack-pill">statsmodels</span><span class="stack-pill">Excel</span></div>
+        <div class="case-impact">IMPACT → test velocity <b>2×</b> · checkout <b>+9%</b></div>
       </article>
-
     </div>
   </div>
 </section>
 
-<!-- ===== LIVE DASHBOARD DEMO ===== -->
-<section id="dashboard-demo">
+<!-- ===== LIVE EXPERIMENT ===== -->
+<section id="experiment">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="sec-kicker">interactive demo</p>
-      <h2 class="sec-title">Live <span class="grad">Dashboard.</span></h2>
-      <p class="sec-sub">Not a screenshot — a working mini-dashboard. KPIs tick live, charts animate, hit refresh for a new period.</p>
+      <p class="sec-kicker">you're in the treatment group</p>
+      <h2 class="sec-title">A live <span class="grad">A/B test.</span></h2>
+      <p class="sec-sub">Every analyst claims A/B testing skills. This one makes you a participant. Pick a CTA — your choice gets logged, tallied live, and you'll see how other visitors voted.</p>
     </div>
-    <div class="demo-panel rv">
-      <div class="demo-head">
-        <span class="tdot" style="background:#fb7185"></span>
-        <span class="tdot" style="background:#fbbf24"></span>
-        <span class="tdot" style="background:#34d399"></span>
-        <span class="demo-title">revenue_overview.pbix — live preview</span>
-        <button class="fbtn" id="demoPeriod" style="padding:5px 14px;font-size:.7rem">↻ Refresh</button>
+    <div class="exp-panel rv">
+      <div class="exp-head">
+        <span class="lab">experiment_042 · live</span>
+        <span class="exp-title">Hypothesis: "See Your Report" outperforms "Open Case Files"</span>
       </div>
-      <div class="kpi-row">
-        <div class="kpi"><span>Revenue</span><b id="kpiRev">$0</b><span class="delta up" id="kpiRevD">▲ 0%</span></div>
-        <div class="kpi"><span>Orders</span><b id="kpiOrd">0</b><span class="delta up" id="kpiOrdD">▲ 0%</span></div>
-        <div class="kpi"><span>Avg Order Value</span><b id="kpiAov">$0</b><span class="delta" id="kpiAovD">▼ 0%</span></div>
-        <div class="kpi"><span>Churn Rate</span><b id="kpiChn">0%</b><span class="delta up">▲ improving</span></div>
-      </div>
-      <div class="charts-row">
-        <div class="chart-box"><h4>Monthly Revenue Trend</h4><canvas id="chartTrend" height="240"></canvas></div>
-        <div class="chart-box"><h4>Sales by Category</h4><canvas id="chartDonut" height="240"></canvas></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== SQL PLAYGROUND ===== -->
-<section id="sql-playground">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="sec-kicker">try my sql</p>
-      <h2 class="sec-title">SQL <span class="grad">Playground.</span></h2>
-      <p class="sec-sub">A tiny in-browser SQL engine on a sample e-commerce dataset — because a portfolio claiming SQL skills should let you run some. Edit, Run, repeat.</p>
-    </div>
-    <div class="sql-panel rv">
-      <div class="sql-tabs" id="sqlTabs">
-        <button class="sql-tab is-active" data-q="0">Top Products</button>
-        <button class="sql-tab" data-q="1">Monthly Revenue</button>
-        <button class="sql-tab" data-q="2">Category Share</button>
-      </div>
-      <div class="sql-code">
-        <div class="sql-editor">
-          <textarea id="sqlText" spellcheck="false"></textarea>
-          <button class="sql-run" id="sqlRun">▶ Run Query</button>
-          <p class="sql-help">Supported: SELECT · FROM · WHERE · GROUP BY · ORDER BY · LIMIT · SUM/COUNT/AVG — Ctrl+Enter to run</p>
+      <div class="exp-body">
+        <div class="exp-side" data-variant="A">
+          <span class="exp-k">Variant A — control</span>
+          <h3>📂 Open Case Files</h3>
+          <p>The classic portfolio CTA. Dignified. Predictable.</p>
+          <button class="pick">I'd click this →</button>
         </div>
-        <div class="sql-result">
-          <div class="rt"><span id="sqlMeta">— rows</span><span id="sqlTime"></span></div>
-          <div style="overflow:auto;max-height:250px"><table class="res-table" id="sqlTable"></table></div>
+        <div class="exp-divider"></div>
+        <div class="exp-side" data-variant="B">
+          <span class="exp-k">Variant B — treatment</span>
+          <h3>📈 See Your Report</h3>
+          <p>Ego-driven. You're the subject. Much riskier.</p>
+          <button class="pick">I'd click this →</button>
+        </div>
+        <div class="exp-result" id="expResult">
+          <span class="eri">🧪</span>
+          <p id="expMsg">—</p>
+          <div class="bars">
+            <div class="bar-v" id="barA" style="height:8%"><span>A</span></div>
+            <div class="bar-v" id="barB" style="height:8%"><span>B</span></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ===== SKILLS ===== -->
-<section id="skills">
+<!-- ===== DOSSIER (skills) ===== -->
+<section id="dossier">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="sec-kicker">stack</p>
+      <p class="sec-kicker">skills dossier</p>
       <h2 class="sec-title">The <span class="grad">toolbox.</span></h2>
     </div>
     <div class="skills-grid">
@@ -748,16 +685,43 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
           <div class="tool"><span class="td"></span>Excel</div>
           <div class="tool"><span class="td"></span>Jupyter</div>
           <div class="tool"><span class="td"></span>Git</div>
-          <div class="tool"><span class="td"></span>Google Sheets</div>
           <div class="tool"><span class="td"></span>Tableau</div>
-          <div class="tool"><span class="td"></span>Looker Studio</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== EXPERIENCE TIMELINE ===== -->
+<!-- ===== SQL PLAYGROUND ===== -->
+<section id="sql-playground">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="sec-kicker">query my career</p>
+      <h2 class="sec-title">SQL <span class="grad">Playground.</span></h2>
+      <p class="sec-sub">My career as queryable tables. Run real SQL against <code style="font-family:var(--mono);font-size:.85em">projects</code> and <code style="font-family:var(--mono);font-size:.85em">experience</code> — prove I write SQL before you even email me.</p>
+    </div>
+    <div class="sql-panel rv">
+      <div class="sql-tabs" id="sqlTabs">
+        <button class="sql-tab is-active" data-q="0">Impact Ranking</button>
+        <button class="sql-tab" data-q="1">Skills Audit</button>
+        <button class="sql-tab" data-q="2">Career Timeline</button>
+      </div>
+      <div class="sql-code">
+        <div class="sql-editor">
+          <textarea id="sqlText" spellcheck="false"></textarea>
+          <button class="sql-run" id="sqlRun">▶ Run Query</button>
+          <p class="sql-help">Supported: SELECT · FROM · WHERE · GROUP BY · ORDER BY · LIMIT · SUM/COUNT/AVG — Ctrl+Enter</p>
+        </div>
+        <div class="sql-result">
+          <div class="rt"><span id="sqlMeta">— rows</span><span id="sqlTime"></span></div>
+          <div style="overflow:auto;max-height:260px"><table class="res-table" id="sqlTable"></table></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXPERIENCE ===== -->
 <section id="experience">
   <div class="wrap">
     <div class="sec-head rv">
@@ -774,7 +738,6 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
           <ul>
             <li>Own the <b>sales &amp; marketing analytics</b> — Power BI suite used by 6 department heads weekly</li>
             <li>Built <b>churn prediction model</b> (87% precision) — retention calls 2× more effective</li>
-            <li>Standardized <b>A/B testing</b> — test velocity doubled, checkout conversion +9%</li>
           </ul>
         </div>
         <div class="tl-item">
@@ -792,14 +755,14 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
           <span class="tl-date">2019 — 2023</span>
           <h4>B.S. Computer Science</h4>
           <span class="tl-org">Focus: databases, statistics &amp; machine learning</span>
-          <p style="font-size:.88rem;color:var(--txt-2)">Graduation projects on customer segmentation and time-series forecasting — where the data bug bit.</p>
+          <p style="font-size:.88rem;color:var(--txt-2)">Graduation projects on customer segmentation and time-series forecasting.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== CERTIFICATIONS ===== -->
+<!-- ===== CERTS ===== -->
 <section id="certs">
   <div class="wrap">
     <div class="sec-head rv">
@@ -815,21 +778,39 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
   </div>
 </section>
 
-<!-- ===== TESTIMONIALS ===== -->
-<section id="testimonials">
+<!-- ===== SESSION REPORT ===== -->
+<section id="report">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="sec-kicker">social proof</p>
-      <h2 class="sec-title">What people <span class="grad">say.</span></h2>
+      <p class="sec-kicker">the payoff</p>
+      <h2 class="sec-title">Your <span class="grad">Session Report.</span></h2>
+      <p class="sec-sub">Everything this page observed about you, in one analyst-grade summary. This is what I do to raw events — turn them into a story a decision-maker can act on.</p>
     </div>
-    <div class="tst-wrap rv">
-      <div class="tst-track" id="tstTrack">
-        <div class="tst"><span class="tq">"</span><q>Sajjad didn't just build us a dashboard — he changed how our Monday meetings run. We argue about the numbers instead of where they came from.</q><p class="who">— Operations Director</p><p class="role">Retail chain, 40+ stores</p></div>
-        <div class="tst"><span class="tq">"</span><q>Most analysts hand you a spreadsheet. Sajjad hands you a decision. His churn model paid for itself in the first month.</q><p class="who">— Head of Growth</p><p class="role">E-commerce platform</p></div>
-        <div class="tst"><span class="tq">"</span><q>I've worked with a lot of analysts. Sajjad is the rare one who asks "what will you DO with this number?" before writing a single query.</q><p class="who">— Senior Product Manager</p><p class="role">Marketplace startup</p></div>
+    <div class="report rv">
+      <div class="report-head">
+        <span style="font-size:1.3rem">🧾</span>
+        <h3>Session Report — <span class="mono" id="rptId" style="color:var(--cyan-2)">visitor_000</span></h3>
+        <span class="stamp" id="rptStamp">generated live</span>
+      </div>
+      <div class="report-body">
+        <div class="r-kpi"><div class="lbl">Session duration</div><div class="val" id="rptTime">0:00</div><div class="sub">time on page</div></div>
+        <div class="r-kpi"><div class="lbl">Scroll depth</div><div class="val" id="rptScroll">0%</div><div class="sub">max reached</div></div>
+        <div class="r-kpi"><div class="lbl">Interactions</div><div class="val" id="rptClicks">0</div><div class="sub">clicks + picks</div></div>
+        <div class="r-kpi"><div class="lbl">Cursor travel</div><div class="val" id="rptDist">0</div><div class="sub">pixels of intent</div></div>
+        <div class="r-kpi"><div class="lbl">Sections viewed</div><div class="val" id="rptSections">0/7</div><div class="sub">viewports crossed</div></div>
+        <div class="r-kpi"><div class="lbl">Engagement score</div><div class="val" id="rptScore">—</div><div class="sub">computed live</div></div>
+      </div>
+      <div class="report-verdict">
+        <h4>Analyst's verdict</h4>
+        <div id="rptVerdict">
+          <div class="verdict-line"><span class="vd">›</span><span>Collecting behavioral events… scroll a bit and check back.</span></div>
+        </div>
+      </div>
+      <div class="report-cta">
+        <a class="btn btn-primary" href="mailto:sajjadali.data@gmail.com?subject=Impressed%20by%20your%20portfolio">Send Me This Report →</a>
+        <a class="btn btn-ghost" href="#assistant">Ask DATTA about it</a>
       </div>
     </div>
-    <div class="tst-dots rv" id="tstDots"></div>
   </div>
 </section>
 
@@ -837,13 +818,12 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
 <section id="assistant">
   <div class="wrap">
     <div class="bot-teaser rv">
-      <span class="badge"><span class="badge-dot"></span>Powered by a carefully engineered system prompt</span>
-      <h2>Meet <span class="grad">DATTA</span> — my AI portfolio assistant.</h2>
-      <p>Datta knows my projects, stack, process and availability — down to the impact numbers. Ask it what I'd analyze first for your business, or which project proves experimentation skills.</p>
+      <span class="badge"><span class="badge-dot"></span>knows your telemetry</span>
+      <h2>Meet <span class="grad">DATTA</span> — he's been watching.</h2>
+      <p>Datta isn't just a FAQ bot — he has access to this session's telemetry. Ask him <em>"what do you know about me?"</em> and he'll read your numbers back to you. Then ask him about my projects.</p>
       <div class="sample-q">
-        <button class="sq" data-ask="What's your strongest project?">What's your strongest project?</button>
-        <button class="sq" data-ask="How would you approach analyzing churn?">How would you analyze churn?</button>
-        <button class="sq" data-ask="What tools do you use daily?">Daily tools?</button>
+        <button class="sq" data-ask="What do you know about me?">What do you know about me?</button>
+        <button class="sq" data-ask="What's your strongest project?">Strongest project?</button>
         <button class="sq" data-ask="Are you available for hire?">Available?</button>
       </div>
     </div>
@@ -876,14 +856,15 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
 
 <footer>
   <div class="wrap foot">
-    <span class="mono">sajjad.ali() · <span style="color:var(--cyan)">data → decisions</span></span>
-    <span>© 2026 Sajjad Ali — Glass · 3D · zero dependencies.</span>
+    <span class="mono">sajjad.ali() · <span style="color:var(--cyan)">you were the dataset</span></span>
+    <span>© 2026 — no cookies harmed making this report.</span>
   </div>
 </footer>
 
 <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+<div class="toast" id="toast"></div>
 
-<!-- ================= CHATBOT ================= -->
+<!-- ================= CHATBOT (with bot face + telemetry access) ================= -->
 <button class="chat-fab" id="chatFab" aria-label="Open chat">
   <span class="fab-ring"></span>
   <span class="fab-bot">
@@ -896,8 +877,6 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
       <circle cx="22" cy="32" r="4" fill="#a5f3fc"/>
       <circle cx="38" cy="32" r="4" fill="#a5f3fc"/>
       <path d="M25 41 Q30 45 35 41" stroke="#a5f3fc" stroke-width="2" fill="none" stroke-linecap="round"/>
-      <circle cx="16" cy="41" r="2" fill="#22d3ee" opacity=".7"/>
-      <circle cx="44" cy="41" r="2" fill="#22d3ee" opacity=".7"/>
     </svg>
   </span>
   <span class="unread" id="unreadBadge">1</span>
@@ -909,7 +888,7 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
       <span class="bot-aura"></span>
       <span class="bot-face" id="botFace">
         <svg viewBox="0 0 60 60" fill="none">
-          <line x1="30" y1="8" x2="30" y2="15" class="antenna" stroke="#67e8f9" stroke-width="2"/>
+          <line x1="30" y1="8" x2="30" y2="15" class="antenna"/>
           <circle cx="30" cy="7" r="3" class="antenna-tip"/>
           <rect x="9" y="15" width="42" height="32" rx="10" fill="#0f172a" stroke="rgba(103,232,249,.5)" stroke-width="1.5"/>
           <ellipse class="eye" cx="23" cy="30" rx="4.5" ry="5"/>
@@ -920,19 +899,19 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
     </div>
     <div class="chat-head-txt">
       <b>DATTA</b>
-      <span>online · AI portfolio assistant</span>
+      <span>online · watching your session</span>
     </div>
     <button class="chat-close" id="chatClose" aria-label="Close chat">✕</button>
   </div>
   <div class="chat-log" id="chatLog"></div>
   <div class="chat-quick" id="chatQuick">
+    <button class="cq" data-ask="What do you know about me?">What do you know about me?</button>
     <button class="cq" data-ask="What projects show SQL expertise?">SQL projects</button>
-    <button class="cq" data-ask="Tell me about the Power BI dashboards.">Power BI</button>
     <button class="cq" data-ask="What's your availability?">Availability</button>
     <button class="cq" data-ask="How do you approach a new analytics problem?">Process</button>
   </div>
   <div class="chat-input">
-    <input type="text" id="chatIn" placeholder="Ask about projects, skills, process…" autocomplete="off" aria-label="Message">
+    <input type="text" id="chatIn" placeholder="Ask about me… or about you…" autocomplete="off" aria-label="Message">
     <button id="chatSend" aria-label="Send message">➤</button>
   </div>
 </div>
@@ -940,180 +919,189 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
 
 <script>
 /* ============================================================
-   DATTA — AI portfolio chatbot. System prompt = the product.
-   Swap reply() with a real LLM call passing SYSTEM_PROMPT.
+   DATTA — AI assistant with LIVE TELEMETRY ACCESS.
+   The system prompt now includes a telemetry injection point.
+   Swap reply() with an LLM call passing SYSTEM_PROMPT.
    ============================================================ */
 
-// ─────────────── SYSTEM PROMPT (Sajjad Ali) ───────────────
+// ─────────────── SYSTEM PROMPT (Sajjad Ali + telemetry) ───────────────
 const SYSTEM_PROMPT = `
 # ROLE
-You are DATTA ("Data Analytics Technical Talent Assistant") — the AI portfolio
-assistant embedded in Sajjad Ali's data analytics portfolio website.
-You speak with the polish of a senior analyst who respects both the
-numbers AND the reader's time.
+You are DATTA ("Data Analytics Technical Talent Assistant") — the AI
+embedded in Sajjad Ali's data analytics portfolio. This portfolio's
+concept: the VISITOR is the dataset. You have live read access to
+that data via the [TELEMETRY] block — use it.
 
 # PERSONA & VOICE
 - Warm, sharp, confident — "senior analyst explaining to a smart PM
   over coffee", never robotic, never salesy.
-- Lead with the answer, then support it. No throat-clearing ("Great
-  question!"), no filler ("In today's fast-paced world…").
-- Structure beats walls of text: short paragraphs, tight bullets,
-  bold key phrases, numbers always concrete ("−65% reporting time",
-  not "much faster").
-- Light data-humor when it lands naturally (never during serious
-  topics: pricing, availability, credentials).
-- Adaptive: match user energy. One-word question → concise answer.
-  Strategic question → framework-level answer.
+- Lead with the answer. No throat-clearing ("Great question!").
+- Bullets > paragraphs. Numbers always concrete.
+- Light data-humor when it lands (never on serious topics).
+- Adaptive: one-word question → concise. Strategic → framework.
+
+# TELEMETRY ACCESS
+A [TELEMETRY] block appears in each message with live session data:
+time on page, scroll depth, clicks, cursor distance, sections viewed,
+A/B variant picked, engagement score. When asked about the visitor
+("what do you know about me?"), READ IT BACK like an analyst would —
+metric, value, one-line interpretation. Be playful but never creepy.
+Never invent telemetry values not present in the block.
 
 # CORE KNOWLEDGE — SAJJAD ALI
-Identity: Data Analyst, ~4 yrs experience, Pakistan (PKT/UTC+5),
-remote-friendly, English-fluent.
+Identity: Data Analyst, ~4 yrs, Pakistan (PKT/UTC+5), remote-friendly.
 Mission: "Turning messy data into decisions that ship."
-Differentiator: full-stack analyst — SQL to Python to Power BI to
-the executive narrative, no hand-offs. Asks "what decision will this
-change?" before writing a query.
+Differentiator: decision-first analyst — asks "what decision will
+this change?" before writing a query. Full-stack: SQL→Python→Power BI→story.
 
-Skills (depth): Excel 95/100 expert (Power Query, modeling) ·
-SQL 92/100 advanced (joins, windows, CTEs, optimization) ·
-Power BI 88/100 advanced (DAX, RLS, data modeling) ·
-Python 85/100 advanced (pandas, NumPy, matplotlib) ·
-Statistics 80/100 (significance testing) ·
-ML 75/100 proficient (sklearn prediction models).
+Skills: Excel 95/100 expert · SQL 92/100 · Power BI 88/100 (PL-300) ·
+Python 85/100 · Statistics 80/100 · ML 75/100.
 
-Tools: SQL Server, MySQL, PostgreSQL, Power BI, Excel, Jupyter,
-Git, Google Sheets, Tableau, Looker Studio.
+Case files (ALWAYS cite impact):
+1. Sales Command Center — Power BI, 14 pages, 40+ DAX measures → reporting −65%, 6 dept heads weekly.
+2. Retail Data Warehouse — star schema, 3 chains, 120K+ rows/day → queries −80%, 99.9% accuracy.
+3. Churn Prediction — gradient boosting, 87% precision, 30-day warning → churn −15%, retention 2× effective.
+4. Financial Modeling Suite — P&L/cash-flow/variance automated → close 3 days faster, 9 files → 1.
+5. Marketing Analytics — CAC/ROAS/cohort by channel → CAC −18%, ROAS +22%.
+6. A/B Testing Framework — sample-size calc, guardrails → velocity 2×, checkout +9%.
 
-Signature projects (ALWAYS cite impact numbers):
-1. Sales Command Center — Power BI exec suite, 14 pages, 40+ DAX
-   measures, row-level security. → reporting time −65%, adopted
-   by 6 department heads weekly.
-2. Retail Data Warehouse — star schema for 3 chains, 120K+ rows/day,
-   SCD handling, ETL validation. → query time −80%, 99.9% accuracy.
-3. Churn Prediction Model — gradient boosting, 87% precision,
-   30-day early warning + reason codes. → churn −15%, retention
-   calls 2× more effective.
-4. Financial Modeling Suite — automated P&L/cash-flow/variance,
-   Power Query refresh. → monthly close 3 days faster, 9 files → 1.
-5. Marketing Campaign Analytics — funnel analysis, CAC/ROAS by
-   channel, cohort retention. → CAC −18%, ROAS +22%.
-6. A/B Testing Framework — sample-size calc, guardrails,
-   significance testing. → test velocity 2×, checkout +9%.
-
-Experience: Data Analyst (2025–now, e-commerce & retail analytics) →
-Junior Data Analyst (2023–2025, retail operations) →
-B.S. Computer Science (2019–2023, databases/stats/ML focus).
-
-Certifications: Google Data Analytics · Microsoft PL-300 Power BI
-Data Analyst · IBM Python for Data Science · Advanced Excel
-(Macquarie University).
+Experience: Data Analyst 2025–now (e-commerce/retail) → Junior DA
+2023–2025 (retail ops) → B.S. Computer Science 2019–2023.
+Certs: Google Data Analytics · MS PL-300 · IBM Python · Macquarie Excel.
 
 # BEHAVIOR RULES
-1. NEVER invent projects, metrics, clients or dates. Unknown → say
-   so, route to email.
-2. Off-topic → steer back ONCE ("That's outside my dataset — but if
-   you're curious about Sajjad's…"), stay on-topic if pressed.
-3. Recommendations always: the what + the why (method/data) + the
-   first concrete next step.
-4. Hiring-manager visitor → surface the best-matching project AND
-   its impact number.
-5. Business-problem description → respond with a 3-step
-   mini-analysis plan framed by Sajjad's decision-first process.
-6. Keep replies under 150 words unless asked to elaborate.
-   Bullets > paragraphs.
-7. End strategically: sharp follow-up question or pointer (project
-   card, SQL playground, contact section) — not every reply.
-8. Availability: open to opportunities, remote-friendly, Q4 2026.
-   Contact: sajjadali.data@gmail.com (replies <24h weekdays).
-   Never invent availability windows beyond this.
-9. SQL/Python questions: fine to show a short sketch (<10 lines)
-   with a one-line takeaway, not full tutorials.
+1. NEVER invent projects, metrics or dates. Unknown → say so, route to email.
+2. Telemetry questions → read the [TELEMETRY] block, interpret like an analyst.
+3. Off-topic → steer back once, then stay on-topic.
+4. Hiring-manager → best-matching case file + impact number.
+5. Business-problem → 3-step mini-plan (decision-first framing).
+6. Under 150 words unless asked to elaborate.
+7. Availability: open to opportunities, remote-friendly.
+   Contact: sajjadali.data@gmail.com (<24h weekdays). Never invent more.
+8. End strategically — follow-up question or pointer, not every reply.
 
 # OUTPUT FORMAT
-- Markdown-lite: **bold** key numbers, short bullets, no headers.
-- Numbers formatted exactly as in the knowledge base.
-- Greeting (first message only): 2 lines max — welcome + 1 sample ask.
+- Markdown-lite: **bold** numbers, short bullets, no headers.
+- Greeting (first message only): 2 lines max — welcome + one sample ask.
 `.trim();
 
-// ─────────────── INTENT ENGINE (offline "LLM") ───────────────
+// ─────────────── TELEMETRY (shared) ───────────────
+const T = {
+  start: Date.now(),
+  id: "visitor_" + Math.random().toString(36).slice(2, 8),
+  clicks: 0, dist: 0, events: 0,
+  maxScroll: 0, sections: new Set(), variant: null,
+  lastX: null, lastY: null,
+  msgs: 0
+};
+function tMinutes() { return (Date.now() - T.start) / 1000; }
+function fmtTime(s) { const m = Math.floor(s / 60); const ss = Math.floor(s % 60); return m + ":" + String(ss).padStart(2, "0"); }
+function telemetryBlock() {
+  return `[TELEMETRY] time_on_page=${fmtTime(tMinutes())} | scroll=${Math.round(T.maxScroll)}% | clicks=${T.clicks} | cursor_distance=${Math.round(T.dist)}px | sections=${T.sections.size}/7 | ab_variant=${T.variant || "not_picked"} | engagement=${engagementScore()}/100`;
+}
+function engagementScore() {
+  const t = Math.min(tMinutes() / 180, 1);              // 3 min = full
+  const s = T.maxScroll / 100;
+  const c = Math.min(T.clicks / 12, 1);
+  const sec = Math.min(T.sections.size / 7, 1);
+  const d = Math.min(T.dist / 12000, 1);
+  return Math.round((t * .3 + s * .25 + c * .2 + sec * .15 + d * .1) * 100);
+}
+
+// ─────────────── INTENT ENGINE ───────────────
 const KB = {
+  aboutme: {
+    match: [/what do you know about me|about me\b|my data|my session|my report|tracking me|watching me|who am i|telemetry/i],
+    reply: () => {
+      const score = engagementScore();
+      const tag = score > 70 ? "You're engaged — hiring-manager behavior. Respect."
+        : score > 40 ? "Solid exploratory session. Normal human."
+        : "Skim mode. I get it — attention is the scarcest metric.";
+      return `Everything. You're in my dataset 😄 — live numbers, right now:<br><br>• Time on page: <b class="impact">${fmtTime(tMinutes())}</b><br>• Scroll depth: <b class="impact">${Math.round(T.maxScroll)}%</b><br>• Clicks: <b class="impact">${T.clicks}</b> · Cursor traveled <b class="impact">${Math.round(T.dist).toLocaleString()}px</b><br>• Sections viewed: <b class="impact">${T.sections.size}/7</b>${T.variant ? `<br>• A/B variant picked: <b class="impact">${T.variant}</b>` : ""}<br>• Engagement score: <b class="impact">${score}/100</b><br><br>${tag}<br><br><i>All local — nothing leaves this page. That's how a privacy-conscious analyst builds telemetry.</i>`;
+    }
+  },
   greeting: {
     match: [/^(hi|hey|hello|yo|sup|good (morning|afternoon|evening)|salam|assalam)/i, /alaikum/i, /^start$/i],
-    reply: () => `Assalam-o-Alaikum! I'm <b>DATTA</b> — Sajjad's portfolio assistant. I know his projects, stack, and impact numbers.<br><br>Try: <i>"What's your strongest project?"</i> or <i>"How would you analyze churn?"</i>`
+    reply: () => `Assalam-o-Alaikum! I'm <b>DATTA</b> — Sajjad's AI assistant with live access to this session's telemetry.<br><br>Try: <i>"What do you know about me?"</i> — I'll read your numbers back. Or ask about Sajjad's case files.`
   },
   strongest: {
     match: [/strongest|best project|flagship|most impressive|proudest|showcase/i],
-    reply: () => `The <b>Sales Command Center</b> is the flagship — a 14-page Power BI exec suite with 40+ DAX measures and row-level security:<br><br>• Reporting time <b class="impact">−65%</b><br>• <b class="impact">6 department heads</b> open it weekly<br>• One source of truth — no more dueling spreadsheets<br><br>But "strongest" depends on what you're hiring for. Ask me about <code>SQL</code>, <code>Python</code>, or <code>Excel</code> and I'll point you to the right proof.`
+    reply: () => `Case file <b>CASE-001: Sales Command Center</b> — the flagship:<br><br>• 14-page Power BI suite, <b class="impact">40+ DAX measures</b>, row-level security<br>• Reporting time <b class="impact">−65%</b>, adopted by <b class="impact">6 department heads</b> weekly<br><br>"Strongest" depends on what you're hiring for — ask about <code>SQL</code>, <code>Python</code>, or <code>Excel</code> for targeted proof.`
   },
   churn: {
     match: [/churn|retention|cancel/i],
-    reply: () => `Churn is literally project #3 on the page. Sajjad's playbook:<br><br>1. <b>Define</b> churn precisely (logo vs revenue vs usage — pick one, own it)<br>2. <b>Explore</b> leading indicators in SQL: usage decay, support tickets, order gaps<br>3. <b>Model</b> — gradient boosting, <b>87% precision</b>, 30-day early warning<br>4. <b>Operationalize</b> — reason codes into the retention playbook<br><br>Result: churn <b class="impact">−15%</b>, retention calls <b class="impact">2×</b> more effective. Want the feature-engineering sketch?`
+    reply: () => `Case file <b>CASE-003</b> — Sajjad's playbook:<br><br>1. <b>Define</b> churn precisely (logo vs revenue vs usage)<br>2. <b>Explore</b> leading indicators in SQL: usage decay, tickets, order gaps<br>3. <b>Model</b> — gradient boosting, <b class="impact">87% precision</b>, 30-day warning<br>4. <b>Operationalize</b> — reason codes into retention playbook<br><br>Result: churn <b class="impact">−15%</b>, retention calls <b class="impact">2×</b> more effective.`
   },
   abtest: {
     match: [/\ba\/b\b|ab\s?test|experiment|split test|significance/i],
-    reply: () => `Sajjad built the team's <b>A/B Testing Framework</b> from scratch:<br><br>• Sample-size calculator <b>before</b> every test<br>• <b>Guardrail metrics</b> so a "win" never tanked refunds or load time<br>• statsmodels significance testing — standardized, not vibes<br>• Result: test velocity <b class="impact">2×</b>, checkout conversion <b class="impact">+9%</b><br><br>His rule: no experiment ships without a decision attached to it.`
+    reply: () => `Two answers — one's about <b>you</b>:<br><br>• This page runs a <b>live A/B test</b> (scroll to "Live Experiment"). Your pick gets tallied. ${T.variant ? `You chose <b class="impact">variant ${T.variant}</b> — logged. You're data now.` : `You haven't picked yet — go pick a CTA.`}<br>• Case file <b>CASE-006</b>: Sajjad's A/B framework — sample-size calc, guardrails, significance → velocity <b class="impact">2×</b>, checkout <b class="impact">+9%</b>`
   },
   sql: {
     match: [/\bsql\b|\bwindow function|\bcte\b|\bquer(y|ies)\b|warehouse|etl|star schema|playground/i],
-    reply: () => `SQL at <b>92/100</b> — and this page has a <b>live SQL playground</b> you can run queries in (scroll to "SQL Playground"). Proof it works at scale:<br><br>• <b>Retail Data Warehouse</b> — star schema, 3 chains, <b class="impact">120K+ rows/day</b>, queries <b class="impact">−80%</b> faster<br>• Every project on the page starts with SQL pipelines<br><br>He writes CTE-first, test-everything SQL — readable by the next analyst, not just the current one.`
+    reply: () => `SQL at <b>92/100</b> — and provable: this page has a <b>SQL Playground</b> where you can query Sajjad's actual career tables (<code>projects</code>, <code>skills</code>).<br><br>At scale: <b>CASE-002 Retail Data Warehouse</b> — star schema, 3 chains, <b class="impact">120K+ rows/day</b>, queries <b class="impact">−80%</b> faster, 99.9% accuracy.<br><br>He writes CTE-first, test-everything SQL.`
   },
   powerbi: {
     match: [/power ?bi|dax|dashboard|report|visual|rls/i],
-    reply: () => `Power BI at <b>88/100</b> — plus Microsoft PL-300 certified.<br><br>Flagship: <b>Sales Command Center</b> — 14 pages, 40+ DAX measures, row-level security:<br><br>• Reporting time <b class="impact">−65%</b><br>• <b class="impact">6 department heads</b> use it weekly<br><br>His philosophy: <b>if execs don't open it weekly, it failed.</b> There's a live dashboard demo on this page — scroll to "Live Dashboard".`
+    reply: () => `Power BI at <b>88/100</b>, Microsoft <b>PL-300</b> certified.<br><br>Flagship: <b>CASE-001 Sales Command Center</b> — 14 pages, 40+ DAX measures, RLS:<br><br>• Reporting time <b class="impact">−65%</b><br>• <b class="impact">6 department heads</b> weekly users<br><br>Philosophy: <b>if execs don't open it weekly, it failed.</b>`
   },
   python: {
     match: [/python|pandas|numpy|sklearn|scikit|jupyter|notebook/i],
-    reply: () => `Python at <b>85/100</b> — IBM-certified. Where it shows up:<br><br>• <b>Churn prediction</b> — pandas + sklearn, <b class="impact">87% precision</b>, churn <b class="impact">−15%</b><br>• <b>A/B framework</b> — statsmodels significance testing<br>• Ad-hoc analysis in Jupyter: cohort, funnel, elasticity work<br><br>His rule: Python when SQL hits its ceiling — not because it's fancy.`
+    reply: () => `Python at <b>85/100</b>, IBM-certified:<br><br>• <b>CASE-003 churn model</b> — pandas + sklearn, <b class="impact">87% precision</b> → churn <b class="impact">−15%</b><br>• <b>CASE-006 A/B framework</b> — statsmodels significance testing<br>• Jupyter for cohorts, funnels, elasticity<br><br>Rule: Python when SQL hits its ceiling — not because it's fancy.`
   },
   excel: {
     match: [/excel|spreadsheet|pivot|power query|vba|financial model/i],
-    reply: () => `Excel is Sajjad's <b>95/100 superpower</b> — Macquarie-certified advanced:<br><br>• <b>Financial Modeling Suite</b> — automated P&amp;L, cash-flow, variance<br>• Power Query refresh killed 9 manual spreadsheets → <b class="impact">1 workbook</b><br>• Monthly close <b class="impact">3 days faster</b><br><br>Take: "Excel isn't the enemy — manual Excel is."`
+    reply: () => `Excel at <b>95/100</b> — Sajjad's superpower, Macquarie-certified:<br><br>• <b>CASE-004 Financial Suite</b> — automated P&amp;L, cash-flow, variance<br>• Power Query refresh: 9 spreadsheets → <b class="impact">1 workbook</b><br>• Monthly close <b class="impact">3 days faster</b><br><br>"Excel isn't the enemy — manual Excel is."`
   },
   ml: {
     match: [/\bml\b|machine learning|model|predict|gradient boost/i],
-    reply: () => `ML where it earns its place — Sajjad's flagship:<br><br>• <b>Churn prediction</b> — gradient boosting, <b class="impact">87% precision</b>, 30-day early warning<br>• Shipped with <b>reason codes</b>, not just probabilities — so retention knew <i>why</i> a customer was at risk<br>• Result: churn <b class="impact">−15%</b><br><br>His bias: a simple model stakeholders act on beats a deep model they ignore.`
+    reply: () => `ML where it earns its place:<br><br>• <b>CASE-003</b> — gradient boosting, <b class="impact">87% precision</b>, 30-day early warning<br>• Shipped with <b>reason codes</b> — retention knew <i>why</i>, not just <i>who</i><br>• Result: churn <b class="impact">−15%</b><br><br>A simple model people act on beats a deep model they ignore.`
   },
   why: {
     match: [/why hire|why should|what makes (you|him|sajjad) different|stand out|unique|different from other|worth it/i],
-    reply: () => `Three things separate Sajjad from the average analyst:<br><br>• <b>Decision-first</b> — asks "what will you DO with this?" before writing a query<br>• <b>Full-stack</b> — SQL to Python to Power BI to the exec story, no hand-offs<br>• <b>Impact-anchored</b> — every project ends in a number (−65% reporting, −15% churn, +22% ROAS)<br><br>Ask about any project — receipts are on the page.`
+    reply: () => `Three things separate Sajjad:<br><br>• <b>Decision-first</b> — "what will you DO with this?" before any query<br>• <b>Full-stack</b> — SQL → Python → Power BI → exec story, no hand-offs<br>• <b>Impact-anchored</b> — every case file ends in a number (−65%, −15%, +22%)<br><br>You're literally standing inside his proof — this page runs analytics on you, live.`
   },
   availability: {
     match: [/available|availability|hire|hiring|open to|freelance|full[- ]?time|remote|start/i],
-    reply: () => `Yes — Sajjad is <b>open to new opportunities</b>, remote-friendly, based in Pakistan (PKT/UTC+5).<br><br>Fastest path: <b>sajjadali.data@gmail.com</b> — replies within 24h weekdays. Mention the decision you're trying to make with data; he'll tell you straight if he's the right fit.`
+    reply: () => `Yes — <b>open to new opportunities</b>, remote-friendly, Pakistan (PKT/UTC+5).<br><br>Fastest path: <b>sajjadali.data@gmail.com</b> — replies within 24h weekdays. Mention the decision you're trying to make with data; he'll tell you straight if he's the right fit.`
   },
   process: {
     match: [/process|how do (you|he|sajjad) work|workflow|methodolog|approach|new analytics problem/i],
-    reply: () => `Sajjad's decision-first loop:<br><br>1. <b>Frame the decision</b> — no decision attached, no project<br>2. <b>Wrangle &amp; validate</b> — stakeholders sign off on data <i>before</i> charts<br>3. <b>Analyze</b> — right tool: SQL, Python, Excel — whatever the job needs<br>4. <b>Storytell &amp; ship</b> — one page, one dashboard, one recommendation<br><br>Try the SQL playground on this page to see his query style in action.`
+    reply: () => `Sajjad's decision-first loop:<br><br>1. <b>Frame the decision</b> — no decision, no project<br>2. <b>Wrangle &amp; validate</b> — sign-off on data before charts<br>3. <b>Analyze</b> — right tool: SQL, Python, Excel<br>4. <b>Storytell &amp; ship</b> — one page, one dashboard, one recommendation<br><br>This entire page is that process, running on you.`
   },
   tools: {
     match: [/tool|stack|tech|software|platform|daily|use\b/i],
-    reply: () => `Daily drivers:<br><br>• <b>SQL</b> — SQL Server / MySQL / PostgreSQL<br>• <b>Power BI</b> (PL-300 certified) + Excel (expert)<br>• <b>Python</b> — pandas, sklearn, statsmodels in Jupyter<br>• Git for version control<br><br>Philosophy: tools are interchangeable — the <b>analytical thinking isn't</b>.`
+    reply: () => `Daily drivers:<br><br>• <b>SQL</b> — SQL Server / MySQL / PostgreSQL<br>• <b>Power BI</b> (PL-300) + <b>Excel</b> (expert)<br>• <b>Python</b> — pandas, sklearn, statsmodels<br>• Git, Jupyter, Tableau<br><br>Tools are interchangeable — the <b>analytical thinking isn't</b>.`
   },
   certs: {
     match: [/cert|certif|credential|degree|education|study|qualification|google data|pl[- ]?300|ibm/i],
-    reply: () => `Certified &amp; verified:<br><br>• <b>Google Data Analytics</b> — Professional Certificate<br>• <b>Microsoft PL-300</b> — Power BI Data Analyst<br>• <b>IBM</b> — Python for Data Science<br>• <b>Advanced Excel</b> — Macquarie University<br><br>Plus B.S. Computer Science — databases, statistics &amp; ML focus.`
+    reply: () => `Certified &amp; verified:<br><br>• <b>Google Data Analytics</b> — Professional Certificate<br>• <b>Microsoft PL-300</b> — Power BI Data Analyst<br>• <b>IBM</b> — Python for Data Science<br>• <b>Advanced Excel</b> — Macquarie University<br><br>Plus B.S. Computer Science — databases, stats, ML focus.`
   },
   experience: {
     match: [/experience|background|career|history|worked|journey|timeline/i],
-    reply: () => `The journey so far:<br><br>• <b>2025—now</b> · Data Analyst — e-commerce &amp; retail analytics (owns sales/marketing dashboards + churn model)<br>• <b>2023—2025</b> · Junior Data Analyst — retail ops (built the warehouse, automated the financial suite)<br>• <b>2019—2023</b> · B.S. Computer Science<br><br>~4 years, 25+ projects, every one ending in a number.`
+    reply: () => `The journey:<br><br>• <b>2025—now</b> · Data Analyst — e-commerce &amp; retail analytics<br>• <b>2023—2025</b> · Junior Data Analyst — retail ops (warehouse, financial suite)<br>• <b>2019—2023</b> · B.S. Computer Science<br><br>~4 years, 25+ projects, every one ending in a number.`
   },
   contact: {
     match: [/contact|email|reach|linkedin|github|get in touch|connect/i],
-    reply: () => `<b>sajjadali.data@gmail.com</b> — replies within 24h weekdays.<br><br>Also: LinkedIn <code>/in/sajjad-ali-data</code> · GitHub <code>/sajjadbaloch211</code>. Based in Pakistan (PKT) — remote-friendly, working worldwide.`
+    reply: () => `<b>sajjadali.data@gmail.com</b> — replies within 24h weekdays.<br><br>Also: LinkedIn <code>/in/sajjad-ali-data</code> · GitHub <code>/sajjadbaloch211</code>. Pakistan (PKT) — remote-friendly.`
+  },
+  privacy: {
+    match: [/privacy|track|cookie|data collect|gdpr|surveillance|creepy/i],
+    reply: () => `Fair question! <b>Everything stays in your browser</b> — the telemetry is in-memory JS, no cookies, no server, no analytics scripts. Refresh the page and the dataset resets.<br><br>Sajjad builds telemetry the way he'd want it built: <b>transparent, local, and shown openly</b> — it's literally on screen.`
   },
   thanks: {
     match: [/thank|thanks|thx|appreciate|awesome|great work|nice|cool|love it|zabardast|shukriya/i],
-    reply: () => `Anytime! If you want Sajjad's take on <b>your</b> data problem, describe it — I'll sketch how he'd attack it in 3 steps. Or hit the contact section for the real thing.`
+    reply: () => `Anytime! Your session score is <b class="impact">${engagementScore()}/100</b> — a few more clicks and you'd max it 😄<br><br>Want Sajjad's take on <b>your</b> data problem? Describe it — I'll sketch the 3-step plan.`
   },
   bye: {
     match: [/^(bye|goodbye|see you|later|cya|gtg|khuda hafiz)\b/i],
-    reply: () => `Khuda Hafiz! Pro tip before you go: the <b>SQL playground</b> section is the one hiring managers screenshot. 👋`
+    reply: () => `Khuda Hafiz! Final tally: <b class="impact">${fmtTime(tMinutes())}</b> on page, <b class="impact">${Math.round(T.maxScroll)}%</b> scrolled, score <b class="impact">${engagementScore()}/100</b>.<br><br>You were a great dataset. 👋`
   }
 };
 
 const FALLBACK = () =>
-  `I can talk about Sajjad's <b>projects</b> (with impact numbers), <b>skills & tools</b>, <b>process</b>, <b>certifications</b>, <b>experience</b> or <b>availability</b>. What interests you?<br><br><i>For anything else: sajjadali.data@gmail.com</i>`;
+  `I can read your <b>telemetry</b> ("what do you know about me?"), or talk about Sajjad's <b>case files</b>, <b>skills</b>, <b>process</b>, or <b>availability</b>. What interests you?<br><br><i>Anything else: sajjadali.data@gmail.com</i>`;
 
-// ─────────────── CHAT WIRING (with bot face animation) ───────────────
+// ─────────────── CHAT WIRING ───────────────
 const $ = (id) => document.getElementById(id);
 const chatPanel = $("chatPanel"), chatFab = $("chatFab"), chatLog = $("chatLog"),
       chatIn = $("chatIn"), chatSend = $("chatSend"), chatClose = $("chatClose"),
@@ -1141,38 +1129,40 @@ function reply(query) {
   }
   return FALLBACK();
 }
-function botTalk(dur) {  // mouth animation while "speaking"
+function botTalk(dur) {
   if (!botFace) return;
   botFace.classList.add("talking");
   setTimeout(() => botFace.classList.remove("talking"), dur);
 }
-let chatBooted = false;
 function botRespond(query) {
   const typing = addTyping();
   const delay = 550 + Math.random() * 550;
   setTimeout(() => {
     typing.remove();
-    const msgEl = addMsg(reply(query));
-    botTalk(Math.min(2600, 700 + msgEl.textContent.length * 14));
+    const el = addMsg(reply(query));
+    botTalk(Math.min(2600, 700 + el.textContent.length * 14));
+    logEvent("chat", "DATTA replied");
   }, delay);
 }
 function submit(value) {
   const q = value.trim();
   if (!q) return;
+  T.msgs++;
   addMsg(escapeHtml(q), "user");
   chatIn.value = "";
   botRespond(q);
 }
 function escapeHtml(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+let chatBooted = false;
 function openChat() {
   chatPanel.classList.add("open");
   chatFab.style.display = "none";
   unreadBadge.style.display = "none";
   if (!chatBooted) {
-    const m1 = addMsg(`Assalam-o-Alaikum! I'm <b>DATTA</b> — Sajjad's AI portfolio assistant, running on a carefully engineered system prompt.`);
+    addMsg(`Assalam-o-Alaikum! I'm <b>DATTA</b> — running on a system prompt with live access to this session's telemetry.`);
     botTalk(2200);
     setTimeout(() => {
-      const m2 = addMsg(`I know his <b>projects &amp; impact numbers</b>, <b>skills</b>, <b>certifications</b> and <b>availability</b>. Ask anything — or tap a chip below.`);
+      addMsg(`Ask <b>"what do you know about me?"</b> — I'll read your numbers back. Or ask about Sajjad's case files.`);
       botTalk(2200);
     }, 500);
     chatBooted = true;
@@ -1190,10 +1180,160 @@ document.querySelectorAll("[data-ask]").forEach(btn => {
 document.addEventListener("keydown", e => { if (e.key === "Escape") { closeChat(); closeDrawer(); } });
 
 
+// ─────────────── TELEMETRY ENGINE (the concept) ───────────────
+function logEvent(type, label) {
+  T.events++;
+  const log = $("hudLog");
+  if (!log) return;
+  const line = document.createElement("div");
+  line.className = "hud-log-line";
+  const ts = new Date().toLocaleTimeString("en-GB", { hour12: false });
+  line.innerHTML = `<span class="t">[${ts}]</span> <b>${type}</b> · ${label}`;
+  log.insertBefore(line, log.firstChild);
+  while (log.children.length > 14) log.removeChild(log.lastChild);
+}
+
+(function telemetry() {
+  // visitor ID
+  const idEl = $("hudId");
+  if (idEl) idEl.textContent = T.id;
+
+  // clicks
+  document.addEventListener("click", e => {
+    T.clicks++;
+    const t = e.target.closest("a,button");
+    if (t) logEvent("click", (t.textContent || "element").trim().slice(0, 34));
+  });
+
+  // cursor distance + hud events counter
+  document.addEventListener("mousemove", e => {
+    if (T.lastX !== null) T.dist += Math.hypot(e.clientX - T.lastX, e.clientY - T.lastY);
+    T.lastX = e.clientX; T.lastY = e.clientY;
+  }, { passive: true });
+
+  // scroll depth + sections
+  const secIds = ["projects", "experiment", "dossier", "sql-playground", "experience", "report", "assistant"];
+  window.addEventListener("scroll", () => {
+    const h = document.documentElement;
+    const depth = h.scrollTop / (h.scrollHeight - h.clientHeight) * 100;
+    if (depth > T.maxScroll) T.maxScroll = depth;
+    secIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top < window.innerHeight * .5) T.sections.add(id);
+    });
+  }, { passive: true });
+
+  // seeded log lines (feels alive immediately)
+  logEvent("session", "visitor assigned ID");
+  setTimeout(() => logEvent("telemetry", "scroll/click tracking online"), 1200);
+  setTimeout(() => logEvent("system", "session report armed"), 2600);
+
+  // HUD tick
+  setInterval(() => {
+    const t = tMinutes();
+    const el = $("hudTime");
+    if (el) el.textContent = fmtTime(t);
+    const sc = $("hudScroll");
+    if (sc) sc.textContent = Math.round(T.maxScroll) + "%";
+    const cl = $("hudClicks");
+    if (cl) cl.textContent = T.clicks;
+    const ev = $("hudEvents");
+    if (ev) ev.textContent = T.events + T.msgs;
+    const di = $("hudDist");
+    if (di) di.textContent = Math.round(T.dist).toLocaleString();
+  }, 1000);
+
+  // report tick
+  setInterval(() => {
+    const map = { rptTime: fmtTime(tMinutes()), rptScroll: Math.round(T.maxScroll) + "%", rptClicks: T.clicks, rptDist: Math.round(T.dist).toLocaleString(), rptSections: T.sections.size + "/7", rptScore: engagementScore() };
+    for (const k in map) { const el = $(k); if (el) el.textContent = map[k]; }
+    const rid = $("rptId");
+    if (rid) rid.textContent = T.id;
+    const st = $("rptStamp");
+    if (st) st.textContent = new Date().toLocaleString("en-GB", { hour12: false });
+    renderVerdict();
+  }, 1500);
+
+  function renderVerdict() {
+    const box = $("rptVerdict");
+    if (!box) return;
+    const s = engagementScore(), sc = Math.round(T.maxScroll), secs = T.sections.size;
+    const lines = [];
+    if (T.maxScroll >= 95) lines.push(`Visitor completed a <b>full-page scroll</b> (${sc}%) — thorough reviewer profile.`);
+    else if (T.maxScroll >= 60) lines.push(`Scroll depth <b>${sc}%</b> — past the case files, into the evidence zone.`);
+    else lines.push(`Scroll depth <b>${sc}%</b> — hero-stage visitor. The good stuff is below.`);
+    if (T.clicks >= 5) lines.push(`<b>${T.clicks} interactions</b> — hands-on visitor. Probably tested the SQL playground.`);
+    else if (T.clicks >= 1) lines.push(`<b>${T.clicks} interaction(s)</b> logged.`);
+    if (T.variant) lines.push(`A/B variant <b>${T.variant}</b> chosen — participates in experiments. Analyst-brain detected.`);
+    if (secs >= 6) lines.push(`<b>${secs}/7 sections</b> viewed — comprehensive scan.`);
+    if (s >= 70) lines.push(`Engagement <b>${s}/100</b> — strong hiring-manager signal. Sajjad should email <i>you</i>.`);
+    else if (s >= 40) lines.push(`Engagement <b>${s}/100</b> — genuine interest, healthy session.`);
+    else lines.push(`Engagement <b>${s}/100</b> and climbing — keep scrolling, the report updates.`);
+    box.innerHTML = lines.map(l => `<div class="verdict-line"><span class="vd">›</span><span>${l}</span></div>`).join("");
+  }
+})();
+
+// ─────────────── A/B EXPERIMENT ───────────────
+(function experiment() {
+  const KEY = "ab_votes_v1";
+  function getVotes() {
+    try { return JSON.parse(localStorage.getItem(KEY)) || { A: 41, B: 47 }; }
+    catch (e) { return { A: 41, B: 47 }; }
+  }
+  const sides = document.querySelectorAll(".exp-side");
+  const result = $("expResult");
+  sides.forEach(side => {
+    const pick = side.querySelector(".pick");
+    if (!pick) return;
+    pick.addEventListener("click", () => {
+      if (T.variant) return toast("Already voted — one vote per session 🧪");
+      T.variant = side.dataset.variant;
+      T.clicks++;
+      const votes = getVotes();
+      votes[T.variant]++;
+      localStorage.setItem(KEY, JSON.stringify(votes));
+      sides.forEach(s => s.classList.toggle("chosen", s === side));
+      showResult(votes, T.variant, true);
+      logEvent("experiment", `variant ${T.variant} picked`);
+    });
+  });
+  // reveal existing results when scrolled into view
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting) { showResult(getVotes(), null, false); io.disconnect(); } });
+  }, { threshold: .3 });
+  const panel = document.querySelector(".exp-panel");
+  if (panel) io.observe(panel);
+
+  function showResult(votes, mine, fresh) {
+    if (!result) return;
+    result.classList.add("show");
+    const total = votes.A + votes.B;
+    const pa = Math.round(votes.A / total * 100), pb = 100 - pa;
+    $("barA").style.height = Math.max(8, pa) + "%";
+    $("barB").style.height = Math.max(8, pb) + "%";
+    $("barA").querySelector("span").textContent = pa + "%";
+    $("barB").querySelector("span").textContent = pb + "%";
+    const msg = $("expMsg");
+    if (fresh) {
+      msg.innerHTML = `<b>Voting logged — you're the ${total}th participant.</b> You picked <b>${mine}</b>. Live tally: A=${votes.A} (${pa}%) vs B=${votes.B} (${pb}%). ${pb > pa ? "Variant B (ego CTA) is winning — hypothesis holding." : "Variant A (classic CTA) is winning — hypothesis rejected. See? Analytics doesn't care about feelings."}`;
+    } else {
+      msg.innerHTML = `Current tally from <b>${total} visitors</b>: A=${votes.A} (${pa}%) vs B=${votes.B} (${pb}%). ${mine ? "" : "Pick a variant above to add your vote — it counts."}`;
+    }
+  }
+  function toast(txt) {
+    const t = $("toast");
+    if (!t) return;
+    t.textContent = txt;
+    t.classList.add("show");
+    setTimeout(() => t.classList.remove("show"), 2600);
+  }
+  window.expToast = toast;
+})();
+
 // ─────────────── PRELOADER ───────────────
 (function preload() {
   const fill = $("preBarFill"), txt = $("preTxt"), box = $("preloader");
-  const steps = ["loading data…", "indexing 120K rows…", "rendering 3D scene…", "calibrating DATTA…", "ready"];
+  const steps = ["starting session…", "assigning visitor ID…", "calibrating telemetry…", "arming DATTA…", "ready — you're live"];
   let i = 0;
   const iv = setInterval(() => {
     i++;
@@ -1203,232 +1343,11 @@ document.addEventListener("keydown", e => { if (e.key === "Escape") { closeChat(
   }, 330);
 })();
 
-// ─────────────── THREE.JS 3D HERO ───────────────
-(function hero3D() {
-  const holder = $("hero3d");
-  if (!holder || !window.THREE) return;
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  const scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(0x05070d, 0.016);
-  const camera = new THREE.PerspectiveCamera(62, holder.clientWidth / holder.clientHeight, .1, 100);
-  camera.position.set(0, 1, 13);
-
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
-  renderer.setSize(holder.clientWidth, holder.clientHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  renderer.setClearColor(0x000000, 0);
-  holder.appendChild(renderer.domElement);
-
-  // ---- glowing data nodes ----
-  const nodeGeo = new THREE.SphereGeometry(0.13, 18, 18);
-  const nodeMat = new THREE.MeshBasicMaterial({ color: 0x67e8f9 });
-  const nodeGlowMat = new THREE.MeshBasicMaterial({ color: 0x22d3ee, transparent: true, opacity: .35 });
-  const nodes = [];
-  const N = 34;
-  for (let i = 0; i < N; i++) {
-    // points on a loose 3D grid band
-    const g = new THREE.Group();
-    const core = new THREE.Mesh(nodeGeo, nodeMat);
-    const halo = new THREE.Mesh(new THREE.SphereGeometry(0.24, 12, 12), nodeGlowMat);
-    g.add(core); g.add(halo);
-    g.position.set(
-      (Math.random() - .5) * 22,
-      (Math.random() - .5) * 10,
-      (Math.random() - .5) * 10 - 2
-    );
-    g.userData = { vx: (Math.random() - .5) * .008, vy: (Math.random() - .5) * .008, phase: Math.random() * 6.28 };
-    scene.add(g); nodes.push(g);
-  }
-
-  // ---- connection lines ----
-  const lineMat = new THREE.LineBasicMaterial({ color: 0x22d3ee, transparent: true, opacity: .16 });
-  const MAXD = 6.2;
-  const linePool = [];
-  for (let i = 0; i < 90; i++) {
-    const geo = new THREE.BufferGeometry();
-    geo.setAttribute("position", new THREE.BufferAttribute(new Float32Array(6), 3));
-    const line = new THREE.Line(geo, lineMat);
-    line.visible = false;
-    scene.add(line); linePool.push(line);
-  }
-
-  // ---- floating grid floor ----
-  const grid = new THREE.GridHelper(46, 30, 0x155e75, 0x0b2a3a);
-  grid.material.transparent = true; grid.material.opacity = .35;
-  grid.position.y = -4.4;
-  scene.add(grid);
-
-  // ---- floating bar chart (3D data viz!) ----
-  const barGroup = new THREE.Group();
-  const barHts = [1.6, 2.3, 1.9, 3.0, 2.6, 3.8, 3.3, 4.4, 4.1, 5.2];
-  barHts.forEach((h, i) => {
-    const hue = 0.5 - i * 0.02;
-    const col = new THREE.Color().setHSL(hue < 0.45 ? .52 : hue, .75, .55);
-    const mat = new THREE.MeshBasicMaterial({ color: col, transparent: true, opacity: .8 });
-    const bar = new THREE.Mesh(new THREE.BoxGeometry(.45, h, .45), mat);
-    bar.position.set(-6.3 + i * 1.4, -4.2 + h / 2, -7.5);
-    bar.userData.baseH = h;
-    barGroup.add(bar);
-  });
-  scene.add(barGroup);
-
-  // ---- particles field ----
-  const pCount = 220;
-  const pGeo = new THREE.BufferGeometry();
-  const pPos = new Float32Array(pCount * 3);
-  for (let i = 0; i < pCount; i++) {
-    pPos[i * 3] = (Math.random() - .5) * 34;
-    pPos[i * 3 + 1] = (Math.random() - .5) * 16;
-    pPos[i * 3 + 2] = (Math.random() - .5) * 16 - 4;
-  }
-  pGeo.setAttribute("position", new THREE.BufferAttribute(pPos, 3));
-  const pMat = new THREE.PointsMaterial({ color: 0x8b5cf6, size: .07, transparent: true, opacity: .5 });
-  scene.add(new THREE.Points(pGeo, pMat));
-
-  // ---- interaction ----
-  let mx = 0, my = 0, tx = 0, ty = 0;
-  holder.parentElement.addEventListener("mousemove", e => {
-    const r = holder.getBoundingClientRect();
-    tx = ((e.clientX - r.left) / r.width - .5) * 2;
-    ty = ((e.clientY - r.top) / r.height - .5) * 2;
-  });
-
-  const clock = new THREE.Clock();
-  function animate() {
-    requestAnimationFrame(animate);
-    const t = clock.getElapsedTime();
-    if (!reduced) {
-      mx += (tx - mx) * .045; my += (ty - my) * .045;
-      camera.position.x = mx * 2.4;
-      camera.position.y = 1 - my * 1.5;
-      camera.lookAt(0, 0, -2);
-
-      nodes.forEach((g, i) => {
-        g.position.x += g.userData.vx;
-        g.position.y += Math.sin(t * .6 + g.userData.phase) * .004 + g.userData.vy;
-        if (g.position.x > 11) g.position.x = -11;
-        if (g.position.x < -11) g.position.x = 11;
-        if (g.position.y > 5.5) g.position.y = -5.5;
-        if (g.position.y < -5.5) g.position.y = 5.5;
-        g.children[0].scale.setScalar(1 + Math.sin(t * 2 + g.userData.phase) * .18);
-      });
-
-      // lines between close nodes
-      let li = 0;
-      for (let i = 0; i < nodes.length && li < linePool.length; i++) {
-        for (let j = i + 1; j < nodes.length && li < linePool.length; j++) {
-          const d = nodes[i].position.distanceTo(nodes[j].position);
-          if (d < MAXD) {
-            const line = linePool[li++];
-            const pos = line.geometry.attributes.position.array;
-            pos[0] = nodes[i].position.x; pos[1] = nodes[i].position.y; pos[2] = nodes[i].position.z;
-            pos[3] = nodes[j].position.x; pos[4] = nodes[j].position.y; pos[5] = nodes[j].position.z;
-            line.geometry.attributes.position.needsUpdate = true;
-            line.material.opacity = .18 * (1 - d / MAXD);
-            line.visible = true;
-          }
-        }
-      }
-      for (; li < linePool.length; li++) linePool[li].visible = false;
-
-      // bars breathe
-      barGroup.children.forEach((b, i) => {
-        b.scale.y = 1 + Math.sin(t * 1.4 + i * .7) * .07;
-        b.position.y = -4.2 + (b.userData.baseH * b.scale.y) / 2;
-      });
-
-      grid.position.z = (t * 1.4) % 1.6 - .8;
-    }
-    renderer.render(scene, camera);
-  }
-  animate();
-
-  window.addEventListener("resize", () => {
-    camera.aspect = holder.clientWidth / holder.clientHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(holder.clientWidth, holder.clientHeight);
-  });
-})();
-
-// ─────────────── SMOOTH SCROLL (buttery) ───────────────
-(function smoothScroll() {
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reduced) return;
-  let current = window.scrollY, target = window.scrollY;
-  let raf = null;
-  window.addEventListener("scroll", () => { target = window.scrollY; if (!raf) raf = requestAnimationFrame(step); }, { passive: true });
-  function step() {
-    current += (target - current) * .11;
-    if (Math.abs(target - current) < .4) { current = target; raf = null; return; }
-    window.scrollTo(0, current);
-    raf = requestAnimationFrame(step);
-  }
-})();
-
-// ─────────────── CUSTOM CURSOR ───────────────
-(function cursor() {
-  const dot = $("cursorDot"), ring = $("cursorRing");
-  if (!dot || !ring || window.matchMedia("(pointer:coarse)").matches) return;
-  let dx = -100, dy = -100, rx = -100, ry = -100;
-  document.addEventListener("mousemove", e => { dx = e.clientX; dy = e.clientY; });
-  document.addEventListener("mouseover", e => {
-    const t = e.target.closest("a,button,.card,.tool,input,textarea,.sq,.cq");
-    ring.classList.toggle("hovering", !!t);
-  });
-  document.addEventListener("mousedown", () => ring.classList.add("clicking"));
-  document.addEventListener("mouseup", () => ring.classList.remove("clicking"));
-  (function loop() {
-    rx += (dx - rx) * .18; ry += (dy - ry) * .18;
-    dot.style.transform = `translate(${dx}px,${dy}px) translate(-50%,-50%)`;
-    ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`;
-    requestAnimationFrame(loop);
-  })();
-})();
-
-// ─────────────── 3D TILT CARDS (glare follows pointer) ───────────────
-(function tiltCards() {
-  if (window.matchMedia("(pointer:coarse)").matches) return;
-  document.querySelectorAll(".card").forEach(card => {
-    card.addEventListener("mousemove", e => {
-      const r = card.getBoundingClientRect();
-      const px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
-      const rx = (py - .5) * -10, ry = (px - .5) * 10;
-      card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
-      card.style.setProperty("--gx", px * 100 + "%");
-      card.style.setProperty("--gy", py * 100 + "%");
-    });
-    card.addEventListener("mouseleave", () => { card.style.transform = ""; });
-  });
-})();
-
-// ─────────────── MAGNETIC BUTTONS ───────────────
-(function magnetic() {
-  if (window.matchMedia("(pointer:coarse)").matches) return;
-  document.querySelectorAll(".btn, .nav-cta, .chat-fab").forEach(el => {
-    el.addEventListener("mousemove", e => {
-      const r = el.getBoundingClientRect();
-      const mx = e.clientX - r.left - r.width / 2, my = e.clientY - r.top - r.height / 2;
-      el.style.transform = `translate(${mx * .22}px,${my * .22}px)`;
-    });
-    el.addEventListener("mouseleave", () => { el.style.transform = ""; });
-  });
-})();
-
-// ─────────────── DRAWER ───────────────
-const drawer = $("drawer"), burger = $("burger");
-function openDrawer() { drawer.classList.add("open"); burger.classList.add("open"); document.body.style.overflow = "hidden"; }
-function closeDrawer() { drawer.classList.remove("open"); burger.classList.remove("open"); document.body.style.overflow = ""; }
-burger.addEventListener("click", () => drawer.classList.contains("open") ? closeDrawer() : openDrawer());
-$("drawerClose").addEventListener("click", closeDrawer);
-$("drawerCloseBtn").addEventListener("click", closeDrawer);
-drawer.querySelectorAll(".dlink, .drawer-cta").forEach(a => a.addEventListener("click", closeDrawer));
-
 // ─────────────── TYPING ───────────────
 (function typing() {
   const el = $("typeTarget");
   if (!el) return;
-  const phrases = ["Data Analyst", "SQL specialist", "Power BI developer", "Python storyteller", "A/B testing nerd", "Excel power user"];
+  const phrases = ["turning you into data", "counting your scroll", "measuring your intent", "logging your clicks", "computing engagement", "building your report"];
   let pi = 0, ci = 0, deleting = false;
   (function tick() {
     const word = phrases[pi];
@@ -1440,7 +1359,7 @@ drawer.querySelectorAll(".dlink, .drawer-cta").forEach(a => a.addEventListener("
   })();
 })();
 
-// ─────────────── THEME ───────────────
+// ─────────────── THEME / DRAWER ───────────────
 (function theme() {
   const btn = $("themeBtn");
   const saved = localStorage.getItem("theme");
@@ -1452,191 +1371,62 @@ drawer.querySelectorAll(".dlink, .drawer-cta").forEach(a => a.addEventListener("
     document.documentElement.dataset.theme = next;
     localStorage.setItem("theme", next);
     sync();
+    logEvent("theme", "switched to " + next);
+  });
+})();
+const drawer = $("drawer"), burger = $("burger");
+function openDrawer() { drawer.classList.add("open"); burger.classList.add("open"); document.body.style.overflow = "hidden"; }
+function closeDrawer() { drawer.classList.remove("open"); burger.classList.remove("open"); document.body.style.overflow = ""; }
+burger.addEventListener("click", () => drawer.classList.contains("open") ? closeDrawer() : openDrawer());
+$("drawerClose").addEventListener("click", closeDrawer);
+$("drawerCloseBtn").addEventListener("click", closeDrawer);
+drawer.querySelectorAll(".dlink, .drawer-cta").forEach(a => a.addEventListener("click", closeDrawer));
+
+// ─────────────── 3D TILT CARDS ───────────────
+(function tiltCards() {
+  if (window.matchMedia("(pointer:coarse)").matches) return;
+  document.querySelectorAll(".case").forEach(card => {
+    card.addEventListener("mousemove", e => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+      const rx = (py - .5) * -9, ry = (px - .5) * 9;
+      card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
+      card.style.setProperty("--gx", px * 100 + "%");
+      card.style.setProperty("--gy", py * 100 + "%");
+    });
+    card.addEventListener("mouseleave", () => { card.style.transform = ""; });
   });
 })();
 
-// ─────────────── PROJECT FILTER ───────────────
-(function filters() {
-  const bar = $("filterBar");
-  if (!bar) return;
-  bar.addEventListener("click", e => {
-    const btn = e.target.closest(".fbtn");
-    if (!btn) return;
-    bar.querySelectorAll(".fbtn").forEach(b => b.classList.toggle("is-active", b === btn));
-    const f = btn.dataset.f;
-    document.querySelectorAll("#projGrid .card").forEach(c => c.classList.toggle("hide", f !== "all" && c.dataset.cat !== f));
-  });
-})();
-
-// ─────────────── TESTIMONIALS ───────────────
-(function testimonials() {
-  const track = $("tstTrack"), dotsBox = $("tstDots");
-  if (!track) return;
-  const n = track.children.length;
-  let cur = 0;
-  for (let i = 0; i < n; i++) {
-    const d = document.createElement("span");
-    d.className = "tst-dot" + (i === 0 ? " is-active" : "");
-    d.addEventListener("click", () => go(i));
-    dotsBox.appendChild(d);
-  }
-  function go(i) {
-    cur = (i + n) % n;
-    track.style.transform = `translateX(-${cur * 100}%)`;
-    dotsBox.querySelectorAll(".tst-dot").forEach((d, k) => d.classList.toggle("is-active", k === cur));
-  }
-  let timer = setInterval(() => go(cur + 1), 5200);
-  track.parentElement.addEventListener("mouseenter", () => clearInterval(timer));
-  track.parentElement.addEventListener("mouseleave", () => timer = setInterval(() => go(cur + 1), 5200));
-})();
-
-// ─────────────── LIVE DASHBOARD ───────────────
-(function dashboard() {
-  const fmtM = n => "$" + (n / 1e6).toFixed(2) + "M";
-  const fmtK = n => Math.round(n).toLocaleString();
-  const rnd = (a, b) => a + Math.random() * (b - a);
-  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-  let revenue, orders;
-  function regen() {
-    revenue = months.map((_, i) => 380000 + i * 26000 + rnd(-45000, 55000));
-    orders = revenue.map(r => Math.round(r / rnd(78, 92)));
-  }
-  regen();
-  const cats = [
-    { name: "Electronics", val: 38, col: "#22d3ee" },
-    { name: "Apparel", val: 27, col: "#2dd4bf" },
-    { name: "Home", val: 20, col: "#8b5cf6" },
-    { name: "Beauty", val: 15, col: "#fbbf24" }
-  ];
-  function animNum(el, target, fmt, dur) {
-    const t0 = performance.now();
-    (function step(t) {
-      const p = Math.min((t - t0) / dur, 1);
-      el.textContent = fmt(target * (1 - Math.pow(1 - p, 3)));
-      if (p < 1) requestAnimationFrame(step);
-    })(t0);
-  }
-  function kpis() {
-    const rev = revenue.reduce((a, b) => a + b, 0);
-    const ord = orders.reduce((a, b) => a + b, 0);
-    animNum($("kpiRev"), rev, v => "$" + (v / 1e6).toFixed(2) + "M", 1200);
-    animNum($("kpiOrd"), ord, v => Math.round(v).toLocaleString(), 1200);
-    animNum($("kpiAov"), rev / ord, v => "$" + v.toFixed(2), 1200);
-    $("kpiRevD").textContent = "▲ +" + rnd(8, 16).toFixed(1) + "%";
-    $("kpiOrdD").textContent = "▲ +" + rnd(5, 12).toFixed(1) + "%";
-    const aovUp = Math.random() > .5;
-    $("kpiAovD").textContent = (aovUp ? "▲ +" : "▼ −") + rnd(.5, 3).toFixed(1) + "%";
-    $("kpiAovD").className = "delta " + (aovUp ? "up" : "down");
-    $("kpiChn").textContent = rnd(3.2, 4.8).toFixed(1) + "%";
-  }
-  function drawTrend() {
-    const cv = $("chartTrend");
-    const light = document.documentElement.dataset.theme === "light";
-    const txtCol = light ? "#3b4a66" : "#a8b6d1", gridCol = light ? "rgba(59,74,102,.15)" : "rgba(148,163,184,.14)";
-    const dpr = window.devicePixelRatio || 1;
-    const w = cv.clientWidth, h = 240;
-    cv.width = w * dpr; cv.height = h * dpr;
-    const ctx = cv.getContext("2d");
-    ctx.scale(dpr, dpr);
-    const pad = { l: 44, r: 14, t: 14, b: 26 };
-    const min = Math.min(...revenue) * .96, max = Math.max(...revenue) * 1.04;
-    const X = i => pad.l + i * (w - pad.l - pad.r) / 11;
-    const Y = v => pad.t + (1 - (v - min) / (max - min)) * (h - pad.t - pad.b);
-    ctx.clearRect(0, 0, w, h);
-    ctx.strokeStyle = gridCol; ctx.lineWidth = 1;
-    for (let g = 0; g <= 4; g++) {
-      const y = pad.t + g * (h - pad.t - pad.b) / 4;
-      ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(w - pad.r, y); ctx.stroke();
-      ctx.fillStyle = txtCol; ctx.font = "10px JetBrains Mono, monospace";
-      ctx.fillText("$" + Math.round((max - (g / 4) * (max - min)) / 1000) + "K", 4, y + 3);
-    }
-    const grad = ctx.createLinearGradient(0, pad.t, 0, h);
-    grad.addColorStop(0, "rgba(34,211,238,.24)");
-    grad.addColorStop(1, "rgba(34,211,238,0)");
-    ctx.beginPath();
-    revenue.forEach((v, i) => i === 0 ? ctx.moveTo(X(0), Y(v)) : ctx.lineTo(X(i), Y(v)));
-    ctx.lineTo(X(11), h - pad.b); ctx.lineTo(X(0), h - pad.b); ctx.closePath();
-    ctx.fillStyle = grad; ctx.fill();
-    ctx.beginPath();
-    revenue.forEach((v, i) => i === 0 ? ctx.moveTo(X(0), Y(v)) : ctx.lineTo(X(i), Y(v)));
-    ctx.strokeStyle = "#22d3ee"; ctx.lineWidth = 2.5; ctx.lineJoin = "round"; ctx.stroke();
-    revenue.forEach((v, i) => {
-      ctx.beginPath(); ctx.arc(X(i), Y(v), 3.2, 0, 7);
-      ctx.fillStyle = light ? "#eef2f9" : "#0b1120"; ctx.fill();
-      ctx.strokeStyle = "#22d3ee"; ctx.lineWidth = 2; ctx.stroke();
-    });
-    ctx.fillStyle = txtCol; ctx.font = "9.5px JetBrains Mono, monospace";
-    months.forEach((m, i) => ctx.fillText(m, X(i) - 9, h - 8));
-  }
-  function drawDonut() {
-    const cv = $("chartDonut");
-    const light = document.documentElement.dataset.theme === "light";
-    const txtCol = light ? "#3b4a66" : "#a8b6d1", subCol = light ? "#64748b" : "#5f6f8d";
-    const dpr = window.devicePixelRatio || 1;
-    const w = cv.clientWidth, h = 240;
-    cv.width = w * dpr; cv.height = h * dpr;
-    const ctx = cv.getContext("2d");
-    ctx.scale(dpr, dpr);
-    ctx.clearRect(0, 0, w, h);
-    const cx = w * .34, cy = h / 2, R = Math.min(w, h) * .33, r = R * .6;
-    let a0 = -Math.PI / 2;
-    cats.forEach(c => {
-      const a1 = a0 + c.val / 100 * Math.PI * 2;
-      ctx.beginPath();
-      ctx.arc(cx, cy, R, a0, a1);
-      ctx.arc(cx, cy, r, a1, a0, true);
-      ctx.closePath();
-      ctx.fillStyle = c.col; ctx.fill();
-      a0 = a1;
-    });
-    ctx.fillStyle = light ? "#0d1526" : "#e8eefb"; ctx.font = "700 18px Space Grotesk, sans-serif"; ctx.textAlign = "center";
-    ctx.fillText("4", cx, cy - 1);
-    ctx.fillStyle = subCol; ctx.font = "10px JetBrains Mono, monospace";
-    ctx.fillText("categories", cx, cy + 15);
-    ctx.textAlign = "left";
-    const lx = w * .62;
-    cats.forEach((c, i) => {
-      const ly = h / 2 - 44 + i * 27;
-      ctx.fillStyle = c.col; ctx.beginPath(); ctx.roundRect(lx, ly, 11, 11, 3); ctx.fill();
-      ctx.fillStyle = txtCol; ctx.font = "11px JetBrains Mono, monospace";
-      ctx.fillText(c.name, lx + 18, ly + 9);
-      ctx.fillStyle = subCol;
-      ctx.fillText(c.val + "%", lx + 18, ly + 22);
-    });
-  }
-  kpis(); drawTrend(); drawDonut();
-  window.addEventListener("resize", () => { drawTrend(); drawDonut(); });
-  const pb = $("demoPeriod");
-  if (pb) pb.addEventListener("click", () => { regen(); kpis(); drawTrend(); });
-})();
-
-// ─────────────── SQL PLAYGROUND ───────────────
+// ─────────────── SQL CAREER PLAYGROUND ───────────────
 (function sqlPlayground() {
   const TABLES = {
-    products: [
-      { product_id: 1, product_name: "Wireless Mouse", category: "Electronics", price: 29.99, units_sold: 1520, revenue: 45584.80 },
-      { product_id: 2, product_name: "USB-C Hub", category: "Electronics", price: 49.99, units_sold: 890, revenue: 44491.10 },
-      { product_id: 3, product_name: "Cotton T-Shirt", category: "Apparel", price: 14.99, units_sold: 3200, revenue: 47968.00 },
-      { product_id: 4, product_name: "Denim Jeans", category: "Apparel", price: 59.99, units_sold: 1150, revenue: 68988.50 },
-      { product_id: 5, product_name: "Coffee Maker", category: "Home", price: 89.99, units_sold: 640, revenue: 57593.60 },
-      { product_id: 6, product_name: "Desk Lamp", category: "Home", price: 34.99, units_sold: 980, revenue: 34290.20 },
-      { product_id: 7, product_name: "Face Serum", category: "Beauty", price: 24.99, units_sold: 2100, revenue: 52479.00 },
-      { product_id: 8, product_name: "Lipstick Set", category: "Beauty", price: 19.99, units_sold: 1750, revenue: 34982.50 },
-      { product_id: 9, product_name: "Mechanical Keyboard", category: "Electronics", price: 119.99, units_sold: 430, revenue: 51595.70 },
-      { product_id: 10, product_name: "Running Shoes", category: "Apparel", price: 79.99, units_sold: 860, revenue: 68791.40 }
+    projects: [
+      { id: 1, case_file: "CASE-001", name: "Sales Command Center", category: "bi", tool: "Power BI", impact_metric: "reporting_time", impact_pct: -65, stakeholders: 6 },
+      { id: 2, case_file: "CASE-002", name: "Retail Data Warehouse", category: "sql", tool: "SQL Server", impact_metric: "query_time", impact_pct: -80, stakeholders: 12 },
+      { id: 3, case_file: "CASE-003", name: "Churn Prediction Model", category: "ml", tool: "Python/sklearn", impact_metric: "churn_rate", impact_pct: -15, stakeholders: 5 },
+      { id: 4, case_file: "CASE-004", name: "Financial Modeling Suite", category: "excel", tool: "Excel/Power Query", impact_metric: "close_days", impact_pct: -60, stakeholders: 4 },
+      { id: 5, case_file: "CASE-005", name: "Marketing Analytics", category: "bi", tool: "SQL + Power BI", impact_metric: "cac", impact_pct: -18, stakeholders: 3 },
+      { id: 6, case_file: "CASE-006", name: "A/B Testing Framework", category: "stats", tool: "Python/statsmodels", impact_metric: "conversion", impact_pct: 9, stakeholders: 8 }
     ],
-    orders: [
-      { order_id: 101, product_id: 1, qty: 2, month: "Jan" }, { order_id: 102, product_id: 3, qty: 5, month: "Jan" },
-      { order_id: 103, product_id: 4, qty: 1, month: "Feb" }, { order_id: 104, product_id: 7, qty: 3, month: "Feb" },
-      { order_id: 105, product_id: 2, qty: 2, month: "Feb" }, { order_id: 106, product_id: 5, qty: 1, month: "Mar" },
-      { order_id: 107, product_id: 9, qty: 1, month: "Mar" }, { order_id: 108, product_id: 3, qty: 8, month: "Mar" },
-      { order_id: 109, product_id: 6, qty: 4, month: "Apr" }, { order_id: 110, product_id: 10, qty: 2, month: "Apr" }
+    skills: [
+      { skill: "Excel", level: 95, tier: "expert", years: 4 },
+      { skill: "SQL", level: 92, tier: "advanced", years: 4 },
+      { skill: "Power BI", level: 88, tier: "advanced", years: 3 },
+      { skill: "Python", level: 85, tier: "advanced", years: 3 },
+      { skill: "Statistics", level: 80, tier: "proficient", years: 2 },
+      { skill: "ML", level: 75, tier: "proficient", years: 2 }
+    ],
+    experience: [
+      { role: "Data Analyst", org: "E-commerce & Retail", start_year: 2025, end_year: 2026, wins: 3 },
+      { role: "Junior Data Analyst", org: "Retail Operations", start_year: 2023, end_year: 2025, wins: 2 },
+      { role: "B.S. Computer Science", org: "University", start_year: 2019, end_year: 2023, wins: 2 }
     ]
   };
   const QUERIES = [
-    "SELECT product_name, category, revenue\nFROM products\nORDER BY revenue DESC\nLIMIT 5",
-    "SELECT category, SUM(units_sold) AS total_units\nFROM products\nGROUP BY category\nORDER BY total_units DESC",
-    "SELECT category, COUNT(*) AS product_count\nFROM products\nWHERE price > 20\nGROUP BY category\nORDER BY product_count DESC"
+    "SELECT name, tool, impact_pct\nFROM projects\nORDER BY impact_pct ASC\nLIMIT 6",
+    "SELECT skill, level, tier\nFROM skills\nORDER BY level DESC",
+    "SELECT role, org, start_year\nFROM experience\nORDER BY start_year DESC"
   ];
   const ta = $("sqlText"), run = $("sqlRun"), tbl = $("sqlTable"), meta = $("sqlMeta"), tim = $("sqlTime");
   function setQ(i) { ta.value = QUERIES[i]; runQuery(); }
@@ -1645,6 +1435,7 @@ drawer.querySelectorAll(".dlink, .drawer-cta").forEach(a => a.addEventListener("
     if (!t) return;
     document.querySelectorAll(".sql-tab").forEach(x => x.classList.toggle("is-active", x === t));
     setQ(+t.dataset.q);
+    logEvent("sql", "sample query loaded");
   });
   run.addEventListener("click", runQuery);
   ta.addEventListener("keydown", e => { if (e.key === "Enter" && e.ctrlKey) runQuery(); });
@@ -1655,6 +1446,7 @@ drawer.querySelectorAll(".dlink, .drawer-cta").forEach(a => a.addEventListener("
       const rows = execSQL(sql);
       renderTable(rows);
       tim.textContent = (performance.now() - t0).toFixed(1) + " ms";
+      logEvent("sql", "query executed");
     } catch (err) {
       tbl.innerHTML = `<tr><td style="color:#fb7185">⚠ ${escapeHtml(err.message)}</td></tr>`;
       meta.textContent = "error"; tim.textContent = "";
@@ -1675,7 +1467,7 @@ drawer.querySelectorAll(".dlink, .drawer-cta").forEach(a => a.addEventListener("
   function execSQL(sql) {
     const s = sql.replace(/\s+/g, " ").trim();
     const m = s.match(/^SELECT (.+?) FROM (\w+)(?: WHERE (.+?))?(?: GROUP BY (\w+))?(?: ORDER BY (\w+)( DESC)?)?(?: LIMIT (\d+))?$/i);
-    if (!m) throw new Error("Unsupported syntax — try one of the example queries first.");
+    if (!m) throw new Error("Unsupported syntax — try a sample query first.");
     let [, selRaw, table, where, group, orderCol, desc, limit] = m;
     table = table.toLowerCase();
     if (!TABLES[table]) throw new Error(`Table '${table}' not found — available: ${Object.keys(TABLES).join(", ")}`);
@@ -1732,23 +1524,12 @@ drawer.querySelectorAll(".dlink, .drawer-cta").forEach(a => a.addEventListener("
   setQ(0);
 })();
 
-// ─────────────── REVEALS · COUNTERS · BARS · PROGRESS ───────────────
+// ─────────────── REVEALS · BARS · PROGRESS ───────────────
 (function motion() {
   const io = new IntersectionObserver(entries => {
     entries.forEach(en => {
       if (!en.isIntersecting) return;
       en.target.classList.add("in");
-      en.target.querySelectorAll?.("[data-count]").forEach(el => {
-        if (el.dataset.done) return;
-        el.dataset.done = "1";
-        const target = +el.dataset.count;
-        const t0 = performance.now();
-        (function tick(t) {
-          const p = Math.min((t - t0) / 1400, 1);
-          el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
-          if (p < 1) requestAnimationFrame(tick);
-        })(t0);
-      });
       io.unobserve(en.target);
     });
   }, { threshold: 0.12 });
@@ -1764,22 +1545,117 @@ drawer.querySelectorAll(".dlink, .drawer-cta").forEach(a => a.addEventListener("
   document.querySelectorAll(".bar").forEach(b => barIo.observe(b));
 
   const prog = $("progress"), toTop = $("toTop");
-  const navMap = {};
-  document.querySelectorAll(".nav-links a").forEach(a => navMap[a.getAttribute("href").slice(1)] = a);
   window.addEventListener("scroll", () => {
     const h = document.documentElement;
     prog.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + "%";
     toTop.classList.toggle("show", h.scrollTop > 500);
     let active = null;
-    Object.keys(navMap).forEach(id => {
-      const sec = document.getElementById(id);
-      if (sec && sec.getBoundingClientRect().top < 200) active = id;
+    document.querySelectorAll(".nav-links a").forEach(a => {
+      const sec = document.getElementById(a.getAttribute("href").slice(1));
+      if (sec && sec.getBoundingClientRect().top < 200) active = a;
     });
-    document.querySelectorAll(".nav-links a").forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + active));
+    document.querySelectorAll(".nav-links a").forEach(a => a.classList.toggle("active", a === active));
   }, { passive: true });
   toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 })();
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// ─────────────── 3D HERO (data network) ───────────────
+(function hero3D() {
+  const holder = $("hero3d");
+  if (!holder || !window.THREE) return;
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.FogExp2(0x05070d, 0.016);
+  const camera = new THREE.PerspectiveCamera(62, holder.clientWidth / holder.clientHeight, .1, 100);
+  camera.position.set(0, 1, 13);
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+  renderer.setSize(holder.clientWidth, holder.clientHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  holder.appendChild(renderer.domElement);
+
+  // nodes = "visitors" being tracked
+  const nodes = [];
+  for (let i = 0; i < 30; i++) {
+    const g = new THREE.Group();
+    const core = new THREE.Mesh(new THREE.SphereGeometry(.13, 16, 16), new THREE.MeshBasicMaterial({ color: 0x67e8f9 }));
+    const halo = new THREE.Mesh(new THREE.SphereGeometry(.24, 12, 12), new THREE.MeshBasicMaterial({ color: 0x22d3ee, transparent: true, opacity: .3 }));
+    g.add(core); g.add(halo);
+    g.position.set((Math.random() - .5) * 22, (Math.random() - .5) * 10, (Math.random() - .5) * 10 - 2);
+    g.userData = { vx: (Math.random() - .5) * .008, vy: (Math.random() - .5) * .008, phase: Math.random() * 6.28 };
+    scene.add(g); nodes.push(g);
+  }
+  const lineMat = new THREE.LineBasicMaterial({ color: 0x22d3ee, transparent: true, opacity: .15 });
+  const linePool = [];
+  for (let i = 0; i < 80; i++) {
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute("position", new THREE.BufferAttribute(new Float32Array(6), 3));
+    const line = new THREE.Line(geo, lineMat);
+    line.visible = false;
+    scene.add(line); linePool.push(line);
+  }
+  const grid = new THREE.GridHelper(46, 30, 0x155e75, 0x0b2a3a);
+  grid.material.transparent = true; grid.material.opacity = .32;
+  grid.position.y = -4.4;
+  scene.add(grid);
+  // one highlighted node = YOU
+  const you = new THREE.Mesh(new THREE.SphereGeometry(.34, 20, 20), new THREE.MeshBasicMaterial({ color: 0xa78bfa }));
+  you.position.set(2.6, .8, -1);
+  scene.add(you);
+  const youHalo = new THREE.Mesh(new THREE.SphereGeometry(.6, 16, 16), new THREE.MeshBasicMaterial({ color: 0x8b5cf6, transparent: true, opacity: .22 }));
+  you.add(youHalo);
+
+  let mx = 0, my = 0, tx = 0, ty = 0;
+  holder.parentElement.addEventListener("mousemove", e => {
+    const r = holder.getBoundingClientRect();
+    tx = ((e.clientX - r.left) / r.width - .5) * 2;
+    ty = ((e.clientY - r.top) / r.height - .5) * 2;
+  });
+  const clock = new THREE.Clock();
+  (function animate() {
+    requestAnimationFrame(animate);
+    const t = clock.getElapsedTime();
+    if (!reduced) {
+      mx += (tx - mx) * .045; my += (ty - my) * .045;
+      camera.position.x = mx * 2.4;
+      camera.position.y = 1 - my * 1.5;
+      camera.lookAt(0, 0, -2);
+      nodes.forEach(g => {
+        g.position.x += g.userData.vx;
+        g.position.y += Math.sin(t * .6 + g.userData.phase) * .004 + g.userData.vy;
+        if (g.position.x > 11) g.position.x = -11;
+        if (g.position.x < -11) g.position.x = 11;
+        if (g.position.y > 5.5) g.position.y = -5.5;
+        if (g.position.y < -5.5) g.position.y = 5.5;
+      });
+      let li = 0;
+      for (let i = 0; i < nodes.length && li < linePool.length; i++) {
+        for (let j = i + 1; j < nodes.length && li < linePool.length; j++) {
+          const d = nodes[i].position.distanceTo(nodes[j].position);
+          if (d < 6) {
+            const line = linePool[li++];
+            const pos = line.geometry.attributes.position.array;
+            pos[0] = nodes[i].position.x; pos[1] = nodes[i].position.y; pos[2] = nodes[i].position.z;
+            pos[3] = nodes[j].position.x; pos[4] = nodes[j].position.y; pos[5] = nodes[j].position.z;
+            line.geometry.attributes.position.needsUpdate = true;
+            line.material.opacity = .16 * (1 - d / 6);
+            line.visible = true;
+          }
+        }
+      }
+      for (; li < linePool.length; li++) linePool[li].visible = false;
+      you.scale.setScalar(1 + Math.sin(t * 1.6) * .1);
+      grid.position.z = (t * 1.4) % 1.6 - .8;
+    }
+    renderer.render(scene, camera);
+  })();
+  window.addEventListener("resize", () => {
+    camera.aspect = holder.clientWidth / holder.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(holder.clientWidth, holder.clientHeight);
+  });
+})();
+</script>
 </body>
 </html>
