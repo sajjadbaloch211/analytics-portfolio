@@ -435,10 +435,18 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
 /* ---------- reveals / responsive ---------- */
 .rv{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .rv.in{opacity:1;transform:none}
+
+/* ===== Tablet ===== */
 @media(max-width:1000px){
-  .hero-grid{grid-template-columns:1fr;gap:30px}
+  .hero-grid{grid-template-columns:1fr;gap:36px}
+  .hero{padding:150px 0 80px}
   .skills-grid,.contact-grid{grid-template-columns:1fr}
   .hud-kpis{grid-template-columns:repeat(3,1fr)}
+  .hero-left{text-align:center;display:flex;flex-direction:column;align-items:center}
+  .hero-sub{margin:0 auto}
+  .profile-card{margin:0 auto 24px}
+  .hero-btns{justify-content:center}
+  .hero-tags{justify-content:center}
 }
 @media(max-width:860px){
   .nav-links,.nav-cta{display:none}
@@ -447,17 +455,70 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
   .exp-divider{display:none}
   .exp-side{border-bottom:1px solid var(--glass-border)}
 }
-@media(max-width:520px){
-  section{padding:60px 0}
-  .hero{padding:128px 0 66px;min-height:auto}
-  .hud-kpis{grid-template-columns:repeat(3,1fr)}
-  .hud-kpi .val{font-size:1.1rem}
-  .chat-panel{right:12px;bottom:12px;height:min(580px,calc(100vh - 60px))}
-  .chat-fab{right:16px;bottom:16px}
-  .to-top{left:14px;bottom:14px}
-  .nav-inner{margin:8px 12px 0;padding:0 14px}
-  .sql-code{flex-direction:column}
-  .report-body{grid-template-columns:repeat(2,1fr)}
+
+/* ===== Mobile ===== */
+@media(max-width:640px){
+  section{padding:64px 0}
+  .hero{padding:118px 0 58px;min-height:auto}
+  .hero h1{font-size:2.15rem;line-height:1.1}
+  .hero-sub{font-size:.95rem}
+  .typing-row{font-size:.98rem}
+  .profile-card{width:150px;height:150px;border-radius:18px}
+  .profile-ring{inset:-8px;border-radius:24px}
+  .profile-tag{font-size:.56rem;padding:6px 12px;bottom:-12px}
+  .hud-kpi{padding:12px 8px}
+  .hud-kpi .val{font-size:1.12rem}
+  .hud-kpi .lbl{font-size:.55rem}
+  .hud-kpi .sub{display:none}
+  .hud-log{height:92px;font-size:.62rem}
+  .hud-head{padding:11px 14px}
+  .hero-btns{flex-direction:column;width:100%;gap:11px}
+  .hero-btns .btn{width:100%;justify-content:center;padding:15px 20px}
+  .hero-tags{gap:8px}
+  .hero-tags .chip{font-size:.66rem;padding:6px 11px}
+  .chat-panel{right:8px;bottom:8px;width:calc(100vw - 16px);height:min(620px,calc(100dvh - 36px));border-radius:20px}
+  .chat-fab{right:14px;bottom:14px;width:58px;height:58px}
+  .chat-fab .fab-bot{width:40px;height:40px}
+  .to-top{left:14px;bottom:14px;width:42px;height:42px}
+  .nav-inner{margin:8px 10px 0;padding:0 12px;height:60px}
+  .sql-code{flex-direction:column;padding:16px}
+  .sql-editor textarea{min-height:130px}
+  .report-body{grid-template-columns:repeat(2,1fr);gap:12px;padding:18px}
+  .r-kpi{padding:14px 8px}
+  .r-kpi .val{font-size:1.35rem}
+  .exp-side{padding:22px 18px}
+  .exp-side h3{font-size:1.28rem}
+  .exp-head{padding:14px 18px;flex-wrap:wrap;gap:6px}
+  .sec-title{font-size:1.65rem}
+  .sec-sub{font-size:.9rem}
+  .bot-teaser{padding:30px 18px}
+  .panel{padding:22px 18px}
+  .case{padding:20px 18px}
+  .cert{padding:16px}
+  .drawer-panel{padding:22px 18px}
+  .report-head{padding:16px 18px;flex-wrap:wrap}
+  .report-head h3{font-size:1rem}
+  .report-verdict{padding:16px 18px}
+  .report-cta{padding:0 18px 18px;flex-direction:column}
+  .report-cta .btn{width:100%;justify-content:center}
+  .wrap{padding:0 18px}
+}
+/* ===== Small phones ===== */
+@media(max-width:380px){
+  .hero h1{font-size:1.9rem}
+  .hud-kpi .val{font-size:.95rem}
+  .hero-tags .chip{font-size:.6rem}
+  .r-kpi .val{font-size:1.15rem}
+  .sec-title{font-size:1.5rem}
+  .brand{font-size:.88rem}
+}
+/* ===== Mobile chat fullscreen keyboard fix ===== */
+@media(max-width:640px){
+  .chat-panel.open{height:min(620px,calc(100dvh - 36px))}
+  .chat-log{padding:14px}
+  .msg{max-width:92%;font-size:.85rem}
+  .chat-quick{padding:10px 14px 0}
+  .chat-input{padding:12px 14px}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
@@ -1565,18 +1626,20 @@ drawer.querySelectorAll(".dlink, .drawer-cta").forEach(a => a.addEventListener("
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-// ─────────────── 3D HERO (cinematic data scene) ───────────────
+// ─────────────── 3D HERO (cinematic data scene, mobile-tuned) ───────────────
 (function hero3D() {
   const holder = $("hero3d");
   if (!holder || !window.THREE) return;
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const isMobile = window.matchMedia("(max-width: 640px)").matches || /Android|iPhone|iPad|Mobi/i.test(navigator.userAgent);
   const scene = new THREE.Scene();
   scene.fog = new THREE.FogExp2(0x05070d, 0.014);
-  const camera = new THREE.PerspectiveCamera(62, holder.clientWidth / holder.clientHeight, .1, 120);
-  camera.position.set(0, 1.2, 13);
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+  const camera = new THREE.PerspectiveCamera(isMobile ? 74 : 62, holder.clientWidth / holder.clientHeight, .1, 120);
+  if (isMobile) camera.position.set(0, 1.4, 16.5);
+  else camera.position.set(0, 1.2, 13);
+  const renderer = new THREE.WebGLRenderer({ antialias: !isMobile, alpha: true, powerPreference: "high-performance" });
   renderer.setSize(holder.clientWidth, holder.clientHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
   holder.appendChild(renderer.domElement);
 
   // ---- 1. holographic orbit rings (3 tilted) ----
@@ -1607,7 +1670,7 @@ drawer.querySelectorAll(".dlink, .drawer-cta").forEach(a => a.addEventListener("
     wrap.add(spark);
     ring.userData.spark = spark;
   });
-  ringGroup.position.set(1.5, .6, -2);
+  ringGroup.position.set(isMobile ? 0 : 1.5, .6, -2);
   scene.add(ringGroup);
 
   // ---- 2. central rotating data hexagon ----
@@ -1619,19 +1682,21 @@ drawer.querySelectorAll(".dlink, .drawer-cta").forEach(a => a.addEventListener("
   hexGroup.add(hex1); hexGroup.add(hex2);
   const core = new THREE.Mesh(new THREE.SphereGeometry(.55, 20, 20), new THREE.MeshBasicMaterial({ color: 0x67e8f9 }));
   hexGroup.add(core);
-  hexGroup.position.set(1.5, .6, -2);
+  hexGroup.position.set(isMobile ? 0 : 1.5, .6, -2);
   scene.add(hexGroup);
 
-  // ---- 3. floating bar city (3D data viz, breathing) ----
+  // ---- 3. floating bar city (3D data viz, breathing; centered on mobile) ----
   const barGroup = new THREE.Group();
-  const barHts = [1.4, 2.1, 1.7, 2.9, 2.4, 3.6, 3.1, 4.3, 3.9, 5.0, 4.6, 5.6, 5.2, 6.1];
+  const barHts = isMobile ? [1.4, 2.1, 1.7, 2.9, 2.4, 3.6, 3.1, 4.3] : [1.4, 2.1, 1.7, 2.9, 2.4, 3.6, 3.1, 4.3, 3.9, 5.0, 4.6, 5.6, 5.2, 6.1];
   barHts.forEach((h, i) => {
     const col = new THREE.Color().setHSL(.52 - i * .012, .8, .5 + Math.sin(i) * .08);
     const bar = new THREE.Mesh(
       new THREE.BoxGeometry(.4, h, .4),
       new THREE.MeshBasicMaterial({ color: col, transparent: true, opacity: .78 })
     );
-    bar.position.set(-9 + i * 1.35, -4.2 + h / 2, -9);
+    const spacing = 1.35;
+    const totalW = (barHts.length - 1) * spacing;
+    bar.position.set(-totalW / 2 + i * spacing, -4.2 + h / 2, -9);
     bar.userData = { baseH: h, phase: i * .55 };
     barGroup.add(bar);
     // glowing cap
@@ -1641,9 +1706,10 @@ drawer.querySelectorAll(".dlink, .drawer-cta").forEach(a => a.addEventListener("
   });
   scene.add(barGroup);
 
-  // ---- 4. floating "visitor" nodes + network ----
+  // ---- 4. floating "visitor" nodes + network (fewer on mobile) ----
   const nodes = [];
-  for (let i = 0; i < 26; i++) {
+  const NODE_N = isMobile ? 14 : 26;
+  for (let i = 0; i < NODE_N; i++) {
     const g = new THREE.Group();
     const coreN = new THREE.Mesh(new THREE.SphereGeometry(.11, 12, 12), new THREE.MeshBasicMaterial({ color: 0x67e8f9 }));
     const halo = new THREE.Mesh(new THREE.SphereGeometry(.21, 10, 10), new THREE.MeshBasicMaterial({ color: 0x22d3ee, transparent: true, opacity: .28 }));
@@ -1654,7 +1720,8 @@ drawer.querySelectorAll(".dlink, .drawer-cta").forEach(a => a.addEventListener("
   }
   const lineMat = new THREE.LineBasicMaterial({ color: 0x22d3ee, transparent: true, opacity: .15 });
   const linePool = [];
-  for (let i = 0; i < 70; i++) {
+  const LINE_N = isMobile ? 36 : 70;
+  for (let i = 0; i < LINE_N; i++) {
     const geo = new THREE.BufferGeometry();
     geo.setAttribute("position", new THREE.BufferAttribute(new Float32Array(6), 3));
     const line = new THREE.Line(geo, lineMat);
@@ -1675,13 +1742,22 @@ drawer.querySelectorAll(".dlink, .drawer-cta").forEach(a => a.addEventListener("
   grid.position.y = -4.4;
   scene.add(grid);
 
-  // ---- parallax ----
+  // ---- parallax (mouse + touch) ----
   let mx = 0, my = 0, tx = 0, ty = 0;
-  holder.parentElement.addEventListener("mousemove", e => {
-    const r = holder.getBoundingClientRect();
-    tx = ((e.clientX - r.left) / r.width - .5) * 2;
-    ty = ((e.clientY - r.top) / r.height - .5) * 2;
-  });
+  if (isMobile) {
+    window.addEventListener("touchmove", e => {
+      const t = e.touches[0];
+      tx = (t.clientX / window.innerWidth - .5) * 2;
+      ty = (t.clientY / window.innerHeight - .5) * 2;
+    }, { passive: true });
+    window.addEventListener("touchend", () => { tx = 0; ty = 0; }, { passive: true });
+  } else {
+    holder.parentElement.addEventListener("mousemove", e => {
+      const r = holder.getBoundingClientRect();
+      tx = ((e.clientX - r.left) / r.width - .5) * 2;
+      ty = ((e.clientY - r.top) / r.height - .5) * 2;
+    });
+  }
 
   const clock = new THREE.Clock();
   (function animate() {
