@@ -547,7 +547,7 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
     <div class="nav-links" id="navLinks">
       <a href="#projects">Case Files</a>
       <a href="#experiment">Experiment</a>
-      <a href="#dossier">Dossier</a>
+      <a href="#order">Order</a>
       <a href="#report">Your Report</a>
       <a href="#contact">Contact</a>
     </div>
@@ -569,11 +569,12 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
     </div>
     <a class="dlink" href="#projects"><span class="dn">01</span>Case Files</a>
     <a class="dlink" href="#experiment"><span class="dn">02</span>Live Experiment</a>
-    <a class="dlink" href="#dossier"><span class="dn">03</span>Skills Dossier</a>
-    <a class="dlink" href="#sql-playground"><span class="dn">04</span>SQL Playground</a>
-    <a class="dlink" href="#experience"><span class="dn">05</span>Experience</a>
-    <a class="dlink" href="#report"><span class="dn">06</span>Your Session Report</a>
-    <a class="dlink" href="#contact"><span class="dn">07</span>Contact</a>
+    <a class="dlink" href="#order"><span class="dn">03</span>Place an Order</a>
+    <a class="dlink" href="#dossier"><span class="dn">04</span>Skills Dossier</a>
+    <a class="dlink" href="#sql-playground"><span class="dn">05</span>SQL Playground</a>
+    <a class="dlink" href="#experience"><span class="dn">06</span>Experience</a>
+    <a class="dlink" href="#report"><span class="dn">07</span>Your Session Report</a>
+    <a class="dlink" href="#contact"><span class="dn">08</span>Contact</a>
     <a class="drawer-cta" href="#contact">Hire Me →</a>
     <div class="drawer-social">
       <a class="icon-btn" href="mailto:sajjadali.data@gmail.com">✉</a>
@@ -911,6 +912,84 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
   </div>
 </section>
 
+<!-- ===== ORDER SYSTEM ===== -->
+<section id="order">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="sec-kicker">hire pipeline</p>
+      <h2 class="sec-title">Place an <span class="grad">order.</span></h2>
+      <p class="sec-sub">Pick a service, tell me about your data problem — the order lands in my inbox with a tracking ID. This portfolio doesn't just show my work, it runs my intake.</p>
+    </div>
+    <div class="order-panel rv">
+      <div class="order-head">
+        <span class="oh-ico">🛒</span>
+        <div><h3>Service Order Form</h3><div class="oh-sub">ORD-YYYYMM-XXXX · email notification to owner</div></div>
+      </div>
+
+      <div id="orderFlow">
+        <div class="service-grid" id="svcGrid">
+          <div class="svc" data-svc="Power BI Dashboard">
+            <span class="svc-check">✓</span><div class="si">📊</div><b>Power BI Dashboard</b><span>2–4 weeks · from $300</span>
+          </div>
+          <div class="svc" data-svc="SQL / Data Pipeline">
+            <span class="svc-check">✓</span><div class="si">🗄️</div><b>SQL / Pipeline</b><span>1–3 weeks · from $200</span>
+          </div>
+          <div class="svc" data-svc="Excel Automation">
+            <span class="svc-check">✓</span><div class="si">🧮</div><b>Excel Automation</b><span>3–10 days · from $100</span>
+          </div>
+          <div class="svc" data-svc="Python Analysis">
+            <span class="svc-check">✓</span><div class="si">🐍</div><b>Python Analysis</b><span>1–2 weeks · from $250</span>
+          </div>
+          <div class="svc" data-svc="A/B Test Setup">
+            <span class="svc-check">✓</span><div class="si">🧪</div><b>A/B Test Setup</b><span>3–7 days · from $150</span>
+          </div>
+          <div class="svc" data-svc="Custom / Other">
+            <span class="svc-check">✓</span><div class="si">✨</div><b>Custom Project</b><span>scoped on call</span>
+          </div>
+        </div>
+
+        <form class="order-form" id="orderForm">
+          <div class="of"><label>Your name *</label><input type="text" id="ordName" placeholder="Jane Doe" required></div>
+          <div class="of"><label>Email *</label><input type="email" id="ordEmail" placeholder="jane@company.com" required></div>
+          <div class="of of-full"><label>Company (optional)</label><input type="text" id="ordCompany" placeholder="Acme Inc."></div>
+          <div class="of of-full"><label>Project details *</label><textarea id="ordMsg" placeholder="What decision are you trying to make with data? Deadline? Tools you already use?" required></textarea></div>
+          <div class="of"><label>Budget</label>
+            <select id="ordBudget">
+              <option value="under-100">&lt; $100</option>
+              <option value="100-300" selected>$100 – $300</option>
+              <option value="300-600">$300 – $600</option>
+              <option value="600-plus">$600+</option>
+              <option value="discuss">Let's discuss</option>
+            </select>
+          </div>
+          <div class="of"><label>Deadline</label>
+            <select id="ordDeadline">
+              <option value="asap">ASAP / urgent</option>
+              <option value="1-week" selected>Within a week</option>
+              <option value="2-4-weeks">2–4 weeks</option>
+              <option value="flexible">Flexible</option>
+            </select>
+          </div>
+          <button type="submit" class="order-submit" id="ordSubmit">▶ Place Order — Send to Sajjad</button>
+          <p class="order-note">Order goes to <span id="ordOwnerEmail">sajjadali.data@gmail.com</span> · tracked in admin console · no spam, ever</p>
+        </form>
+      </div>
+
+      <div class="order-success" id="orderSuccess">
+        <div class="os-ico">✅</div>
+        <h3>Order Placed!</h3>
+        <p>Sajjad has been notified by email and will reply within 24 hours on weekdays. Save your tracking ID:</p>
+        <div class="os-id" id="osId">ORD-000000-0000</div>
+        <p style="font-size:.78rem;color:var(--txt-3)">A copy of this order is now in the site's admin console.</p>
+        <div>
+          <a class="btn btn-ghost" href="#assistant" onclick="document.getElementById('orderSuccess').classList.remove('show');document.getElementById('orderFlow').style.display='block'">← Place another</a>
+          <a class="btn btn-primary" href="#contact">Contact Directly →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== CONTACT ===== -->
 <section id="contact">
   <div class="wrap">
@@ -944,6 +1023,104 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
 
 <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
 <div class="toast" id="toast"></div>
+
+<!-- ================= ADMIN CONSOLE (owner only) ================= -->
+<button class="admin-trigger" id="adminTrigger" aria-label="Admin console" title="Admin">⚙</button>
+
+<div class="admin-overlay" id="adminOverlay" role="dialog" aria-label="Admin console">
+  <div class="admin-box">
+    <!-- login -->
+    <div id="adminLogin">
+      <div class="admin-tabs"><span class="admin-tab is-active">🔐 Owner Login</span></div>
+      <div class="admin-pane is-active">
+        <h4>⚙ Admin Console — Sajjad only</h4>
+        <input class="admin-input mono" type="password" id="adminPass" placeholder="Enter admin password…" autocomplete="off">
+        <button class="admin-btn" id="adminLoginBtn">Unlock Console →</button>
+        <p class="admin-error" id="adminErr"></p>
+        <p style="font-size:.66rem;color:var(--txt-3);font-family:var(--mono);text-align:center;margin-top:14px">default: <b>sajjad2026</b> — change it in the Settings tab after login</p>
+      </div>
+    </div>
+
+    <!-- console -->
+    <div id="adminConsole" style="display:none">
+      <div class="admin-tabs">
+        <button class="admin-tab is-active" data-pane="paneOrders">🛒 Orders <span class="count-pill" id="ordCount">0</span></button>
+        <button class="admin-tab" data-pane="paneColors">🎨 Colors</button>
+        <button class="admin-tab" data-pane="paneSettings">⚙ Settings</button>
+      </div>
+
+      <!-- ORDERS -->
+      <div class="admin-pane is-active" id="paneOrders">
+        <div class="admin-stats" id="adminStats">
+          <div class="stat-mini"><div class="v" id="asTotal">0</div><div class="l">Orders</div></div>
+          <div class="stat-mini"><div class="v" id="asNew">0</div><div class="l">New</div></div>
+          <div class="stat-mini"><div class="v" id="asDone">0</div><div class="l">Done</div></div>
+          <div class="stat-mini"><div class="v" id="asRev">$0</div><div class="l">Est. value</div></div>
+        </div>
+        <div class="ord-list" id="ordList">
+          <div class="ord-empty">No orders yet — share the site!</div>
+        </div>
+        <div class="admin-row-btns">
+          <button class="admin-btn secondary" id="exportCsv">⬇ Export CSV</button>
+          <button class="admin-btn danger" id="clearOrders">🗑 Clear All</button>
+        </div>
+      </div>
+
+      <!-- COLORS -->
+      <div class="admin-pane" id="paneColors">
+        <h4>🎨 Dynamic Theme Engine <span class="count-pill">live</span></h4>
+        <div class="color-presets" id="colorPresets">
+          <div class="preset is-active" data-p="cyan" data-c1="#22d3ee" data-c2="#2dd4bf" data-c3="#8b5cf6">
+            <div class="swatches"><i style="background:#22d3ee"></i><i style="background:#2dd4bf"></i><i style="background:#8b5cf6"></i></div><span>Terminal</span>
+          </div>
+          <div class="preset" data-p="sunset" data-c1="#fb7185" data-c2="#f97316" data-c3="#fbbf24">
+            <div class="swatches"><i style="background:#fb7185"></i><i style="background:#f97316"></i><i style="background:#fbbf24"></i></div><span>Sunset</span>
+          </div>
+          <div class="preset" data-p="emerald" data-c1="#34d399" data-c2="#10b981" data-c3="#065f46">
+            <div class="swatches"><i style="background:#34d399"></i><i style="background:#10b981"></i><i style="background:#065f46"></i></div><span>Emerald</span>
+          </div>
+          <div class="preset" data-p="royal" data-c1="#818cf8" data-c2="#6366f1" data-c3="#c084fc">
+            <div class="swatches"><i style="background:#818cf8"></i><i style="background:#6366f1"></i><i style="background:#c084fc"></i></div><span>Royal</span>
+          </div>
+          <div class="preset" data-p="gold" data-c1="#fbbf24" data-c2="#f59e0b" data-c3="#f97316">
+            <div class="swatches"><i style="background:#fbbf24"></i><i style="background:#f59e0b"></i><i style="background:#f97316"></i></div><span>Gold</span>
+          </div>
+          <div class="preset" data-p="rose" data-c1="#fb7185" data-c2="#e11d48" data-c3="#a21caf">
+            <div class="swatches"><i style="background:#fb7185"></i><i style="background:#e11d48"></i><i style="background:#a21caf"></i></div><span>Rose</span>
+          </div>
+        </div>
+        <div class="color-custom">
+          <div><label>Primary</label><input type="color" id="cc1" value="#22d3ee"></div>
+          <div><label>Secondary</label><input type="color" id="cc2" value="#2dd4bf"></div>
+          <div><label>Accent</label><input type="color" id="cc3" value="#8b5cf6"></div>
+          <div style="display:flex;align-items:end"><button class="admin-btn" id="applyCustom" style="margin:0">Apply Custom</button></div>
+        </div>
+        <div class="admin-row-btns">
+          <button class="admin-btn secondary" id="saveColors">💾 Save Theme (public sees this)</button>
+        </div>
+        <p class="admin-success-note" id="colorNote"></p>
+      </div>
+
+      <!-- SETTINGS -->
+      <div class="admin-pane" id="paneSettings">
+        <h4>⚙ Site Settings</h4>
+        <label style="font-family:var(--mono);font-size:.64rem;color:var(--txt-3);display:block;margin-bottom:6px">ORDER EMAIL (Formspree endpoint or direct email)</label>
+        <input class="admin-input mono" type="text" id="setEmail" placeholder="https://formspree.io/f/XXXXX">
+        <label style="font-family:var(--mono);font-size:.64rem;color:var(--txt-3);display:block;margin-bottom:6px">ADMIN PASSWORD</label>
+        <input class="admin-input mono" type="text" id="setPass" placeholder="new password">
+        <label style="font-family:var(--mono);font-size:.64rem;color:var(--txt-3);display:block;margin-bottom:6px">LINKEDIN URL</label>
+        <input class="admin-input mono" type="text" id="setLinkedin" placeholder="https://linkedin.com/in/...">
+        <label style="font-family:var(--mono);font-size:.64rem;color:var(--txt-3);display:block;margin-bottom:6px">GITHUB URL</label>
+        <input class="admin-input mono" type="text" id="setGithub" placeholder="https://github.com/...">
+        <button class="admin-btn" id="saveSettings">💾 Save Settings</button>
+        <p class="admin-success-note" id="setNote"></p>
+        <div class="admin-row-btns">
+          <button class="admin-btn secondary" id="adminLogout">↩ Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ================= CHATBOT (with bot face + telemetry access) ================= -->
 <button class="chat-fab" id="chatFab" aria-label="Open chat">
@@ -1277,7 +1454,7 @@ function logEvent(type, label) {
   }, { passive: true });
 
   // scroll depth + sections
-  const secIds = ["projects", "experiment", "dossier", "sql-playground", "experience", "report", "assistant"];
+  const secIds = ["projects", "experiment", "order", "dossier", "sql-playground", "experience", "report", "assistant"];
   window.addEventListener("scroll", () => {
     const h = document.documentElement;
     const depth = h.scrollTop / (h.scrollHeight - h.clientHeight) * 100;
@@ -1310,7 +1487,7 @@ function logEvent(type, label) {
 
   // report tick
   setInterval(() => {
-    const map = { rptTime: fmtTime(tMinutes()), rptScroll: Math.round(T.maxScroll) + "%", rptClicks: T.clicks, rptDist: Math.round(T.dist).toLocaleString(), rptSections: T.sections.size + "/7", rptScore: engagementScore() };
+    const map = { rptTime: fmtTime(tMinutes()), rptScroll: Math.round(T.maxScroll) + "%", rptClicks: T.clicks, rptDist: Math.round(T.dist).toLocaleString(), rptSections: T.sections.size + "/8", rptScore: engagementScore() };
     for (const k in map) { const el = $(k); if (el) el.textContent = map[k]; }
     const rid = $("rptId");
     if (rid) rid.textContent = T.id;
@@ -1828,3 +2005,410 @@ drawer.querySelectorAll(".dlink, .drawer-cta").forEach(a => a.addEventListener("
 </script>
 </body>
 </html>
+
+<style>
+/* ==================== ORDER SYSTEM ==================== */
+.order-panel{border-radius:var(--r-lg);background:var(--glass);border:1px solid var(--glass-border-hi);backdrop-filter:blur(26px);overflow:hidden;box-shadow:var(--shadow)}
+.order-head{display:flex;align-items:center;gap:12px;padding:20px 26px;border-bottom:1px solid var(--glass-border);background:linear-gradient(92deg,rgba(34,211,238,.10),rgba(139,92,246,.08))}
+.order-head .oh-ico{font-size:1.4rem}
+.order-head h3{font-family:var(--display);font-size:1.12rem;font-weight:700}
+.order-head .oh-sub{font-size:.74rem;color:var(--txt-3);font-family:var(--mono)}
+.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;padding:22px 26px 8px}
+.svc{position:relative;padding:18px;border-radius:var(--r-md);background:var(--glass);border:1.5px solid var(--glass-border);cursor:pointer;transition:all .3s var(--ease-bounce);overflow:hidden}
+.svc:hover{transform:translateY(-3px);border-color:var(--glass-border-hi)}
+.svc.is-picked{border-color:var(--cyan);background:rgba(34,211,238,.09);box-shadow:0 0 24px -6px rgba(34,211,238,.4)}
+.svc .si{font-size:1.5rem;margin-bottom:8px}
+.svc b{display:block;font-family:var(--display);font-size:.92rem;margin-bottom:3px}
+.svc span{font-size:.72rem;color:var(--txt-3);font-family:var(--mono)}
+.svc .svc-check{position:absolute;top:10px;right:12px;width:20px;height:20px;border-radius:50%;background:var(--grad);color:#04121a;display:none;place-items:center;font-size:.7rem;font-weight:800}
+.svc.is-picked .svc-check{display:grid}
+.order-form{padding:18px 26px 26px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.of-full{grid-column:1/-1}
+.of label{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-3);display:block;margin-bottom:6px}
+.of input,.of select,.of textarea{width:100%;background:rgba(8,12,22,.5);border:1px solid var(--glass-border);border-radius:12px;padding:13px 15px;color:var(--txt);font-size:.9rem;outline:none;transition:all .3s;font-family:var(--sans)}
+[data-theme="light"] .of input,[data-theme="light"] .of select,[data-theme="light"] .of textarea{background:rgba(255,255,255,.6)}
+.of input:focus,.of select:focus,.of textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(34,211,238,.12)}
+.of textarea{min-height:110px;resize:vertical;font-family:var(--sans)}
+.of select{cursor:pointer}
+.order-submit{grid-column:1/-1;padding:16px;border-radius:16px;background:var(--grad);color:#04121a;font-weight:700;font-size:1rem;font-family:var(--display);transition:all .3s var(--ease-bounce);position:relative;overflow:hidden}
+.order-submit:hover{transform:translateY(-2px);box-shadow:var(--glow)}
+.order-submit:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.order-note{grid-column:1/-1;font-size:.72rem;color:var(--txt-3);font-family:var(--mono);text-align:center}
+.order-success{display:none;text-align:center;padding:60px 40px;animation:log-in .5s}
+.order-success.show{display:block}
+.order-success .os-ico{font-size:3.6rem;margin-bottom:18px}
+.order-success h3{font-family:var(--display);font-size:1.6rem;margin-bottom:10px}
+.order-success p{color:var(--txt-2);max-width:420px;margin:0 auto 8px;font-size:.92rem}
+.order-success .os-id{font-family:var(--mono);color:var(--cyan-2);font-size:1.05rem;padding:10px 22px;border:1px dashed var(--glass-border-hi);border-radius:12px;display:inline-block;margin:16px 0 24px;background:var(--glass)}
+.order-success .btn{margin:0 6px}
+
+/* ==================== ADMIN CONSOLE ==================== */
+.admin-overlay{position:fixed;inset:0;z-index:1200;background:rgba(3,5,10,.82);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:20px}
+.admin-overlay.open{display:flex;animation:log-in .35s}
+.admin-box{width:100%;max-width:520px;border-radius:24px;background:var(--bg-2);border:1px solid var(--glass-border-hi);box-shadow:var(--shadow);overflow:hidden}
+.admin-tabs{display:flex;border-bottom:1px solid var(--glass-border)}
+.admin-tab{flex:1;padding:15px;text-align:center;font-family:var(--mono);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-3);border-bottom:2px solid transparent;transition:all .25s}
+.admin-tab:hover{color:var(--txt)}
+.admin-tab.is-active{color:var(--cyan-2);border-bottom-color:var(--cyan)}
+.admin-pane{display:none;padding:26px}
+.admin-pane.is-active{display:block;animation:log-in .3s}
+.admin-pane h4{font-family:var(--display);font-size:.95rem;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.admin-pane h4 .count-pill{font-family:var(--mono);font-size:.62rem;padding:3px 10px;border-radius:99px;background:var(--grad);color:#04121a;font-weight:700}
+.admin-input{width:100%;background:var(--glass);border:1px solid var(--glass-border);border-radius:12px;padding:13px 15px;color:var(--txt);font-size:.9rem;outline:none;margin-bottom:12px;transition:all .3s}
+.admin-input:focus{border-color:var(--cyan)}
+.admin-input.mono{font-family:var(--mono)}
+.admin-btn{width:100%;padding:14px;border-radius:12px;background:var(--grad);color:#04121a;font-weight:700;font-family:var(--display);font-size:.92rem;margin-top:6px;transition:all .3s var(--ease-bounce)}
+.admin-btn:hover{transform:translateY(-2px);box-shadow:var(--glow)}
+.admin-btn:disabled{opacity:.5;cursor:not-allowed}
+.admin-btn.secondary{background:var(--glass);border:1px solid var(--glass-border-hi);color:var(--cyan-2)}
+.admin-btn.danger{background:rgba(251,113,133,.12);border:1px solid rgba(251,113,133,.4);color:var(--rose)}
+.admin-error{color:var(--rose);font-size:.76rem;font-family:var(--mono);text-align:center;min-height:1.2em;margin-top:8px}
+.admin-success-note{color:var(--green);font-size:.76rem;font-family:var(--mono);text-align:center;min-height:1.2em;margin-top:8px}
+/* orders list */
+.ord-list{max-height:300px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding-right:4px}
+.ord-item{padding:14px;border-radius:12px;background:var(--glass);border:1px solid var(--glass-border);animation:log-in .3s}
+.ord-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.ord-id{font-family:var(--mono);font-size:.72rem;color:var(--cyan-2)}
+.ord-status{font-family:var(--mono);font-size:.6rem;padding:4px 10px;border-radius:99px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border:1px solid}
+.ord-status.st-new{color:#fbbf24;border-color:rgba(251,191,36,.4);background:rgba(251,191,36,.08)}
+.ord-status.st-contacted{color:#67e8f9;border-color:rgba(103,232,249,.4);background:rgba(103,232,249,.08)}
+.ord-status.st-inprogress{color:#a78bfa;border-color:rgba(167,139,250,.4);background:rgba(167,139,250,.08)}
+.ord-status.st-done{color:#34d399;border-color:rgba(52,211,153,.4);background:rgba(52,211,153,.08)}
+.ord-status.st-cancelled{color:#fb7185;border-color:rgba(251,113,133,.4);background:rgba(251,113,133,.08)}
+.ord-name{font-family:var(--display);font-size:.9rem;font-weight:600}
+.ord-meta{font-size:.72rem;color:var(--txt-3);font-family:var(--mono);display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.ord-actions{display:flex;gap:8px;margin-top:10px}
+.ord-actions button{font-family:var(--mono);font-size:.66rem;padding:6px 12px;border-radius:8px;border:1px solid var(--glass-border);background:var(--glass);color:var(--txt-2);transition:all .2s}
+.ord-actions button:hover{border-color:var(--glass-border-hi);color:var(--txt)}
+.ord-actions button.del:hover{border-color:rgba(251,113,133,.5);color:var(--rose)}
+.ord-empty{text-align:center;padding:40px;color:var(--txt-3);font-family:var(--mono);font-size:.8rem}
+/* stats mini */
+.admin-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
+.stat-mini{padding:12px;border-radius:10px;background:var(--glass);border:1px solid var(--glass-border);text-align:center}
+.stat-mini .v{font-family:var(--mono);font-size:1.3rem;font-weight:600;color:var(--cyan-2)}
+.stat-mini .l{font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;color:var(--txt-3)}
+/* color engine UI */
+.color-presets{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+.preset{padding:12px 8px;border-radius:12px;border:1.5px solid var(--glass-border);cursor:pointer;transition:all .25s;text-align:center}
+.preset:hover{transform:translateY(-2px)}
+.preset.is-active{border-color:var(--cyan);box-shadow:0 0 18px -4px rgba(34,211,238,.5)}
+.preset .swatches{display:flex;gap:4px;justify-content:center;margin-bottom:7px}
+.preset .swatches i{width:14px;height:14px;border-radius:4px;display:block}
+.preset span{font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;color:var(--txt-2);text-transform:uppercase}
+.color-custom{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:16px;border-radius:12px;background:var(--glass);border:1px solid var(--glass-border)}
+.color-custom label{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-3);display:block;margin-bottom:7px}
+.color-custom input[type=color]{width:100%;height:42px;border:1px solid var(--glass-border);border-radius:10px;background:var(--glass);cursor:pointer;padding:4px}
+.admin-row-btns{display:flex;gap:10px;margin-top:14px}
+.admin-row-btns .admin-btn{margin-top:0}
+/* admin trigger */
+.admin-trigger{position:fixed;left:26px;bottom:78px;z-index:700;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:1.15rem;background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(14px);opacity:.55;transition:all .35s var(--ease-bounce)}
+.admin-trigger:hover{opacity:1;border-color:var(--glass-border-hi);transform:translateY(-3px)}
+@media(max-width:640px){
+  .admin-overlay{padding:10px}
+  .admin-pane{padding:18px}
+  .order-form{grid-template-columns:1fr;padding:16px 18px 22px}
+  .service-grid{grid-template-columns:repeat(2,1fr);padding:16px 18px 4px}
+  .admin-stats{grid-template-columns:repeat(2,1fr)}
+  .color-presets{grid-template-columns:repeat(2,1fr)}
+  .admin-trigger{left:14px;bottom:70px}
+}
+</style>
+
+
+<script>
+/* ============================================================
+   ORDER SYSTEM + ADMIN CONSOLE + DYNAMIC COLOR ENGINE
+   Storage: localStorage (site ke andar sab local)
+   Email: Formspree endpoint (admin Settings se configurable)
+   ============================================================ */
+
+// ─────────────── tiny helpers ───────────────
+const LS = {
+  get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch (e) { return d; } },
+  set(k, v) { localStorage.setItem(k, JSON.stringify(v)); }
+};
+function simpleHash(s) { let h = 5381; for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0; return "h" + h.toString(36); }
+function toast2(txt, ms = 2600) {
+  const t = document.getElementById("toast");
+  if (!t) return;
+  t.textContent = txt; t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), ms);
+}
+
+// ─────────────── SETTINGS ───────────────
+const DEFAULTS = {
+  orderEndpoint: "",                       // Formspree URL — khali => mailto fallback
+  passHash: simpleHash("sajjad2026"),      // default pass
+  linkedin: "https://linkedin.com/in/sajjad-ali-data",
+  github: "https://github.com/sajjadbaloch211"
+};
+let SETTINGS = Object.assign({}, DEFAULTS, LS.get("sa_settings", {}));
+
+function applySettings() {
+  // order owner email display
+  const oe = document.getElementById("ordOwnerEmail");
+  if (oe) oe.textContent = "sajjadali.data@gmail.com";
+  // social links
+  const li = document.querySelector('a[href*="linkedin.com/in/sajjad"]');
+  if (li && SETTINGS.linkedin) li.href = SETTINGS.linkedin;
+  const gh = document.querySelector('a[href*="github.com/sajjadbaloch211"]');
+  if (gh && SETTINGS.github) gh.href = SETTINGS.github;
+}
+applySettings();
+
+// ─────────────── DYNAMIC COLOR ENGINE ───────────────
+const THEME_KEY = "sa_theme_colors";
+function applyColors(c1, c2, c3, save) {
+  const root = document.documentElement;
+  root.style.setProperty("--cyan", c1);
+  root.style.setProperty("--cyan-2", c1);
+  root.style.setProperty("--teal", c2);
+  root.style.setProperty("--violet", c3);
+  root.style.setProperty("--grad", `linear-gradient(92deg,${c1} 0%,${c2} 45%,${c3} 100%)`);
+  root.style.setProperty("--grad-soft", `linear-gradient(135deg,${c1}22,${c3}18)`);
+  root.style.setProperty("--glass-border-hi", c1 + "59");
+  if (save) {
+    LS.set(THEME_KEY, { c1, c2, c3 });
+    // 3D scene colors refresh
+    if (window.__3dRecolor) window.__3dRecolor(c1, c2, c3);
+  }
+}
+// apply saved theme on load
+(function loadTheme() {
+  const saved = LS.get(THEME_KEY, null);
+  if (saved) applyColors(saved.c1, saved.c2, saved.c3, false);
+})();
+
+// ─────────────── ORDER SYSTEM ───────────────
+const ORDERS_KEY = "sa_orders";
+function getOrders() { return LS.get(ORDERS_KEY, []); }
+function saveOrders(list) { LS.set(ORDERS_KEY, list); renderOrders(); }
+
+let pickedSvc = "Power BI Dashboard";
+(function initOrder() {
+  const grid = document.getElementById("svcGrid");
+  const form = document.getElementById("orderForm");
+  if (!grid || !form) return;
+
+  grid.addEventListener("click", e => {
+    const svc = e.target.closest(".svc");
+    if (!svc) return;
+    grid.querySelectorAll(".svc").forEach(s => s.classList.toggle("is-picked", s === svc));
+    pickedSvc = svc.dataset.svc;
+    logEvent("order", "service picked: " + pickedSvc);
+  });
+  // preselect first
+  grid.querySelector(".svc")?.classList.add("is-picked");
+
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const name = document.getElementById("ordName").value.trim();
+    const email = document.getElementById("ordEmail").value.trim();
+    const msg = document.getElementById("ordMsg").value.trim();
+    if (!name || !email || !msg) return toast2("Please fill name, email and details ⚠");
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return toast2("Invalid email address ⚠");
+
+    const btn = document.getElementById("ordSubmit");
+    btn.disabled = true; btn.textContent = "Sending order…";
+
+    const id = "ORD-" + new Date().toISOString().slice(0, 7).replace("-", "") + "-" + Math.random().toString(36).slice(2, 6).toUpperCase();
+    const order = {
+      id, svc: pickedSvc, name, email,
+      company: document.getElementById("ordCompany").value.trim(),
+      budget: document.getElementById("ordBudget").value,
+      deadline: document.getElementById("ordDeadline").value,
+      msg, status: "new", ts: Date.now()
+    };
+    const list = getOrders(); list.unshift(order); saveOrders(list);
+
+    // email delivery: Formspree endpoint agar set hai
+    let emailed = false;
+    if (SETTINGS.orderEndpoint && /^https:\/\/formspree\.io\//.test(SETTINGS.orderEndpoint)) {
+      try {
+        const r = await fetch(SETTINGS.orderEndpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify({
+            _subject: "🛒 New Order " + id + " — " + pickedSvc,
+            name, email, company: order.company,
+            service: pickedSvc, budget: order.budget, deadline: order.deadline,
+            details: msg, order_id: id
+          })
+        });
+        emailed = r.ok;
+      } catch (err) { emailed = false; }
+    }
+    // mailto fallback (opens user's mail app — admin ko direct mail)
+    if (!emailed && !SETTINGS.orderEndpoint) {
+      const body = encodeURIComponent(`Order: ${id}\nService: ${pickedSvc}\nName: ${name}\nEmail: ${email}\nCompany: ${order.company}\nBudget: ${order.budget}\nDeadline: ${order.deadline}\n\nDetails:\n${msg}`);
+      const mail = `mailto:sajjadali.data@gmail.com?subject=${encodeURIComponent("🛒 New Order " + id)}&body=${body}`;
+      const a = document.createElement("a"); a.href = mail; a.click();
+    }
+
+    logEvent("order", id + " placed (" + pickedSvc + ")");
+    // success UI
+    document.getElementById("osId").textContent = id;
+    document.getElementById("orderFlow").style.display = "none";
+    document.getElementById("orderSuccess").classList.add("show");
+    btn.disabled = false; btn.textContent = "▶ Place Order — Send to Sajjad";
+    form.reset();
+    grid.querySelector(".svc")?.classList.add("is-picked");
+  });
+})();
+
+// ─────────────── ADMIN CONSOLE ───────────────
+(function adminConsole() {
+  const trig = document.getElementById("adminTrigger");
+  const overlay = document.getElementById("adminOverlay");
+  const loginBox = document.getElementById("adminLogin");
+  const consoleBox = document.getElementById("adminConsole");
+  if (!trig || !overlay) return;
+
+  const KEY_AUTH = "sa_admin_auth";
+  trig.addEventListener("click", () => {
+    if (sessionStorage.getItem(KEY_AUTH) === "1") { loginBox.style.display = "none"; consoleBox.style.display = "block"; }
+    else { loginBox.style.display = "block"; consoleBox.style.display = "none"; }
+    overlay.classList.add("open");
+    setTimeout(() => document.getElementById("adminPass")?.focus(), 50);
+  });
+  const close = () => overlay.classList.remove("open");
+  overlay.addEventListener("click", e => { if (e.target === overlay) close(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+
+  // login
+  function tryLogin() {
+    const p = document.getElementById("adminPass").value;
+    if (simpleHash(p) === SETTINGS.passHash) {
+      sessionStorage.setItem(KEY_AUTH, "1");
+      loginBox.style.display = "none"; consoleBox.style.display = "block";
+      document.getElementById("adminErr").textContent = "";
+      document.getElementById("adminPass").value = "";
+      renderOrders(); loadSettingsUI();
+    } else {
+      document.getElementById("adminErr").textContent = "Wrong password — access denied ⚠";
+    }
+  }
+  document.getElementById("adminLoginBtn").addEventListener("click", tryLogin);
+  document.getElementById("adminPass").addEventListener("keydown", e => { if (e.key === "Enter") tryLogin(); });
+
+  document.getElementById("adminLogout").addEventListener("click", () => {
+    sessionStorage.removeItem(KEY_AUTH);
+    loginBox.style.display = "block"; consoleBox.style.display = "none";
+    close();
+  });
+
+  // tabs
+  consoleBox.querySelectorAll(".admin-tab").forEach(tab => {
+    tab.addEventListener("click", () => {
+      consoleBox.querySelectorAll(".admin-tab").forEach(t => t.classList.toggle("is-active", t === tab));
+      consoleBox.querySelectorAll(".admin-pane").forEach(p => p.classList.toggle("is-active", p.id === tab.dataset.pane));
+    });
+  });
+
+  // ── orders renderer ──
+  const STATUSES = ["new", "contacted", "inprogress", "done", "cancelled"];
+  const BUDGET_VAL = { "under-100": 75, "100-300": 200, "300-600": 450, "600-plus": 700, "discuss": 0 };
+  window.renderOrders = function () {
+    const list = getOrders();
+    const box = document.getElementById("ordList");
+    const cnt = document.getElementById("ordCount");
+    if (cnt) cnt.textContent = list.length;
+    // stats
+    const rev = list.filter(o => o.status !== "cancelled").reduce((a, o) => a + (BUDGET_VAL[o.budget] || 0), 0);
+    const map = { asTotal: list.length, asNew: list.filter(o => o.status === "new").length, asDone: list.filter(o => o.status === "done").length, asRev: "$" + rev.toLocaleString() };
+    for (const k in map) { const el = document.getElementById(k); if (el) el.textContent = map[k]; }
+    if (!list.length) { box.innerHTML = '<div class="ord-empty">No orders yet — share the site!</div>'; return; }
+    box.innerHTML = list.map((o, i) => `
+      <div class="ord-item">
+        <div class="ord-top">
+          <span class="ord-id">${o.id}</span>
+          <span class="ord-status st-${o.status}" data-i="${i}" title="click to cycle">${o.status}</span>
+        </div>
+        <div class="ord-name">${o.svc} — ${o.name}</div>
+        <div class="ord-meta"><span>✉ ${o.email}</span>${o.company ? `<span>🏢 ${o.company}</span>` : ""}<span>💰 ${o.budget}</span><span>⏰ ${o.deadline}</span><span>🕒 ${new Date(o.ts).toLocaleDateString()}</span></div>
+        <div style="font-size:.78rem;color:var(--txt-2);margin-top:8px;line-height:1.5">${o.msg.replace(/</g, "&lt;")}</div>
+        <div class="ord-actions">
+          <button data-mail="${o.email}" data-id="${o.id}">✉ Reply</button>
+          <button class="del" data-del="${i}">🗑 Delete</button>
+        </div>
+      </div>`).join("");
+    box.querySelectorAll(".ord-status").forEach(s => s.addEventListener("click", () => {
+      const list = getOrders(); const i = +s.dataset.i;
+      list[i].status = STATUSES[(STATUSES.indexOf(list[i].status) + 1) % STATUSES.length];
+      saveOrders(list);
+    }));
+    box.querySelectorAll("[data-del]").forEach(b => b.addEventListener("click", () => {
+      if (!confirm("Delete this order?")) return;
+      const list = getOrders(); list.splice(+b.dataset.del, 1); saveOrders(list);
+    }));
+    box.querySelectorAll("[data-mail]").forEach(b => b.addEventListener("click", () => {
+      window.location.href = "mailto:" + b.dataset.mail + "?subject=" + encodeURIComponent("Re: your order " + b.dataset.id);
+    }));
+  };
+
+  // CSV export
+  document.getElementById("exportCsv").addEventListener("click", () => {
+    const list = getOrders();
+    if (!list.length) return toast2("No orders to export");
+    const rows = [["ID", "Service", "Name", "Email", "Company", "Budget", "Deadline", "Status", "Date", "Details"]]
+      .concat(list.map(o => [o.id, o.svc, o.name, o.email, o.company, o.budget, o.deadline, o.status, new Date(o.ts).toISOString(), o.msg]));
+    const csv = rows.map(r => r.map(c => '"' + String(c).replace(/"/g, '""') + '"').join(",")).join("\n");
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
+    a.download = "orders-export.csv"; a.click();
+    toast2("CSV exported ⬇");
+  });
+
+  document.getElementById("clearOrders").addEventListener("click", () => {
+    if (!confirm("Delete ALL orders? Cannot be undone.")) return;
+    saveOrders([]);
+  });
+
+  // ── color engine UI ──
+  const presets = document.getElementById("colorPresets");
+  presets.querySelectorAll(".preset").forEach(p => {
+    p.addEventListener("click", () => {
+      presets.querySelectorAll(".preset").forEach(x => x.classList.toggle("is-active", x === p));
+      applyColors(p.dataset.c1, p.dataset.c2, p.dataset.c3, true);
+      document.getElementById("cc1").value = p.dataset.c1;
+      document.getElementById("cc2").value = p.dataset.c2;
+      document.getElementById("cc3").value = p.dataset.c3;
+      toast2("Theme applied — 'Save Theme' to make it public 🎨");
+    });
+  });
+  document.getElementById("applyCustom").addEventListener("click", () => {
+    applyColors(document.getElementById("cc1").value, document.getElementById("cc2").value, document.getElementById("cc3").value, true);
+    presets.querySelectorAll(".preset").forEach(x => x.classList.remove("is-active"));
+    toast2("Custom colors applied — 'Save Theme' to publish 🎨");
+  });
+  document.getElementById("saveColors").addEventListener("click", () => {
+    // saved on apply; here just confirm + note
+    document.getElementById("colorNote").textContent = "Theme saved — every visitor now sees it ✓";
+    setTimeout(() => document.getElementById("colorNote").textContent = "", 3000);
+    logEvent("admin", "theme changed");
+  });
+
+  // ── settings UI ──
+  function loadSettingsUI() {
+    document.getElementById("setEmail").value = SETTINGS.orderEndpoint || "";
+    document.getElementById("setPass").value = "";
+    document.getElementById("setLinkedin").value = SETTINGS.linkedin || "";
+    document.getElementById("setGithub").value = SETTINGS.github || "";
+  }
+  document.getElementById("saveSettings").addEventListener("click", () => {
+    const ep = document.getElementById("setEmail").value.trim();
+    if (ep && !/^https:\/\/formspree\.io\//.test(ep)) {
+      return document.getElementById("setNote").textContent = "Email endpoint must be a formspree.io URL ⚠";
+    }
+    SETTINGS.orderEndpoint = ep;
+    const np = document.getElementById("setPass").value.trim();
+    if (np) SETTINGS.passHash = simpleHash(np);
+    SETTINGS.linkedin = document.getElementById("setLinkedin").value.trim() || DEFAULTS.linkedin;
+    SETTINGS.github = document.getElementById("setGithub").value.trim() || DEFAULTS.github;
+    LS.set("sa_settings", SETTINGS);
+    applySettings();
+    document.getElementById("setNote").textContent = np ? "Settings + password saved ✓" : "Settings saved ✓";
+    setTimeout(() => document.getElementById("setNote").textContent = "", 3000);
+  });
+})();
+</script>
