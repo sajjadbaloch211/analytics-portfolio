@@ -912,77 +912,105 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
   </div>
 </section>
 
-<!-- ===== ORDER SYSTEM ===== -->
+<!-- ===== ORDER SYSTEM (3-step wizard) ===== -->
 <section id="order">
   <div class="wrap">
     <div class="sec-head rv">
       <p class="sec-kicker">hire pipeline</p>
       <h2 class="sec-title">Place an <span class="grad">order.</span></h2>
-      <p class="sec-sub">Pick a service, tell me about your data problem — the order lands in my inbox with a tracking ID. This portfolio doesn't just show my work, it runs my intake.</p>
+      <p class="sec-sub">Three steps: pick a service → tell me the problem → review &amp; send. Live price estimate, tracking ID, straight to my inbox and my admin dashboard.</p>
     </div>
     <div class="order-panel rv">
       <div class="order-head">
         <span class="oh-ico">🛒</span>
-        <div><h3>Service Order Form</h3><div class="oh-sub">ORD-YYYYMM-XXXX · email notification to owner</div></div>
+        <div><h3>Order Wizard</h3><div class="oh-sub">ORD-YYYYMM-XXXX · live estimate</div></div>
       </div>
 
       <div id="orderFlow">
-        <div class="service-grid" id="svcGrid">
-          <div class="svc" data-svc="Power BI Dashboard">
-            <span class="svc-check">✓</span><div class="si">📊</div><b>Power BI Dashboard</b><span>2–4 weeks · from $300</span>
+        <div class="wiz-progress">
+          <div class="wiz-step is-active" data-s="1"><span class="ws-dot">1</span><span class="ws-lbl">Service</span></div>
+          <span class="wiz-line"></span>
+          <div class="wiz-step" data-s="2"><span class="ws-dot">2</span><span class="ws-lbl">Details</span></div>
+          <span class="wiz-line"></span>
+          <div class="wiz-step" data-s="3"><span class="ws-dot">3</span><span class="ws-lbl">Review</span></div>
+        </div>
+
+        <!-- STEP 1: service -->
+        <div class="wiz-body is-active" data-w="1">
+          <div class="service-grid" id="svcGrid">
+            <div class="svc" data-svc="Power BI Dashboard" data-price="300" data-time="2–4 weeks">
+              <span class="svc-check">✓</span><div class="si">📊</div><b>Power BI Dashboard</b><span>interactive exec suite</span><span class="svc-price">from $300</span>
+            </div>
+            <div class="svc" data-svc="SQL / Data Pipeline" data-price="200" data-time="1–3 weeks">
+              <span class="svc-check">✓</span><div class="si">🗄️</div><b>SQL / Pipeline</b><span>warehouse &amp; ETL</span><span class="svc-price">from $200</span>
+            </div>
+            <div class="svc" data-svc="Excel Automation" data-price="100" data-time="3–10 days">
+              <span class="svc-check">✓</span><div class="si">🧮</div><b>Excel Automation</b><span>kill manual work</span><span class="svc-price">from $100</span>
+            </div>
+            <div class="svc" data-svc="Python Analysis" data-price="250" data-time="1–2 weeks">
+              <span class="svc-check">✓</span><div class="si">🐍</div><b>Python Analysis</b><span>deep analysis + model</span><span class="svc-price">from $250</span>
+            </div>
+            <div class="svc" data-svc="A/B Test Setup" data-price="150" data-time="3–7 days">
+              <span class="svc-check">✓</span><div class="si">🧪</div><b>A/B Test Setup</b><span>experiments that read</span><span class="svc-price">from $150</span>
+            </div>
+            <div class="svc" data-svc="Custom Project" data-price="0" data-time="scoped on call">
+              <span class="svc-check">✓</span><div class="si">✨</div><b>Custom Project</b><span>something else entirely</span><span class="svc-price">let's talk</span>
+            </div>
           </div>
-          <div class="svc" data-svc="SQL / Data Pipeline">
-            <span class="svc-check">✓</span><div class="si">🗄️</div><b>SQL / Pipeline</b><span>1–3 weeks · from $200</span>
+          <div class="estimate-card">
+            <span class="ec-l">Live estimate:<br><small style="color:var(--txt-3)">adjusts with options in step 2</small></span>
+            <span class="ec-v" id="estPrice">$300</span>
+            <span class="ec-note" id="estTime">⏰ 2–4 weeks · final quote after a 30-min scoping call</span>
           </div>
-          <div class="svc" data-svc="Excel Automation">
-            <span class="svc-check">✓</span><div class="si">🧮</div><b>Excel Automation</b><span>3–10 days · from $100</span>
-          </div>
-          <div class="svc" data-svc="Python Analysis">
-            <span class="svc-check">✓</span><div class="si">🐍</div><b>Python Analysis</b><span>1–2 weeks · from $250</span>
-          </div>
-          <div class="svc" data-svc="A/B Test Setup">
-            <span class="svc-check">✓</span><div class="si">🧪</div><b>A/B Test Setup</b><span>3–7 days · from $150</span>
-          </div>
-          <div class="svc" data-svc="Custom / Other">
-            <span class="svc-check">✓</span><div class="si">✨</div><b>Custom Project</b><span>scoped on call</span>
+          <div class="wiz-nav">
+            <button class="wiz-btn next" data-go="2">Continue → Details</button>
           </div>
         </div>
 
-        <form class="order-form" id="orderForm">
-          <div class="of"><label>Your name *</label><input type="text" id="ordName" placeholder="Jane Doe" required></div>
-          <div class="of"><label>Email *</label><input type="email" id="ordEmail" placeholder="jane@company.com" required></div>
-          <div class="of of-full"><label>Company (optional)</label><input type="text" id="ordCompany" placeholder="Acme Inc."></div>
-          <div class="of of-full"><label>Project details *</label><textarea id="ordMsg" placeholder="What decision are you trying to make with data? Deadline? Tools you already use?" required></textarea></div>
-          <div class="of"><label>Budget</label>
-            <select id="ordBudget">
-              <option value="under-100">&lt; $100</option>
-              <option value="100-300" selected>$100 – $300</option>
-              <option value="300-600">$300 – $600</option>
-              <option value="600-plus">$600+</option>
-              <option value="discuss">Let's discuss</option>
-            </select>
+        <!-- STEP 2: details -->
+        <div class="wiz-body" data-w="2">
+          <div class="of-row">
+            <div class="of"><label>Your name *</label><input type="text" id="ordName" placeholder="Jane Doe"></div>
+            <div class="of"><label>Email *</label><input type="email" id="ordEmail" placeholder="jane@company.com"></div>
+            <div class="of"><label>Company</label><input type="text" id="ordCompany" placeholder="Acme Inc. (optional)"></div>
+            <div class="of"><label>Urgency</label>
+              <select id="ordUrgency">
+                <option value="normal" data-add="0">Normal pace</option>
+                <option value="fast" data-add="50">Fast-track (+$50)</option>
+                <option value="rush" data-add="120">Rush (+$120)</option>
+              </select>
+            </div>
+            <div class="of of-full"><label>Project details *</label><textarea id="ordMsg" placeholder="What decision are you trying to make with data? Deadline? Tools you already use?"></textarea></div>
           </div>
-          <div class="of"><label>Deadline</label>
-            <select id="ordDeadline">
-              <option value="asap">ASAP / urgent</option>
-              <option value="1-week" selected>Within a week</option>
-              <option value="2-4-weeks">2–4 weeks</option>
-              <option value="flexible">Flexible</option>
-            </select>
+          <div class="estimate-card">
+            <span class="ec-l">Updated estimate:</span>
+            <span class="ec-v" id="estPrice2">$300</span>
+            <span class="ec-note" id="estTime2"></span>
           </div>
-          <button type="submit" class="order-submit" id="ordSubmit">▶ Place Order — Send to Sajjad</button>
-          <p class="order-note">Order goes to <span id="ordOwnerEmail">sajjadali.data@gmail.com</span> · tracked in admin console · no spam, ever</p>
-        </form>
+          <div class="wiz-nav">
+            <button class="wiz-btn back" data-go="1">← Back</button>
+            <button class="wiz-btn next" data-go="3">Review Order →</button>
+          </div>
+        </div>
+
+        <!-- STEP 3: review -->
+        <div class="wiz-body" data-w="3">
+          <div class="review-box" id="reviewBox"></div>
+          <div class="wiz-nav">
+            <button class="wiz-btn back" data-go="2">← Edit</button>
+            <button class="wiz-btn next" id="ordSubmit">✓ Place Order — Send</button>
+          </div>
+        </div>
       </div>
 
       <div class="order-success" id="orderSuccess">
         <div class="os-ico">✅</div>
         <h3>Order Placed!</h3>
-        <p>Sajjad has been notified by email and will reply within 24 hours on weekdays. Save your tracking ID:</p>
+        <p>Sajjad has been notified and will reply within 24h on weekdays. Save your tracking ID:</p>
         <div class="os-id" id="osId">ORD-000000-0000</div>
-        <p style="font-size:.78rem;color:var(--txt-3)">A copy of this order is now in the site's admin console.</p>
+        <p style="font-size:.78rem;color:var(--txt-3)">This order is now live in the site's admin dashboard.</p>
         <div>
-          <a class="btn btn-ghost" href="#assistant" onclick="document.getElementById('orderSuccess').classList.remove('show');document.getElementById('orderFlow').style.display='block'">← Place another</a>
+          <a class="btn btn-ghost" href="#order" onclick="resetWizard()">← New Order</a>
           <a class="btn btn-primary" href="#contact">Contact Directly →</a>
         </div>
       </div>
@@ -1024,99 +1052,175 @@ footer{border-top:1px solid var(--glass-border);padding:36px 0;margin-top:44px}
 <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
 <div class="toast" id="toast"></div>
 
-<!-- ================= ADMIN CONSOLE (owner only) ================= -->
-<button class="admin-trigger" id="adminTrigger" aria-label="Admin console" title="Admin">⚙</button>
+<!-- ================= ADMIN DASHBOARD (full app) ================= -->
+<button class="admin-trigger" id="adminTrigger" aria-label="Admin dashboard">
+  <span class="at-dot"></span> ⚙ <span class="at-txt">ADMIN</span>
+</button>
 
-<div class="admin-overlay" id="adminOverlay" role="dialog" aria-label="Admin console">
-  <div class="admin-box">
-    <!-- login -->
-    <div id="adminLogin">
-      <div class="admin-tabs"><span class="admin-tab is-active">🔐 Owner Login</span></div>
-      <div class="admin-pane is-active">
-        <h4>⚙ Admin Console — Sajjad only</h4>
-        <input class="admin-input mono" type="password" id="adminPass" placeholder="Enter admin password…" autocomplete="off">
-        <button class="admin-btn" id="adminLoginBtn">Unlock Console →</button>
-        <p class="admin-error" id="adminErr"></p>
-        <p style="font-size:.66rem;color:var(--txt-3);font-family:var(--mono);text-align:center;margin-top:14px">default: <b>sajjad2026</b> — change it in the Settings tab after login</p>
-      </div>
+<div class="adm" id="adm" role="dialog" aria-label="Admin dashboard">
+
+  <!-- LOGIN -->
+  <div class="adm-login" id="admLogin">
+    <div class="login-box">
+      <div class="lb-ico">🔐</div>
+      <h3>Admin Dashboard</h3>
+      <p class="lb-sub">Sajjad Ali · owner access only</p>
+      <input class="set-field-input" style="width:100%;background:rgba(8,12,22,.5);border:1px solid var(--glass-border);border-radius:12px;padding:13px 15px;color:var(--txt);font-family:var(--mono);outline:none;margin-bottom:12px" type="password" id="adminPass" placeholder="password…" autocomplete="off">
+      <button class="set-save" id="adminLoginBtn">Unlock Dashboard →</button>
+      <p class="note-err" id="adminErr"></p>
+      <p style="font-size:.62rem;color:var(--txt-3);font-family:var(--mono);text-align:center;margin-top:12px">default: sajjad2026 · change in Settings</p>
+      <button class="studio-btn ghost" style="width:100%;margin-top:14px" onclick="document.getElementById('adm').classList.remove('open')">Cancel</button>
     </div>
+  </div>
 
-    <!-- console -->
-    <div id="adminConsole" style="display:none">
-      <div class="admin-tabs">
-        <button class="admin-tab is-active" data-pane="paneOrders">🛒 Orders <span class="count-pill" id="ordCount">0</span></button>
-        <button class="admin-tab" data-pane="paneColors">🎨 Colors</button>
-        <button class="admin-tab" data-pane="paneSettings">⚙ Settings</button>
+  <!-- APP -->
+  <div id="admApp" style="display:none;grid-column:1/-1;display:none">
+    <!-- SIDEBAR -->
+    <aside class="adm-side" id="admSide">
+      <div class="as-brand">
+        <span class="brand-cube" style="transform:scale(.75)"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        SA Control
       </div>
-
-      <!-- ORDERS -->
-      <div class="admin-pane is-active" id="paneOrders">
-        <div class="admin-stats" id="adminStats">
-          <div class="stat-mini"><div class="v" id="asTotal">0</div><div class="l">Orders</div></div>
-          <div class="stat-mini"><div class="v" id="asNew">0</div><div class="l">New</div></div>
-          <div class="stat-mini"><div class="v" id="asDone">0</div><div class="l">Done</div></div>
-          <div class="stat-mini"><div class="v" id="asRev">$0</div><div class="l">Est. value</div></div>
-        </div>
-        <div class="ord-list" id="ordList">
-          <div class="ord-empty">No orders yet — share the site!</div>
-        </div>
-        <div class="admin-row-btns">
-          <button class="admin-btn secondary" id="exportCsv">⬇ Export CSV</button>
-          <button class="admin-btn danger" id="clearOrders">🗑 Clear All</button>
-        </div>
+      <nav class="as-nav">
+        <div class="as-item is-active" data-page="pgDash"><span>📊</span> Dashboard</div>
+        <div class="as-item" data-page="pgOrders"><span>🛒</span> Orders <span class="ai-badge" id="ordBadge">0</span></div>
+        <div class="as-item" data-page="pgStudio"><span>🎨</span> Theme Studio</div>
+        <div class="as-item" data-page="pgContent"><span>✏️</span> Content</div>
+        <div class="as-item" data-page="pgSettings"><span>⚙️</span> Settings</div>
+      </nav>
+      <div class="as-foot">
+        <p class="as-hint">v2.0 · data stored locally in this browser</p>
+        <div class="as-logout" id="adminLogout"><span>↩</span> Logout</div>
       </div>
+    </aside>
 
-      <!-- COLORS -->
-      <div class="admin-pane" id="paneColors">
-        <h4>🎨 Dynamic Theme Engine <span class="count-pill">live</span></h4>
-        <div class="color-presets" id="colorPresets">
-          <div class="preset is-active" data-p="cyan" data-c1="#22d3ee" data-c2="#2dd4bf" data-c3="#8b5cf6">
-            <div class="swatches"><i style="background:#22d3ee"></i><i style="background:#2dd4bf"></i><i style="background:#8b5cf6"></i></div><span>Terminal</span>
-          </div>
-          <div class="preset" data-p="sunset" data-c1="#fb7185" data-c2="#f97316" data-c3="#fbbf24">
-            <div class="swatches"><i style="background:#fb7185"></i><i style="background:#f97316"></i><i style="background:#fbbf24"></i></div><span>Sunset</span>
-          </div>
-          <div class="preset" data-p="emerald" data-c1="#34d399" data-c2="#10b981" data-c3="#065f46">
-            <div class="swatches"><i style="background:#34d399"></i><i style="background:#10b981"></i><i style="background:#065f46"></i></div><span>Emerald</span>
-          </div>
-          <div class="preset" data-p="royal" data-c1="#818cf8" data-c2="#6366f1" data-c3="#c084fc">
-            <div class="swatches"><i style="background:#818cf8"></i><i style="background:#6366f1"></i><i style="background:#c084fc"></i></div><span>Royal</span>
-          </div>
-          <div class="preset" data-p="gold" data-c1="#fbbf24" data-c2="#f59e0b" data-c3="#f97316">
-            <div class="swatches"><i style="background:#fbbf24"></i><i style="background:#f59e0b"></i><i style="background:#f97316"></i></div><span>Gold</span>
-          </div>
-          <div class="preset" data-p="rose" data-c1="#fb7185" data-c2="#e11d48" data-c3="#a21caf">
-            <div class="swatches"><i style="background:#fb7185"></i><i style="background:#e11d48"></i><i style="background:#a21caf"></i></div><span>Rose</span>
-          </div>
-        </div>
-        <div class="color-custom">
-          <div><label>Primary</label><input type="color" id="cc1" value="#22d3ee"></div>
-          <div><label>Secondary</label><input type="color" id="cc2" value="#2dd4bf"></div>
-          <div><label>Accent</label><input type="color" id="cc3" value="#8b5cf6"></div>
-          <div style="display:flex;align-items:end"><button class="admin-btn" id="applyCustom" style="margin:0">Apply Custom</button></div>
-        </div>
-        <div class="admin-row-btns">
-          <button class="admin-btn secondary" id="saveColors">💾 Save Theme (public sees this)</button>
-        </div>
-        <p class="admin-success-note" id="colorNote"></p>
+    <!-- MAIN -->
+    <div class="adm-main">
+      <div class="adm-top">
+        <button class="at-close at-menu" id="admMenuBtn" style="display:none;margin-left:0" aria-label="Menu">☰</button>
+        <div><h2 id="admTitle">Dashboard</h2><p class="at-sub" id="admSub">live overview</p></div>
+        <button class="at-close" id="admClose" aria-label="Close">✕</button>
       </div>
+      <div class="adm-body">
 
-      <!-- SETTINGS -->
-      <div class="admin-pane" id="paneSettings">
-        <h4>⚙ Site Settings</h4>
-        <label style="font-family:var(--mono);font-size:.64rem;color:var(--txt-3);display:block;margin-bottom:6px">ORDER EMAIL (Formspree endpoint or direct email)</label>
-        <input class="admin-input mono" type="text" id="setEmail" placeholder="https://formspree.io/f/XXXXX">
-        <label style="font-family:var(--mono);font-size:.64rem;color:var(--txt-3);display:block;margin-bottom:6px">ADMIN PASSWORD</label>
-        <input class="admin-input mono" type="text" id="setPass" placeholder="new password">
-        <label style="font-family:var(--mono);font-size:.64rem;color:var(--txt-3);display:block;margin-bottom:6px">LINKEDIN URL</label>
-        <input class="admin-input mono" type="text" id="setLinkedin" placeholder="https://linkedin.com/in/...">
-        <label style="font-family:var(--mono);font-size:.64rem;color:var(--txt-3);display:block;margin-bottom:6px">GITHUB URL</label>
-        <input class="admin-input mono" type="text" id="setGithub" placeholder="https://github.com/...">
-        <button class="admin-btn" id="saveSettings">💾 Save Settings</button>
-        <p class="admin-success-note" id="setNote"></p>
-        <div class="admin-row-btns">
-          <button class="admin-btn secondary" id="adminLogout">↩ Logout</button>
+        <!-- DASHBOARD -->
+        <div class="adm-page is-active" id="pgDash">
+          <div class="stat-cards">
+            <div class="stat-card"><div class="sc-ico">🛒</div><div class="sc-v" id="asTotal">0</div><div class="sc-l">Total orders</div></div>
+            <div class="stat-card"><div class="sc-ico">🆕</div><div class="sc-v" id="asNew">0</div><div class="sc-l">New / unread</div></div>
+            <div class="stat-card"><div class="sc-ico">✅</div><div class="sc-v" id="asDone">0</div><div class="sc-l">Completed</div></div>
+            <div class="stat-card"><div class="sc-ico">💰</div><div class="sc-v" id="asRev">$0</div><div class="sc-l">Est. pipeline</div></div>
+          </div>
+          <div class="chart-grid">
+            <div class="chart-box2"><h4>Orders over time <span class="cb-sub">last 14 days</span></h4><canvas id="admChartOrders" height="200"></canvas></div>
+            <div class="chart-box2"><h4>By service <span class="cb-sub">share</span></h4><canvas id="admChartSvc" height="200"></canvas></div>
+          </div>
+          <div class="chart-grid" style="grid-template-columns:1fr">
+            <div class="chart-box2"><h4>Funnel <span class="cb-sub">status distribution</span></h4>
+              <div id="admFunnel"></div>
+            </div>
+          </div>
         </div>
+
+        <!-- ORDERS -->
+        <div class="adm-page" id="pgOrders">
+          <div class="ord-toolbar">
+            <input class="ord-search" id="ordSearch" placeholder="🔍 search name, email, ID, service…">
+            <button class="ord-filter is-active" data-f="all">All</button>
+            <button class="ord-filter" data-f="new">New</button>
+            <button class="ord-filter" data-f="inprogress">In progress</button>
+            <button class="ord-filter" data-f="done">Done</button>
+            <button class="ord-filter" data-f="cancelled">Cancelled</button>
+          </div>
+          <div class="ord-list" id="ordList"></div>
+          <div class="studio-btns" style="margin-top:18px">
+            <button class="studio-btn ghost" id="exportCsv">⬇ Export CSV</button>
+            <button class="studio-btn danger" id="clearOrders">🗑 Clear All</button>
+          </div>
+        </div>
+
+        <!-- THEME STUDIO -->
+        <div class="adm-page" id="pgStudio">
+          <div class="studio-grid">
+            <div class="studio-box">
+              <h4>🎨 Presets — click to apply live</h4>
+              <div class="color-presets" id="colorPresets">
+                <div class="preset" data-c1="#22d3ee" data-c2="#2dd4bf" data-c3="#8b5cf6"><div class="swatches"><i style="background:#22d3ee"></i><i style="background:#2dd4bf"></i><i style="background:#8b5cf6"></i></div><span>Terminal</span></div>
+                <div class="preset" data-c1="#fb7185" data-c2="#f97316" data-c3="#fbbf24"><div class="swatches"><i style="background:#fb7185"></i><i style="background:#f97316"></i><i style="background:#fbbf24"></i></div><span>Sunset</span></div>
+                <div class="preset" data-c1="#34d399" data-c2="#10b981" data-c3="#065f46"><div class="swatches"><i style="background:#34d399"></i><i style="background:#10b981"></i><i style="background:#065f46"></i></div><span>Emerald</span></div>
+                <div class="preset" data-c1="#818cf8" data-c2="#6366f1" data-c3="#c084fc"><div class="swatches"><i style="background:#818cf8"></i><i style="background:#6366f1"></i><i style="background:#c084fc"></i></div><span>Royal</span></div>
+                <div class="preset" data-c1="#fbbf24" data-c2="#f59e0b" data-c3="#f97316"><div class="swatches"><i style="background:#fbbf24"></i><i style="background:#f59e0b"></i><i style="background:#f97316"></i></div><span>Gold</span></div>
+                <div class="preset" data-c1="#fb7185" data-c2="#e11d48" data-c3="#a21caf"><div class="swatches"><i style="background:#fb7185"></i><i style="background:#e11d48"></i><i style="background:#a21caf"></i></div><span>Rose</span></div>
+              </div>
+            </div>
+            <div class="studio-box">
+              <h4>🖌 Custom colors</h4>
+              <div class="color-custom">
+                <div><label>Primary</label><input type="color" id="cc1" value="#22d3ee"></div>
+                <div><label>Secondary</label><input type="color" id="cc2" value="#2dd4bf"></div>
+                <div><label>Accent</label><input type="color" id="cc3" value="#8b5cf6"></div>
+              </div>
+              <div class="slider-row" style="margin-top:16px">
+                <label>Glow intensity <b id="glowVal">25</b></label>
+                <input type="range" id="glowRange" min="0" max="60" value="25">
+              </div>
+              <div class="slider-row">
+                <label>Corner radius <b id="radVal">20</b></label>
+                <input type="range" id="radRange" min="0" max="34" value="20">
+              </div>
+              <div class="studio-btns">
+                <button class="studio-btn primary" id="applyCustom">⚡ Apply Custom</button>
+                <button class="studio-btn ghost" id="saveTheme">💾 Save (public sees it)</button>
+              </div>
+              <p class="note-ok" id="colorNote"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="adm-page" id="pgContent">
+          <div class="set-grid">
+            <div class="set-box">
+              <h4>✏️ Hero section</h4>
+              <div class="set-field"><label>Badge text</label><input id="ctBadge" placeholder="Available for new opportunities…"></div>
+              <div class="set-field"><label>Name line</label><input id="ctName" placeholder="You're in my dataset."></div>
+              <div class="set-field"><label>Intro paragraph</label><textarea id="ctIntro" rows="5" placeholder="Hi, I'm Sajjad Ali…"></textarea></div>
+              <div class="set-field"><label>Order section heading</label><input id="ctOrderHead" placeholder="Place an order."></div>
+              <button class="set-save" id="saveContentHero">💾 Save Hero</button>
+              <p class="note-ok" id="contentNote1"></p>
+            </div>
+            <div class="set-box">
+              <h4>💳 Pricing (order wizard)</h4>
+              <div id="pricingFields"></div>
+              <button class="set-save" id="savePricing">💾 Save Prices</button>
+              <p class="note-ok" id="contentNote2"></p>
+              <p style="font-size:.66rem;color:var(--txt-3);font-family:var(--mono);margin-top:10px">Changes apply to the public order wizard instantly.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SETTINGS -->
+        <div class="adm-page" id="pgSettings">
+          <div class="set-grid">
+            <div class="set-box">
+              <h4>📧 Email delivery</h4>
+              <div class="set-field"><label>Formspree endpoint (order → email)</label><input class="mono" id="setEmail" placeholder="https://formspree.io/f/XXXXX"></div>
+              <div class="set-field"><label>New admin password</label><input class="mono" type="text" id="setPass" placeholder="leave blank = unchanged"></div>
+              <button class="set-save" id="saveSettings">💾 Save Settings</button>
+              <p class="note-ok" id="setNote"></p>
+              <p style="font-size:.64rem;color:var(--txt-3);font-family:var(--mono);margin-top:12px">No endpoint set → orders use visitor's mail app as fallback. Data always saved in dashboard.</p>
+            </div>
+            <div class="set-box">
+              <h4>🔗 Links</h4>
+              <div class="set-field"><label>LinkedIn URL</label><input class="mono" id="setLinkedin"></div>
+              <div class="set-field"><label>GitHub URL</label><input class="mono" id="setGithub"></div>
+              <div class="set-field"><label>Email (public)</label><input class="mono" id="setPublicEmail"></div>
+              <button class="set-save" id="saveLinks">💾 Save Links</button>
+              <p class="note-ok" id="setNote2"></p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -2007,33 +2111,62 @@ drawer.querySelectorAll(".dlink, .drawer-cta").forEach(a => a.addEventListener("
 </html>
 
 <style>
-/* ==================== ORDER SYSTEM ==================== */
+/* ==================== ORDER WIZARD ==================== */
 .order-panel{border-radius:var(--r-lg);background:var(--glass);border:1px solid var(--glass-border-hi);backdrop-filter:blur(26px);overflow:hidden;box-shadow:var(--shadow)}
 .order-head{display:flex;align-items:center;gap:12px;padding:20px 26px;border-bottom:1px solid var(--glass-border);background:linear-gradient(92deg,rgba(34,211,238,.10),rgba(139,92,246,.08))}
 .order-head .oh-ico{font-size:1.4rem}
 .order-head h3{font-family:var(--display);font-size:1.12rem;font-weight:700}
-.order-head .oh-sub{font-size:.74rem;color:var(--txt-3);font-family:var(--mono)}
-.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;padding:22px 26px 8px}
-.svc{position:relative;padding:18px;border-radius:var(--r-md);background:var(--glass);border:1.5px solid var(--glass-border);cursor:pointer;transition:all .3s var(--ease-bounce);overflow:hidden}
+.order-head .oh-sub{font-size:.72rem;color:var(--txt-3);font-family:var(--mono)}
+/* wizard progress */
+.wiz-progress{display:flex;align-items:center;justify-content:center;gap:0;padding:26px 26px 6px}
+.wiz-step{display:flex;align-items:center;gap:9px}
+.wiz-step .ws-dot{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:.78rem;font-weight:700;border:2px solid var(--glass-border);color:var(--txt-3);background:var(--glass);transition:all .35s var(--ease-bounce)}
+.wiz-step .ws-lbl{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-3)}
+.wiz-step.is-active .ws-dot{border-color:var(--cyan);color:var(--cyan-2);box-shadow:0 0 16px -2px rgba(34,211,238,.5);transform:scale(1.1)}
+.wiz-step.is-active .ws-lbl{color:var(--cyan-2)}
+.wiz-step.is-done .ws-dot{background:var(--grad);border-color:transparent;color:#04121a}
+.wiz-line{flex:0 0 40px;height:2px;background:var(--glass-border);margin:0 10px}
+.wiz-line.is-done{background:var(--grad)}
+@media(max-width:640px){.wiz-step .ws-lbl{display:none}.wiz-line{flex-basis:20px;margin:0 6px}}
+/* wizard body */
+.wiz-body{padding:22px 26px 28px;display:none}
+.wiz-body.is-active{display:block;animation:log-in .4s}
+.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.svc{position:relative;padding:18px;border-radius:var(--r-md);background:var(--glass);border:1.5px solid var(--glass-border);cursor:pointer;transition:all .3s var(--ease-bounce)}
 .svc:hover{transform:translateY(-3px);border-color:var(--glass-border-hi)}
 .svc.is-picked{border-color:var(--cyan);background:rgba(34,211,238,.09);box-shadow:0 0 24px -6px rgba(34,211,238,.4)}
 .svc .si{font-size:1.5rem;margin-bottom:8px}
 .svc b{display:block;font-family:var(--display);font-size:.92rem;margin-bottom:3px}
 .svc span{font-size:.72rem;color:var(--txt-3);font-family:var(--mono)}
+.svc .svc-price{display:block;margin-top:8px;font-family:var(--mono);font-size:.8rem;color:var(--cyan-2)}
 .svc .svc-check{position:absolute;top:10px;right:12px;width:20px;height:20px;border-radius:50%;background:var(--grad);color:#04121a;display:none;place-items:center;font-size:.7rem;font-weight:800}
 .svc.is-picked .svc-check{display:grid}
-.order-form{padding:18px 26px 26px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+/* estimate card */
+.estimate-card{margin-top:18px;padding:16px 18px;border-radius:var(--r-md);background:var(--glass);border:1px dashed var(--glass-border-hi);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.estimate-card .ec-l{font-size:.78rem;color:var(--txt-2)}
+.estimate-card .ec-v{font-family:var(--mono);font-size:1.5rem;font-weight:700;color:var(--cyan-2)}
+.estimate-card .ec-note{font-size:.66rem;color:var(--txt-3);font-family:var(--mono);width:100%}
+/* form rows */
+.of-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .of-full{grid-column:1/-1}
 .of label{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-3);display:block;margin-bottom:6px}
 .of input,.of select,.of textarea{width:100%;background:rgba(8,12,22,.5);border:1px solid var(--glass-border);border-radius:12px;padding:13px 15px;color:var(--txt);font-size:.9rem;outline:none;transition:all .3s;font-family:var(--sans)}
 [data-theme="light"] .of input,[data-theme="light"] .of select,[data-theme="light"] .of textarea{background:rgba(255,255,255,.6)}
 .of input:focus,.of select:focus,.of textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(34,211,238,.12)}
-.of textarea{min-height:110px;resize:vertical;font-family:var(--sans)}
-.of select{cursor:pointer}
-.order-submit{grid-column:1/-1;padding:16px;border-radius:16px;background:var(--grad);color:#04121a;font-weight:700;font-size:1rem;font-family:var(--display);transition:all .3s var(--ease-bounce);position:relative;overflow:hidden}
-.order-submit:hover{transform:translateY(-2px);box-shadow:var(--glow)}
-.order-submit:disabled{opacity:.5;cursor:not-allowed;transform:none}
-.order-note{grid-column:1/-1;font-size:.72rem;color:var(--txt-3);font-family:var(--mono);text-align:center}
+.of textarea{min-height:110px;resize:vertical}
+.wiz-nav{display:flex;gap:12px;margin-top:20px}
+.wiz-btn{flex:1;padding:15px;border-radius:14px;font-family:var(--display);font-weight:700;font-size:.92rem;transition:all .3s var(--ease-bounce)}
+.wiz-btn.next{background:var(--grad);color:#04121a}
+.wiz-btn.next:hover{transform:translateY(-2px);box-shadow:var(--glow)}
+.wiz-btn.back{background:var(--glass);border:1px solid var(--glass-border-hi);color:var(--txt-2)}
+.wiz-btn.back:hover{color:var(--txt)}
+.wiz-btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+/* review */
+.review-box{padding:20px;border-radius:var(--r-md);background:var(--glass);border:1px solid var(--glass-border)}
+.review-box .rv-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--glass-border);font-size:.86rem;gap:14px}
+.review-box .rv-row:last-child{border-bottom:0}
+.review-box .rv-row b{font-family:var(--display)}
+.review-box .rv-row span{color:var(--txt-2);text-align:right}
 .order-success{display:none;text-align:center;padding:60px 40px;animation:log-in .5s}
 .order-success.show{display:block}
 .order-success .os-ico{font-size:3.6rem;margin-bottom:18px}
@@ -2042,31 +2175,64 @@ drawer.querySelectorAll(".dlink, .drawer-cta").forEach(a => a.addEventListener("
 .order-success .os-id{font-family:var(--mono);color:var(--cyan-2);font-size:1.05rem;padding:10px 22px;border:1px dashed var(--glass-border-hi);border-radius:12px;display:inline-block;margin:16px 0 24px;background:var(--glass)}
 .order-success .btn{margin:0 6px}
 
-/* ==================== ADMIN CONSOLE ==================== */
-.admin-overlay{position:fixed;inset:0;z-index:1200;background:rgba(3,5,10,.82);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:20px}
-.admin-overlay.open{display:flex;animation:log-in .35s}
-.admin-box{width:100%;max-width:520px;border-radius:24px;background:var(--bg-2);border:1px solid var(--glass-border-hi);box-shadow:var(--shadow);overflow:hidden}
-.admin-tabs{display:flex;border-bottom:1px solid var(--glass-border)}
-.admin-tab{flex:1;padding:15px;text-align:center;font-family:var(--mono);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-3);border-bottom:2px solid transparent;transition:all .25s}
-.admin-tab:hover{color:var(--txt)}
-.admin-tab.is-active{color:var(--cyan-2);border-bottom-color:var(--cyan)}
-.admin-pane{display:none;padding:26px}
-.admin-pane.is-active{display:block;animation:log-in .3s}
-.admin-pane h4{font-family:var(--display);font-size:.95rem;margin-bottom:18px;display:flex;align-items:center;gap:8px}
-.admin-pane h4 .count-pill{font-family:var(--mono);font-size:.62rem;padding:3px 10px;border-radius:99px;background:var(--grad);color:#04121a;font-weight:700}
-.admin-input{width:100%;background:var(--glass);border:1px solid var(--glass-border);border-radius:12px;padding:13px 15px;color:var(--txt);font-size:.9rem;outline:none;margin-bottom:12px;transition:all .3s}
-.admin-input:focus{border-color:var(--cyan)}
-.admin-input.mono{font-family:var(--mono)}
-.admin-btn{width:100%;padding:14px;border-radius:12px;background:var(--grad);color:#04121a;font-weight:700;font-family:var(--display);font-size:.92rem;margin-top:6px;transition:all .3s var(--ease-bounce)}
-.admin-btn:hover{transform:translateY(-2px);box-shadow:var(--glow)}
-.admin-btn:disabled{opacity:.5;cursor:not-allowed}
-.admin-btn.secondary{background:var(--glass);border:1px solid var(--glass-border-hi);color:var(--cyan-2)}
-.admin-btn.danger{background:rgba(251,113,133,.12);border:1px solid rgba(251,113,133,.4);color:var(--rose)}
-.admin-error{color:var(--rose);font-size:.76rem;font-family:var(--mono);text-align:center;min-height:1.2em;margin-top:8px}
-.admin-success-note{color:var(--green);font-size:.76rem;font-family:var(--mono);text-align:center;min-height:1.2em;margin-top:8px}
-/* orders list */
-.ord-list{max-height:300px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding-right:4px}
-.ord-item{padding:14px;border-radius:12px;background:var(--glass);border:1px solid var(--glass-border);animation:log-in .3s}
+/* ==================== ADMIN DASHBOARD (full app) ==================== */
+.adm{position:fixed;inset:0;z-index:1300;background:rgba(3,5,10,.9);backdrop-filter:blur(18px);display:none}
+.adm.open{display:grid;grid-template-columns:230px 1fr;animation:log-in .35s}
+/* login screen */
+.adm-login{grid-column:1/-1;display:flex;align-items:center;justify-content:center;padding:20px}
+.login-box{width:100%;max-width:400px;padding:36px;border-radius:22px;background:var(--bg-2);border:1px solid var(--glass-border-hi);box-shadow:var(--shadow)}
+.login-box .lb-ico{text-align:center;font-size:2.2rem;margin-bottom:10px}
+.login-box h3{font-family:var(--display);text-align:center;font-size:1.2rem;margin-bottom:4px}
+.login-box .lb-sub{text-align:center;font-size:.72rem;color:var(--txt-3);font-family:var(--mono);margin-bottom:22px}
+/* sidebar */
+.adm-side{background:rgba(8,12,22,.6);border-right:1px solid var(--glass-border);display:flex;flex-direction:column;padding:22px 14px;overflow-y:auto}
+[data-theme="light"] .adm-side{background:rgba(255,255,255,.5)}
+.adm-side .as-brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;padding:6px 10px 20px;border-bottom:1px solid var(--glass-border);margin-bottom:16px}
+.adm-side .as-brand .brand-cube{transform:scale(.7)}
+.as-nav{display:flex;flex-direction:column;gap:4px}
+.as-item{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;color:var(--txt-2);font-family:var(--display);font-weight:500;font-size:.9rem;transition:all .25s;cursor:pointer;border:1px solid transparent}
+.as-item:hover{color:var(--txt);background:var(--glass)}
+.as-item.is-active{color:var(--cyan-2);background:rgba(34,211,238,.08);border-color:rgba(34,211,238,.2)}
+.as-item .ai-badge{margin-left:auto;font-family:var(--mono);font-size:.62rem;padding:2px 9px;border-radius:99px;background:var(--grad);color:#04121a;font-weight:700}
+.as-item .ai-badge.zero{background:var(--glass);color:var(--txt-3)}
+.as-foot{margin-top:auto;padding-top:16px;border-top:1px solid var(--glass-border);display:flex;flex-direction:column;gap:6px}
+.as-logout{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:12px;color:var(--rose);font-family:var(--display);font-size:.86rem;cursor:pointer;transition:all .25s}
+.as-logout:hover{background:rgba(251,113,133,.1)}
+.as-hint{font-family:var(--mono);font-size:.58rem;color:var(--txt-3);padding:8px 12px;letter-spacing:.06em}
+/* main area */
+.adm-main{display:flex;flex-direction:column;overflow:hidden}
+.adm-top{display:flex;align-items:center;gap:14px;padding:18px 28px;border-bottom:1px solid var(--glass-border);background:var(--glass)}
+.adm-top h2{font-family:var(--display);font-size:1.15rem;font-weight:700}
+.adm-top .at-sub{font-size:.7rem;color:var(--txt-3);font-family:var(--mono)}
+.adm-top .at-close{margin-left:auto;width:40px;height:40px;border-radius:12px;border:1px solid var(--glass-border);background:var(--glass);color:var(--txt-2);cursor:pointer;transition:all .25s;font-size:1rem}
+.adm-top .at-close:hover{color:var(--rose);border-color:rgba(251,113,133,.4)}
+.adm-body{flex:1;overflow-y:auto;padding:28px}
+/* pages */
+.adm-page{display:none;animation:log-in .3s}
+.adm-page.is-active{display:block}
+/* stat cards */
+.stat-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-bottom:24px}
+.stat-card{padding:20px;border-radius:16px;background:var(--glass);border:1px solid var(--glass-border);position:relative;overflow:hidden;transition:transform .3s var(--ease-bounce)}
+.stat-card:hover{transform:translateY(-3px)}
+.stat-card::after{content:"";position:absolute;inset:auto 0 0 0;height:2px;background:var(--grad)}
+.stat-card .sc-ico{font-size:1.4rem;margin-bottom:8px}
+.stat-card .sc-v{font-family:var(--mono);font-size:1.9rem;font-weight:700;color:var(--cyan-2)}
+.stat-card .sc-l{font-size:.7rem;color:var(--txt-3);letter-spacing:.1em;text-transform:uppercase;font-family:var(--mono)}
+/* chart boxes */
+.chart-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:14px;margin-bottom:24px}
+.chart-box2{padding:20px;border-radius:16px;background:var(--glass);border:1px solid var(--glass-border)}
+.chart-box2 h4{font-family:var(--display);font-size:.9rem;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.chart-box2 h4 .cb-sub{font-size:.64rem;color:var(--txt-3);font-family:var(--mono)}
+/* orders page */
+.ord-toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.ord-search{flex:1;min-width:200px;padding:12px 16px;border-radius:12px;background:var(--glass);border:1px solid var(--glass-border);color:var(--txt);outline:none;font-size:.86rem;transition:all .3s}
+.ord-search:focus{border-color:var(--cyan)}
+.ord-filter{padding:9px 16px;border-radius:99px;font-family:var(--mono);font-size:.72rem;border:1px solid var(--glass-border);background:var(--glass);color:var(--txt-2);cursor:pointer;transition:all .25s}
+.ord-filter:hover{color:var(--txt)}
+.ord-filter.is-active{background:var(--grad);color:#04121a;border-color:transparent;font-weight:700}
+.ord-list{display:flex;flex-direction:column;gap:12px}
+.ord-item{padding:18px;border-radius:14px;background:var(--glass);border:1px solid var(--glass-border);animation:log-in .3s;transition:border-color .3s}
+.ord-item:hover{border-color:var(--glass-border-hi)}
 .ord-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
 .ord-id{font-family:var(--mono);font-size:.72rem;color:var(--cyan-2)}
 .ord-status{font-family:var(--mono);font-size:.6rem;padding:4px 10px;border-radius:99px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border:1px solid}
@@ -2075,56 +2241,85 @@ drawer.querySelectorAll(".dlink, .drawer-cta").forEach(a => a.addEventListener("
 .ord-status.st-inprogress{color:#a78bfa;border-color:rgba(167,139,250,.4);background:rgba(167,139,250,.08)}
 .ord-status.st-done{color:#34d399;border-color:rgba(52,211,153,.4);background:rgba(52,211,153,.08)}
 .ord-status.st-cancelled{color:#fb7185;border-color:rgba(251,113,133,.4);background:rgba(251,113,133,.08)}
-.ord-name{font-family:var(--display);font-size:.9rem;font-weight:600}
+.ord-name{font-family:var(--display);font-size:.92rem;font-weight:600}
 .ord-meta{font-size:.72rem;color:var(--txt-3);font-family:var(--mono);display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
-.ord-actions{display:flex;gap:8px;margin-top:10px}
-.ord-actions button{font-family:var(--mono);font-size:.66rem;padding:6px 12px;border-radius:8px;border:1px solid var(--glass-border);background:var(--glass);color:var(--txt-2);transition:all .2s}
+.ord-actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.ord-actions button{font-family:var(--mono);font-size:.68rem;padding:7px 14px;border-radius:9px;border:1px solid var(--glass-border);background:var(--glass);color:var(--txt-2);cursor:pointer;transition:all .2s}
 .ord-actions button:hover{border-color:var(--glass-border-hi);color:var(--txt)}
 .ord-actions button.del:hover{border-color:rgba(251,113,133,.5);color:var(--rose)}
-.ord-empty{text-align:center;padding:40px;color:var(--txt-3);font-family:var(--mono);font-size:.8rem}
-/* stats mini */
-.admin-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
-.stat-mini{padding:12px;border-radius:10px;background:var(--glass);border:1px solid var(--glass-border);text-align:center}
-.stat-mini .v{font-family:var(--mono);font-size:1.3rem;font-weight:600;color:var(--cyan-2)}
-.stat-mini .l{font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;color:var(--txt-3)}
-/* color engine UI */
-.color-presets{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+.ord-empty{text-align:center;padding:60px 20px;color:var(--txt-3);font-family:var(--mono);font-size:.82rem;border:1px dashed var(--glass-border);border-radius:14px}
+/* theme studio */
+.studio-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.studio-box{padding:22px;border-radius:16px;background:var(--glass);border:1px solid var(--glass-border)}
+.studio-box h4{font-family:var(--display);font-size:.92rem;margin-bottom:16px}
+.color-presets{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .preset{padding:12px 8px;border-radius:12px;border:1.5px solid var(--glass-border);cursor:pointer;transition:all .25s;text-align:center}
 .preset:hover{transform:translateY(-2px)}
 .preset.is-active{border-color:var(--cyan);box-shadow:0 0 18px -4px rgba(34,211,238,.5)}
 .preset .swatches{display:flex;gap:4px;justify-content:center;margin-bottom:7px}
 .preset .swatches i{width:14px;height:14px;border-radius:4px;display:block}
 .preset span{font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;color:var(--txt-2);text-transform:uppercase}
-.color-custom{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:16px;border-radius:12px;background:var(--glass);border:1px solid var(--glass-border)}
-.color-custom label{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-3);display:block;margin-bottom:7px}
-.color-custom input[type=color]{width:100%;height:42px;border:1px solid var(--glass-border);border-radius:10px;background:var(--glass);cursor:pointer;padding:4px}
-.admin-row-btns{display:flex;gap:10px;margin-top:14px}
-.admin-row-btns .admin-btn{margin-top:0}
+.color-custom{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.color-custom label{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-3);display:block;margin-bottom:7px}
+.color-custom input[type=color]{width:100%;height:44px;border:1px solid var(--glass-border);border-radius:10px;background:var(--glass);cursor:pointer;padding:4px}
+.slider-row{margin-bottom:18px}
+.slider-row label{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-3);margin-bottom:8px}
+.slider-row label b{color:var(--cyan-2);font-weight:600}
+.slider-row input[type=range]{width:100%;accent-color:var(--cyan);cursor:pointer}
+.studio-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.studio-btn{flex:1;min-width:140px;padding:13px;border-radius:12px;font-family:var(--display);font-weight:700;font-size:.88rem;cursor:pointer;transition:all .3s var(--ease-bounce)}
+.studio-btn.primary{background:var(--grad);color:#04121a}
+.studio-btn.primary:hover{transform:translateY(-2px);box-shadow:var(--glow)}
+.studio-btn.ghost{background:var(--glass);border:1px solid var(--glass-border-hi);color:var(--cyan-2)}
+.studio-btn.danger{background:rgba(251,113,133,.12);border:1px solid rgba(251,113,133,.4);color:var(--rose)}
+/* settings + content */
+.set-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.set-box{padding:22px;border-radius:16px;background:var(--glass);border:1px solid var(--glass-border)}
+.set-box h4{font-family:var(--display);font-size:.92rem;margin-bottom:16px}
+.set-field{margin-bottom:14px}
+.set-field label{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-3);display:block;margin-bottom:6px}
+.set-field input,.set-field textarea{width:100%;background:rgba(8,12,22,.5);border:1px solid var(--glass-border);border-radius:11px;padding:12px 14px;color:var(--txt);font-size:.88rem;outline:none;transition:all .3s;font-family:var(--sans)}
+[data-theme="light"] .set-field input,[data-theme="light"] .set-field textarea{background:rgba(255,255,255,.6)}
+.set-field input:focus,.set-field textarea:focus{border-color:var(--cyan)}
+.set-field input.mono,.set-field textarea.mono{font-family:var(--mono)}
+.set-save{width:100%;padding:13px;border-radius:12px;background:var(--grad);color:#04121a;font-family:var(--display);font-weight:700;font-size:.88rem;cursor:pointer;transition:all .3s var(--ease-bounce)}
+.set-save:hover{transform:translateY(-2px);box-shadow:var(--glow)}
+.note-ok{color:var(--green);font-family:var(--mono);font-size:.72rem;text-align:center;min-height:1.3em;margin-top:10px}
+.note-err{color:var(--rose);font-family:var(--mono);font-size:.72rem;text-align:center;min-height:1.3em;margin-top:10px}
 /* admin trigger */
-.admin-trigger{position:fixed;left:26px;bottom:78px;z-index:700;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:1.15rem;background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(14px);opacity:.55;transition:all .35s var(--ease-bounce)}
-.admin-trigger:hover{opacity:1;border-color:var(--glass-border-hi);transform:translateY(-3px)}
+.admin-trigger{position:fixed;left:26px;bottom:78px;z-index:700;display:flex;align-items:center;gap:8px;padding:11px 16px;border-radius:14px;background:var(--glass);border:1px solid var(--glass-border-hi);backdrop-filter:blur(14px);color:var(--txt-2);font-family:var(--mono);font-size:.76rem;letter-spacing:.08em;transition:all .35s var(--ease-bounce);box-shadow:var(--shadow);cursor:pointer}
+.admin-trigger:hover{color:var(--cyan-2);transform:translateY(-3px);box-shadow:var(--glow)}
+.admin-trigger .at-dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan);animation:livepulse 2s infinite}
+/* responsive */
+@media(max-width:900px){
+  .adm.open{grid-template-columns:1fr}
+  .adm-side{position:absolute;left:0;top:0;bottom:0;width:230px;z-index:5;transform:translateX(-100%);transition:transform .4s var(--ease)}
+  .adm-side.mobile-open{transform:none}
+  .adm-main{margin-left:0}
+  .adm-top .at-menu{display:grid}
+  .chart-grid,.studio-grid,.set-grid,.of-row{grid-template-columns:1fr}
+  .adm-body{padding:18px}
+}
 @media(max-width:640px){
-  .admin-overlay{padding:10px}
-  .admin-pane{padding:18px}
-  .order-form{grid-template-columns:1fr;padding:16px 18px 22px}
-  .service-grid{grid-template-columns:repeat(2,1fr);padding:16px 18px 4px}
-  .admin-stats{grid-template-columns:repeat(2,1fr)}
-  .color-presets{grid-template-columns:repeat(2,1fr)}
-  .admin-trigger{left:14px;bottom:70px}
+  .service-grid{grid-template-columns:repeat(2,1fr)}
+  .stat-cards{grid-template-columns:repeat(2,1fr)}
+  .admin-trigger{left:14px;bottom:70px;padding:9px 12px}
+  .admin-trigger .at-txt{display:none}
+  .order-success{padding:44px 20px}
+  .adm-body{padding:14px}
+  .ord-toolbar{flex-direction:column}
 }
 </style>
 
 
 <script>
 /* ============================================================
-   ORDER SYSTEM + ADMIN CONSOLE + DYNAMIC COLOR ENGINE
-   Storage: localStorage (site ke andar sab local)
-   Email: Formspree endpoint (admin Settings se configurable)
+   v2.0 — ORDER WIZARD + ADMIN DASHBOARD + THEME STUDIO
+   + CONTENT ENGINE. All local (localStorage). Owner-only.
    ============================================================ */
 
-// ─────────────── tiny helpers ───────────────
 const LS = {
-  get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch (e) { return d; } },
+  get(k, d) { try { const v = JSON.parse(localStorage.getItem(k)); return v === null ? d : v; } catch (e) { return d; } },
   set(k, v) { localStorage.setItem(k, JSON.stringify(v)); }
 };
 function simpleHash(s) { let h = 5381; for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0; return "h" + h.toString(36); }
@@ -2134,281 +2329,503 @@ function toast2(txt, ms = 2600) {
   t.textContent = txt; t.classList.add("show");
   setTimeout(() => t.classList.remove("show"), ms);
 }
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
 
-// ─────────────── SETTINGS ───────────────
+// ─────────────── SETTINGS + CONTENT STORE ───────────────
 const DEFAULTS = {
-  orderEndpoint: "",                       // Formspree URL — khali => mailto fallback
-  passHash: simpleHash("sajjad2026"),      // default pass
-  linkedin: "https://linkedin.com/in/sajjad-ali-data",
-  github: "https://github.com/sajjadbaloch211"
+  passHash: simpleHash("sajjad2026"),
+  endpoint: "", linkedin: "https://linkedin.com/in/sajjad-ali-data",
+  github: "https://github.com/sajjadbaloch211", publicEmail: "sajjadali.data@gmail.com"
+};
+const DEFAULT_CONTENT = {
+  badge: "Live session · visitor tracking active",
+  name: "You're in my dataset.",
+  intro: "Hi, I'm Sajjad Ali — a data analyst. Most portfolios claim analytics. This one runs it on you, live — see that panel? That's you. Your scroll, your clicks, your session — becoming a report in real-time.",
+  orderHead: "Place an order.",
+  prices: { "Power BI Dashboard": 300, "SQL / Data Pipeline": 200, "Excel Automation": 100, "Python Analysis": 250, "A/B Test Setup": 150, "Custom Project": 0 },
+  times: { "Power BI Dashboard": "2–4 weeks", "SQL / Data Pipeline": "1–3 weeks", "Excel Automation": "3–10 days", "Python Analysis": "1–2 weeks", "A/B Test Setup": "3–7 days", "Custom Project": "scoped on call" }
 };
 let SETTINGS = Object.assign({}, DEFAULTS, LS.get("sa_settings", {}));
+let CONTENT = Object.assign({}, DEFAULT_CONTENT, LS.get("sa_content", {}));
 
-function applySettings() {
-  // order owner email display
-  const oe = document.getElementById("ordOwnerEmail");
-  if (oe) oe.textContent = "sajjadali.data@gmail.com";
-  // social links
+// apply content on load
+(function applyContent() {
+  const badge = document.querySelector(".hero-left .badge");
+  if (badge) badge.childNodes[1] && (badge.childNodes[1].nodeValue = CONTENT.badge) || badge.append(CONTENT.badge);
+  const h1 = document.querySelector(".hero h1");
+  if (h1) h1.innerHTML = '<span class="word">' + esc(CONTENT.name).replace(" ", "&nbsp;") + '</span>';
+  const sub = document.querySelector(".hero-sub");
+  if (sub) sub.innerHTML = esc(CONTENT.intro).replace(/claim/g, "<em>claim</em>");
+  const oh = document.querySelector("#order .sec-title");
+  if (oh) oh.innerHTML = esc(CONTENT.orderHead).replace(/\.\s*$/, ' <span class="grad">.</span>');
   const li = document.querySelector('a[href*="linkedin.com/in/sajjad"]');
-  if (li && SETTINGS.linkedin) li.href = SETTINGS.linkedin;
+  if (li) li.href = SETTINGS.linkedin;
   const gh = document.querySelector('a[href*="github.com/sajjadbaloch211"]');
-  if (gh && SETTINGS.github) gh.href = SETTINGS.github;
-}
-applySettings();
-
-// ─────────────── DYNAMIC COLOR ENGINE ───────────────
-const THEME_KEY = "sa_theme_colors";
-function applyColors(c1, c2, c3, save) {
-  const root = document.documentElement;
-  root.style.setProperty("--cyan", c1);
-  root.style.setProperty("--cyan-2", c1);
-  root.style.setProperty("--teal", c2);
-  root.style.setProperty("--violet", c3);
-  root.style.setProperty("--grad", `linear-gradient(92deg,${c1} 0%,${c2} 45%,${c3} 100%)`);
-  root.style.setProperty("--grad-soft", `linear-gradient(135deg,${c1}22,${c3}18)`);
-  root.style.setProperty("--glass-border-hi", c1 + "59");
-  if (save) {
-    LS.set(THEME_KEY, { c1, c2, c3 });
-    // 3D scene colors refresh
-    if (window.__3dRecolor) window.__3dRecolor(c1, c2, c3);
-  }
-}
-// apply saved theme on load
-(function loadTheme() {
-  const saved = LS.get(THEME_KEY, null);
-  if (saved) applyColors(saved.c1, saved.c2, saved.c3, false);
+  if (gh) gh.href = SETTINGS.github;
+  const mails = document.querySelectorAll('a[href^="mailto:"], .contact-item b');
+  mails.forEach(m => { if (m.href && m.href.startsWith("mailto:sajjadali")) m.href = "mailto:" + SETTINGS.publicEmail; if (m.textContent === "sajjadali.data@gmail.com") m.textContent = SETTINGS.publicEmail; });
 })();
 
-// ─────────────── ORDER SYSTEM ───────────────
-const ORDERS_KEY = "sa_orders";
-function getOrders() { return LS.get(ORDERS_KEY, []); }
-function saveOrders(list) { LS.set(ORDERS_KEY, list); renderOrders(); }
+// ─────────────── THEME ENGINE v2 ───────────────
+const THEME_KEY = "sa_theme";
+let THEME = Object.assign({ c1: "#22d3ee", c2: "#2dd4bf", c3: "#8b5cf6", glow: 25, radius: 20 }, LS.get(THEME_KEY, {}));
 
-let pickedSvc = "Power BI Dashboard";
-(function initOrder() {
+function applyTheme(t, save) {
+  const root = document.documentElement;
+  root.style.setProperty("--cyan", t.c1);
+  root.style.setProperty("--cyan-2", t.c1);
+  root.style.setProperty("--teal", t.c2);
+  root.style.setProperty("--violet", t.c3);
+  root.style.setProperty("--grad", `linear-gradient(92deg,${t.c1} 0%,${t.c2} 45%,${t.c3} 100%)`);
+  root.style.setProperty("--grad-soft", `linear-gradient(135deg,${t.c1}22,${t.c3}18)`);
+  root.style.setProperty("--glass-border-hi", t.c1 + "59");
+  root.style.setProperty("--glow", `0 0 ${Math.round(t.glow * 1.6)}px ${t.c1}66`);
+  root.style.setProperty("--r-lg", t.radius + "px");
+  root.style.setProperty("--r-md", Math.max(10, t.radius - 6) + "px");
+  if (save) { THEME = Object.assign({}, THEME, t); LS.set(THEME_KEY, THEME); }
+  // sync studio UI
+  const g = document.getElementById("glowRange"), r = document.getElementById("radRange");
+  if (g) { g.value = t.glow ?? THEME.glow; document.getElementById("glowVal").textContent = g.value; }
+  if (r) { r.value = t.radius ?? THEME.radius; document.getElementById("radVal").textContent = r.value; }
+}
+applyTheme(THEME, false);
+
+// ─────────────── ORDER WIZARD ───────────────
+const ORDERS_KEY = "sa_orders";
+let WZ = { step: 1, svc: "Power BI Dashboard", price: 300, urgencyAdd: 0 };
+
+function svcPrice(name) { return (CONTENT.prices[name] ?? 0); }
+
+(function wizard() {
   const grid = document.getElementById("svcGrid");
-  const form = document.getElementById("orderForm");
-  if (!grid || !form) return;
+  if (!grid) return;
+
+  function paintEstimate() {
+    const total = svcPrice(WZ.svc) + WZ.urgencyAdd;
+    const p1 = document.getElementById("estPrice"), p2 = document.getElementById("estPrice2");
+    const tEl = document.getElementById("estTime"), t2 = document.getElementById("estTime2");
+    const t = CONTENT.times[WZ.svc] || "scoped";
+    if (p1) p1.textContent = WZ.svc === "Custom Project" ? "Let's talk" : "$" + total;
+    if (p2) p2.textContent = WZ.svc === "Custom Project" ? "Let's talk" : "$" + total;
+    if (tEl) tEl.textContent = "⏰ " + t + (WZ.urgencyAdd ? " · fast-track +" + WZ.urgencyAdd : "") + " · final quote after scoping call";
+    if (t2) t2.textContent = "⏰ " + t + (WZ.urgencyAdd ? " · rush +" + WZ.urgencyAdd : "");
+  }
 
   grid.addEventListener("click", e => {
     const svc = e.target.closest(".svc");
     if (!svc) return;
     grid.querySelectorAll(".svc").forEach(s => s.classList.toggle("is-picked", s === svc));
-    pickedSvc = svc.dataset.svc;
-    logEvent("order", "service picked: " + pickedSvc);
+    WZ.svc = svc.dataset.svc;
+    // sync price display on card from CONTENT
+    svc.querySelectorAll(".svc-price").forEach(sp => {
+      if (sp) sp.textContent = (svcPrice(WZ.svc) ? "from $" + svcPrice(WZ.svc) : "let's talk");
+    });
+    paintEstimate();
+    logEvent("order", "service: " + WZ.svc);
   });
-  // preselect first
-  grid.querySelector(".svc")?.classList.add("is-picked");
 
-  form.addEventListener("submit", async e => {
-    e.preventDefault();
+  // apply saved prices to cards
+  grid.querySelectorAll(".svc").forEach(svc => {
+    const sp = svc.querySelector(".svc-price");
+    const p = svcPrice(svc.dataset.svc);
+    if (sp && p) sp.textContent = "from $" + p;
+  });
+  grid.querySelector(".svc")?.classList.add("is-picked");
+  paintEstimate();
+
+  document.getElementById("ordUrgency")?.addEventListener("change", e => {
+    WZ.urgencyAdd = +e.target.selectedOptions[0].dataset.add;
+    paintEstimate();
+  });
+
+  // step navigation
+  function goStep(n) {
+    if (n === 2 || n === 3) {
+      const name = document.getElementById("ordName").value.trim();
+      const email = document.getElementById("ordEmail").value.trim();
+      const msg = document.getElementById("ordMsg").value.trim();
+      if (!name || !email || !msg) return toast2("Fill name, email & details first ⚠");
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return toast2("Invalid email ⚠");
+    }
+    WZ.step = n;
+    document.querySelectorAll(".wiz-body").forEach(b => b.classList.toggle("is-active", +b.dataset.w === n));
+    document.querySelectorAll(".wiz-step").forEach(s => {
+      const sn = +s.dataset.s;
+      s.classList.toggle("is-active", sn === n);
+      s.classList.toggle("is-done", sn < n);
+    });
+    document.querySelectorAll(".wiz-line").forEach((l, i) => l.classList.toggle("is-done", i + 1 < n));
+    if (n === 3) renderReview();
+    document.getElementById("order").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  document.querySelectorAll(".wiz-btn[data-go]").forEach(b => b.addEventListener("click", () => goStep(+b.dataset.go)));
+  window.resetWizard = function () {
+    document.getElementById("orderSuccess").classList.remove("show");
+    document.getElementById("orderFlow").style.display = "block";
+    goStep(1);
+  };
+
+  function renderReview() {
     const name = document.getElementById("ordName").value.trim();
     const email = document.getElementById("ordEmail").value.trim();
+    const comp = document.getElementById("ordCompany").value.trim();
     const msg = document.getElementById("ordMsg").value.trim();
-    if (!name || !email || !msg) return toast2("Please fill name, email and details ⚠");
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return toast2("Invalid email address ⚠");
+    const urg = document.getElementById("ordUrgency").selectedOptions[0].textContent;
+    const total = svcPrice(WZ.svc) + WZ.urgencyAdd;
+    document.getElementById("reviewBox").innerHTML = `
+      <div class="rv-row"><b>Service</b><span>${esc(WZ.svc)}</span></div>
+      <div class="rv-row"><b>Timeline</b><span>${CONTENT.times[WZ.svc] || "—"}</span></div>
+      <div class="rv-row"><b>Urgency</b><span>${esc(urg)}</span></div>
+      <div class="rv-row"><b>Estimate</b><span style="color:var(--cyan-2);font-family:var(--mono)">${total ? "$" + total : "Let's talk"}</span></div>
+      <div class="rv-row"><b>Name</b><span>${esc(name)}</span></div>
+      <div class="rv-row"><b>Email</b><span>${esc(email)}</span></div>
+      ${comp ? `<div class="rv-row"><b>Company</b><span>${esc(comp)}</span></div>` : ""}
+      <div class="rv-row"><b>Details</b><span style="max-width:60%">${esc(msg)}</span></div>`;
+  }
 
+  // submit
+  document.getElementById("ordSubmit").addEventListener("click", async () => {
     const btn = document.getElementById("ordSubmit");
-    btn.disabled = true; btn.textContent = "Sending order…";
-
+    btn.disabled = true; btn.textContent = "Sending…";
+    const name = document.getElementById("ordName").value.trim();
+    const email = document.getElementById("ordEmail").value.trim();
+    const comp = document.getElementById("ordCompany").value.trim();
+    const msg = document.getElementById("ordMsg").value.trim();
+    const urg = document.getElementById("ordUrgency").value;
     const id = "ORD-" + new Date().toISOString().slice(0, 7).replace("-", "") + "-" + Math.random().toString(36).slice(2, 6).toUpperCase();
-    const order = {
-      id, svc: pickedSvc, name, email,
-      company: document.getElementById("ordCompany").value.trim(),
-      budget: document.getElementById("ordBudget").value,
-      deadline: document.getElementById("ordDeadline").value,
-      msg, status: "new", ts: Date.now()
-    };
-    const list = getOrders(); list.unshift(order); saveOrders(list);
+    const order = { id, svc: WZ.svc, est: svcPrice(WZ.svc) + WZ.urgencyAdd, name, email, company: comp, urgency: urg, msg, status: "new", ts: Date.now() };
+    const list = LS.get(ORDERS_KEY, []); list.unshift(order); LS.set(ORDERS_KEY, list);
 
-    // email delivery: Formspree endpoint agar set hai
-    let emailed = false;
-    if (SETTINGS.orderEndpoint && /^https:\/\/formspree\.io\//.test(SETTINGS.orderEndpoint)) {
+    // email via formspree if configured
+    if (SETTINGS.endpoint && /^https:\/\/formspree\.io\//.test(SETTINGS.endpoint)) {
       try {
-        const r = await fetch(SETTINGS.orderEndpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "Accept": "application/json" },
-          body: JSON.stringify({
-            _subject: "🛒 New Order " + id + " — " + pickedSvc,
-            name, email, company: order.company,
-            service: pickedSvc, budget: order.budget, deadline: order.deadline,
-            details: msg, order_id: id
-          })
+        await fetch(SETTINGS.endpoint, {
+          method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify({ _subject: "🛒 Order " + id + " — " + WZ.svc, name, email, company: comp, service: WZ.svc, estimate: "$" + order.est, urgency: urg, details: msg, order_id: id })
         });
-        emailed = r.ok;
-      } catch (err) { emailed = false; }
+      } catch (e) { /* fallback below */ }
+    } else {
+      const body = encodeURIComponent(`Order: ${id}\nService: ${WZ.svc} (${order.est ? "$" + order.est : "TBD"})\nName: ${name}\nEmail: ${email}\nCompany: ${comp}\nUrgency: ${urg}\n\n${msg}`);
+      const a = document.createElement("a");
+      a.href = `mailto:${SETTINGS.publicEmail}?subject=${encodeURIComponent("🛒 Order " + id)}&body=${body}`;
+      a.click();
     }
-    // mailto fallback (opens user's mail app — admin ko direct mail)
-    if (!emailed && !SETTINGS.orderEndpoint) {
-      const body = encodeURIComponent(`Order: ${id}\nService: ${pickedSvc}\nName: ${name}\nEmail: ${email}\nCompany: ${order.company}\nBudget: ${order.budget}\nDeadline: ${order.deadline}\n\nDetails:\n${msg}`);
-      const mail = `mailto:sajjadali.data@gmail.com?subject=${encodeURIComponent("🛒 New Order " + id)}&body=${body}`;
-      const a = document.createElement("a"); a.href = mail; a.click();
-    }
-
-    logEvent("order", id + " placed (" + pickedSvc + ")");
-    // success UI
+    logEvent("order", id + " placed");
     document.getElementById("osId").textContent = id;
     document.getElementById("orderFlow").style.display = "none";
     document.getElementById("orderSuccess").classList.add("show");
-    btn.disabled = false; btn.textContent = "▶ Place Order — Send to Sajjad";
-    form.reset();
-    grid.querySelector(".svc")?.classList.add("is-picked");
+    btn.disabled = false; btn.textContent = "✓ Place Order — Send";
+    document.querySelectorAll(".wiz-btn[data-go='1']")[0]?.click();
   });
 })();
 
-// ─────────────── ADMIN CONSOLE ───────────────
-(function adminConsole() {
+// ─────────────── ADMIN DASHBOARD APP ───────────────
+(function adminApp() {
   const trig = document.getElementById("adminTrigger");
-  const overlay = document.getElementById("adminOverlay");
-  const loginBox = document.getElementById("adminLogin");
-  const consoleBox = document.getElementById("adminConsole");
-  if (!trig || !overlay) return;
-
+  const adm = document.getElementById("adm");
+  const loginBox = document.getElementById("admLogin");
+  const app = document.getElementById("admApp");
+  if (!trig || !adm) return;
   const KEY_AUTH = "sa_admin_auth";
+  const TITLES = { pgDash: ["Dashboard", "live overview"], pgOrders: ["Orders", "manage pipeline"], pgStudio: ["Theme Studio", "colors · glow · radius"], pgContent: ["Content Editor", "edit site text & prices"], pgSettings: ["Settings", "email · security · links"] };
+
   trig.addEventListener("click", () => {
-    if (sessionStorage.getItem(KEY_AUTH) === "1") { loginBox.style.display = "none"; consoleBox.style.display = "block"; }
-    else { loginBox.style.display = "block"; consoleBox.style.display = "none"; }
-    overlay.classList.add("open");
-    setTimeout(() => document.getElementById("adminPass")?.focus(), 50);
+    adm.classList.add("open");
+    document.body.style.overflow = "hidden";
+    if (sessionStorage.getItem(KEY_AUTH) === "1") { loginBox.style.display = "none"; app.style.display = "grid"; refreshAll(); }
+    else { loginBox.style.display = "flex"; app.style.display = "none"; setTimeout(() => document.getElementById("adminPass")?.focus(), 60); }
   });
-  const close = () => overlay.classList.remove("open");
-  overlay.addEventListener("click", e => { if (e.target === overlay) close(); });
-  document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+  const close = () => { adm.classList.remove("open"); document.body.style.overflow = ""; };
+  document.getElementById("admClose").addEventListener("click", close);
+
+  // mobile sidebar
+  const menuBtn = document.getElementById("admMenuBtn");
+  if (window.matchMedia("(max-width:900px)").matches) menuBtn.style.display = "grid";
+  menuBtn.addEventListener("click", () => document.getElementById("admSide").classList.toggle("mobile-open"));
 
   // login
   function tryLogin() {
     const p = document.getElementById("adminPass").value;
     if (simpleHash(p) === SETTINGS.passHash) {
       sessionStorage.setItem(KEY_AUTH, "1");
-      loginBox.style.display = "none"; consoleBox.style.display = "block";
+      loginBox.style.display = "none"; app.style.display = "grid";
       document.getElementById("adminErr").textContent = "";
       document.getElementById("adminPass").value = "";
-      renderOrders(); loadSettingsUI();
-    } else {
-      document.getElementById("adminErr").textContent = "Wrong password — access denied ⚠";
-    }
+      refreshAll();
+    } else document.getElementById("adminErr").textContent = "Wrong password ⚠";
   }
   document.getElementById("adminLoginBtn").addEventListener("click", tryLogin);
   document.getElementById("adminPass").addEventListener("keydown", e => { if (e.key === "Enter") tryLogin(); });
-
   document.getElementById("adminLogout").addEventListener("click", () => {
-    sessionStorage.removeItem(KEY_AUTH);
-    loginBox.style.display = "block"; consoleBox.style.display = "none";
-    close();
+    sessionStorage.removeItem(KEY_AUTH); close();
+    loginBox.style.display = "flex"; app.style.display = "none";
   });
 
-  // tabs
-  consoleBox.querySelectorAll(".admin-tab").forEach(tab => {
-    tab.addEventListener("click", () => {
-      consoleBox.querySelectorAll(".admin-tab").forEach(t => t.classList.toggle("is-active", t === tab));
-      consoleBox.querySelectorAll(".admin-pane").forEach(p => p.classList.toggle("is-active", p.id === tab.dataset.pane));
+  // sidebar nav
+  document.querySelectorAll(".as-item").forEach(item => {
+    item.addEventListener("click", () => {
+      document.querySelectorAll(".as-item").forEach(i => i.classList.toggle("is-active", i === item));
+      const pg = item.dataset.page;
+      document.querySelectorAll(".adm-page").forEach(p => p.classList.toggle("is-active", p.id === pg));
+      document.getElementById("admTitle").textContent = TITLES[pg][0];
+      document.getElementById("admSub").textContent = TITLES[pg][1];
+      document.getElementById("admSide").classList.remove("mobile-open");
+      if (pg === "pgDash") drawCharts();
     });
   });
 
-  // ── orders renderer ──
+  function refreshAll() { renderOrders(); loadSettingsUI(); loadContentUI(); drawCharts(); }
+
+  // ── ORDERS ──
   const STATUSES = ["new", "contacted", "inprogress", "done", "cancelled"];
-  const BUDGET_VAL = { "under-100": 75, "100-300": 200, "300-600": 450, "600-plus": 700, "discuss": 0 };
-  window.renderOrders = function () {
-    const list = getOrders();
-    const box = document.getElementById("ordList");
-    const cnt = document.getElementById("ordCount");
-    if (cnt) cnt.textContent = list.length;
+  let curFilter = "all", curSearch = "";
+
+  function renderOrders() {
+    const all = LS.get(ORDERS_KEY, []);
+    const badge = document.getElementById("ordBadge");
+    const newN = all.filter(o => o.status === "new").length;
+    if (badge) { badge.textContent = newN; badge.classList.toggle("zero", newN === 0); }
     // stats
-    const rev = list.filter(o => o.status !== "cancelled").reduce((a, o) => a + (BUDGET_VAL[o.budget] || 0), 0);
-    const map = { asTotal: list.length, asNew: list.filter(o => o.status === "new").length, asDone: list.filter(o => o.status === "done").length, asRev: "$" + rev.toLocaleString() };
+    const rev = all.filter(o => o.status !== "cancelled").reduce((a, o) => a + (o.est || 0), 0);
+    const map = { asTotal: all.length, asNew: newN, asDone: all.filter(o => o.status === "done").length, asRev: "$" + rev.toLocaleString() };
     for (const k in map) { const el = document.getElementById(k); if (el) el.textContent = map[k]; }
-    if (!list.length) { box.innerHTML = '<div class="ord-empty">No orders yet — share the site!</div>'; return; }
-    box.innerHTML = list.map((o, i) => `
-      <div class="ord-item">
-        <div class="ord-top">
-          <span class="ord-id">${o.id}</span>
-          <span class="ord-status st-${o.status}" data-i="${i}" title="click to cycle">${o.status}</span>
-        </div>
-        <div class="ord-name">${o.svc} — ${o.name}</div>
-        <div class="ord-meta"><span>✉ ${o.email}</span>${o.company ? `<span>🏢 ${o.company}</span>` : ""}<span>💰 ${o.budget}</span><span>⏰ ${o.deadline}</span><span>🕒 ${new Date(o.ts).toLocaleDateString()}</span></div>
-        <div style="font-size:.78rem;color:var(--txt-2);margin-top:8px;line-height:1.5">${o.msg.replace(/</g, "&lt;")}</div>
+
+    let list = all;
+    if (curFilter !== "all") list = list.filter(o => o.status === curFilter);
+    if (curSearch) list = list.filter(o => (o.name + o.email + o.id + o.svc).toLowerCase().includes(curSearch.toLowerCase()));
+
+    const box = document.getElementById("ordList");
+    if (!box) return;
+    if (!list.length) { box.innerHTML = `<div class="ord-empty">${all.length ? "No matches." : "No orders yet — share the site! 🚀"}</div>`; return; }
+    box.innerHTML = list.map(o => {
+      const idx = all.indexOf(o);
+      return `<div class="ord-item">
+        <div class="ord-top"><span class="ord-id">${o.id}</span><span class="ord-status st-${o.status}" data-i="${idx}">${o.status}</span></div>
+        <div class="ord-name">${esc(o.svc)} — ${esc(o.name)}</div>
+        <div class="ord-meta"><span>✉ ${esc(o.email)}</span>${o.company ? `<span>🏢 ${esc(o.company)}</span>` : ""}<span>💰 ${o.est ? "$" + o.est : "TBD"}</span><span>⚡ ${esc(o.urgency || "normal")}</span><span>🕒 ${new Date(o.ts).toLocaleDateString()}</span></div>
+        <div style="font-size:.8rem;color:var(--txt-2);margin-top:10px;line-height:1.55">${esc(o.msg)}</div>
         <div class="ord-actions">
-          <button data-mail="${o.email}" data-id="${o.id}">✉ Reply</button>
-          <button class="del" data-del="${i}">🗑 Delete</button>
-        </div>
-      </div>`).join("");
+          <button data-mail="${esc(o.email)}" data-id="${o.id}">✉ Reply</button>
+          <button class="del" data-del="${idx}">🗑 Delete</button>
+        </div></div>`;
+    }).join("");
     box.querySelectorAll(".ord-status").forEach(s => s.addEventListener("click", () => {
-      const list = getOrders(); const i = +s.dataset.i;
-      list[i].status = STATUSES[(STATUSES.indexOf(list[i].status) + 1) % STATUSES.length];
-      saveOrders(list);
+      const l = LS.get(ORDERS_KEY, []); const i = +s.dataset.i;
+      l[i].status = STATUSES[(STATUSES.indexOf(l[i].status) + 1) % STATUSES.length];
+      LS.set(ORDERS_KEY, l); renderOrders(); drawCharts();
     }));
     box.querySelectorAll("[data-del]").forEach(b => b.addEventListener("click", () => {
-      if (!confirm("Delete this order?")) return;
-      const list = getOrders(); list.splice(+b.dataset.del, 1); saveOrders(list);
+      if (!confirm("Delete order?")) return;
+      const l = LS.get(ORDERS_KEY, []); l.splice(+b.dataset.del, 1);
+      LS.set(ORDERS_KEY, l); renderOrders(); drawCharts();
     }));
     box.querySelectorAll("[data-mail]").forEach(b => b.addEventListener("click", () => {
       window.location.href = "mailto:" + b.dataset.mail + "?subject=" + encodeURIComponent("Re: your order " + b.dataset.id);
     }));
-  };
-
-  // CSV export
+  }
+  document.getElementById("ordSearch").addEventListener("input", e => { curSearch = e.target.value; renderOrders(); });
+  document.querySelectorAll(".ord-filter").forEach(f => f.addEventListener("click", () => {
+    document.querySelectorAll(".ord-filter").forEach(x => x.classList.toggle("is-active", x === f));
+    curFilter = f.dataset.f; renderOrders();
+  }));
   document.getElementById("exportCsv").addEventListener("click", () => {
-    const list = getOrders();
+    const list = LS.get(ORDERS_KEY, []);
     if (!list.length) return toast2("No orders to export");
-    const rows = [["ID", "Service", "Name", "Email", "Company", "Budget", "Deadline", "Status", "Date", "Details"]]
-      .concat(list.map(o => [o.id, o.svc, o.name, o.email, o.company, o.budget, o.deadline, o.status, new Date(o.ts).toISOString(), o.msg]));
-    const csv = rows.map(r => r.map(c => '"' + String(c).replace(/"/g, '""') + '"').join(",")).join("\n");
+    const rows = [["ID", "Service", "Estimate", "Name", "Email", "Company", "Urgency", "Status", "Date", "Details"]]
+      .concat(list.map(o => [o.id, o.svc, o.est, o.name, o.email, o.company, o.urgency, o.status, new Date(o.ts).toISOString(), o.msg]));
+    const csv = rows.map(r => r.map(c => '"' + String(c ?? "").replace(/"/g, '""') + '"').join(",")).join("\n");
     const a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
-    a.download = "orders-export.csv"; a.click();
-    toast2("CSV exported ⬇");
+    a.download = "orders.csv"; a.click(); toast2("CSV exported ⬇");
   });
-
   document.getElementById("clearOrders").addEventListener("click", () => {
-    if (!confirm("Delete ALL orders? Cannot be undone.")) return;
-    saveOrders([]);
+    if (!confirm("Delete ALL orders?")) return;
+    LS.set(ORDERS_KEY, []); renderOrders(); drawCharts();
   });
 
-  // ── color engine UI ──
+  // ── CHARTS (dashboard) ──
+  function drawCharts() {
+    const all = LS.get(ORDERS_KEY, []);
+    // orders over time (14 days)
+    const cv1 = document.getElementById("admChartOrders");
+    if (!cv1) return;
+    const days = [];
+    for (let i = 13; i >= 0; i--) {
+      const d = new Date(); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() - i);
+      days.push({ d, n: all.filter(o => new Date(o.ts) >= d && new Date(o.ts) < d.getTime() + 86400000).length });
+    }
+    drawBarChart(cv1, days.map(x => x.n), days.map((_, i) => new Date(Date.now() - (13 - i) * 86400000).toLocaleDateString(undefined, { day: "numeric", month: "short" })));
+    // service share donut
+    const counts = {};
+    all.forEach(o => counts[o.svc] = (counts[o.svc] || 0) + 1);
+    drawDonut2(document.getElementById("admChartSvc"), Object.entries(counts));
+    // funnel
+    const st = STATUSES.map(s => ({ s, n: all.filter(o => o.status === s).length })).filter(x => x.n);
+    const mx = Math.max(1, ...st.map(x => x.n));
+    document.getElementById("admFunnel").innerHTML = st.map(x => `
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+        <span style="width:90px;font-family:var(--mono);font-size:.68rem;color:var(--txt-3);text-transform:uppercase">${x.s}</span>
+        <div style="flex:1;height:14px;border-radius:99px;background:var(--glass);overflow:hidden">
+          <div style="height:100%;width:${x.n / mx * 100}%;background:var(--grad);border-radius:inherit;transition:width .8s var(--ease)"></div>
+        </div>
+        <span style="font-family:var(--mono);font-size:.78rem;color:var(--cyan-2)">${x.n}</span>
+      </div>`).join("") || '<p style="color:var(--txt-3);font-family:var(--mono);font-size:.78rem">No data yet.</p>';
+  }
+  function drawBarChart(cv, vals, labels) {
+    const dpr = window.devicePixelRatio || 1;
+    const w = cv.clientWidth || 400, h = 200;
+    cv.width = w * dpr; cv.height = h * dpr;
+    const ctx = cv.getContext("2d"); ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, w, h);
+    const light = document.documentElement.dataset.theme === "light";
+    const grid = light ? "rgba(59,74,102,.15)" : "rgba(148,163,184,.12)";
+    const txtC = light ? "#3b4a66" : "#5f6f8d";
+    const pad = { l: 28, r: 8, t: 10, b: 26 };
+    const mx = Math.max(1, ...vals);
+    const bw = (w - pad.l - pad.r) / vals.length;
+    ctx.strokeStyle = grid;
+    for (let g = 0; g <= 3; g++) { const y = pad.t + g * (h - pad.t - pad.b) / 3; ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(w - pad.r, y); ctx.stroke(); }
+    vals.forEach((v, i) => {
+      const bh = v / mx * (h - pad.t - pad.b);
+      const x = pad.l + i * bw + bw * .18, y = h - pad.b - bh, bwidth = bw * .64;
+      const gr = ctx.createLinearGradient(0, y, 0, h - pad.b);
+      gr.addColorStop(0, THEME.c1); gr.addColorStop(1, THEME.c3 + "44");
+      ctx.fillStyle = gr;
+      ctx.beginPath();
+      if (ctx.roundRect) { ctx.roundRect(x, y, bwidth, Math.max(bh, 2), 4); ctx.fill(); }
+      else ctx.fillRect(x, y, bwidth, Math.max(bh, 2));
+    });
+    ctx.fillStyle = txtC; ctx.font = "9px JetBrains Mono, monospace";
+    labels.forEach((l, i) => { if (i % 2 === 0) ctx.fillText(l, pad.l + i * bw, h - 8); });
+  }
+  function drawDonut2(cv, entries) {
+    if (!cv) return;
+    const dpr = window.devicePixelRatio || 1;
+    const w = cv.clientWidth || 300, h = 200;
+    cv.width = w * dpr; cv.height = h * dpr;
+    const ctx = cv.getContext("2d"); ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, w, h);
+    const light = document.documentElement.dataset.theme === "light";
+    const txtC = light ? "#3b4a66" : "#a8b6d1";
+    const cols = [THEME.c1, THEME.c2, THEME.c3, "#fbbf24", "#fb7185", "#34d399"];
+    if (!entries.length) { ctx.fillStyle = txtC; ctx.font = "12px monospace"; ctx.textAlign = "center"; ctx.fillText("no orders yet", w / 2, h / 2); return; }
+    const total = entries.reduce((a, e) => a + e[1], 0);
+    const cx = w * .32, cy = h / 2, R = Math.min(h, w) * .36, r = R * .62;
+    let a0 = -Math.PI / 2;
+    entries.forEach((e, i) => {
+      const a1 = a0 + e[1] / total * Math.PI * 2;
+      ctx.beginPath(); ctx.arc(cx, cy, R, a0, a1); ctx.arc(cx, cy, r, a1, a0, true); ctx.closePath();
+      ctx.fillStyle = cols[i % cols.length]; ctx.fill();
+      a0 = a1;
+    });
+    ctx.fillStyle = txtC; ctx.textAlign = "center"; ctx.font = "700 20px Space Grotesk, sans-serif";
+    ctx.fillText(total, cx, cy + 2);
+    ctx.font = "9px JetBrains Mono, monospace";
+    ctx.fillText("orders", cx, cy + 16);
+    ctx.textAlign = "left"; ctx.font = "10px JetBrains Mono, monospace";
+    entries.slice(0, 5).forEach((e, i) => {
+      const ly = h / 2 - 40 + i * 22;
+      ctx.fillStyle = cols[i % cols.length]; ctx.fillRect(w * .62, ly, 10, 10);
+      ctx.fillStyle = txtC; ctx.fillText(e[0].slice(0, 14) + " (" + e[1] + ")", w * .62 + 16, ly + 9);
+    });
+  }
+
+  // ── THEME STUDIO ──
   const presets = document.getElementById("colorPresets");
-  presets.querySelectorAll(".preset").forEach(p => {
+  presets?.querySelectorAll(".preset").forEach(p => {
     p.addEventListener("click", () => {
       presets.querySelectorAll(".preset").forEach(x => x.classList.toggle("is-active", x === p));
-      applyColors(p.dataset.c1, p.dataset.c2, p.dataset.c3, true);
+      applyTheme({ c1: p.dataset.c1, c2: p.dataset.c2, c3: p.dataset.c3 }, false);
       document.getElementById("cc1").value = p.dataset.c1;
       document.getElementById("cc2").value = p.dataset.c2;
       document.getElementById("cc3").value = p.dataset.c3;
-      toast2("Theme applied — 'Save Theme' to make it public 🎨");
+      drawCharts();
+      toast2("Preview live — hit Save to publish 🎨");
     });
   });
-  document.getElementById("applyCustom").addEventListener("click", () => {
-    applyColors(document.getElementById("cc1").value, document.getElementById("cc2").value, document.getElementById("cc3").value, true);
-    presets.querySelectorAll(".preset").forEach(x => x.classList.remove("is-active"));
-    toast2("Custom colors applied — 'Save Theme' to publish 🎨");
+  document.getElementById("applyCustom")?.addEventListener("click", () => {
+    applyTheme({ c1: document.getElementById("cc1").value, c2: document.getElementById("cc2").value, c3: document.getElementById("cc3").value, glow: +document.getElementById("glowRange").value, radius: +document.getElementById("radRange").value }, false);
+    presets?.querySelectorAll(".preset").forEach(x => x.classList.remove("is-active"));
+    drawCharts();
+    toast2("Custom theme previewed — Save to publish 🎨");
   });
-  document.getElementById("saveColors").addEventListener("click", () => {
-    // saved on apply; here just confirm + note
-    document.getElementById("colorNote").textContent = "Theme saved — every visitor now sees it ✓";
-    setTimeout(() => document.getElementById("colorNote").textContent = "", 3000);
-    logEvent("admin", "theme changed");
+  document.getElementById("saveTheme")?.addEventListener("click", () => {
+    applyTheme({ c1: document.getElementById("cc1").value, c2: document.getElementById("cc2").value, c3: document.getElementById("cc3").value, glow: +document.getElementById("glowRange").value, radius: +document.getElementById("radRange").value }, true);
+    const n = document.getElementById("colorNote");
+    n.textContent = "Theme saved — every visitor now sees it ✓";
+    setTimeout(() => n.textContent = "", 3000);
+    logEvent("admin", "theme published");
+  });
+  document.getElementById("glowRange")?.addEventListener("input", e => {
+    document.getElementById("glowVal").textContent = e.target.value;
+    applyTheme({ glow: +e.target.value }, false);
+  });
+  document.getElementById("radRange")?.addEventListener("input", e => {
+    document.getElementById("radVal").textContent = e.target.value;
+    applyTheme({ radius: +e.target.value }, false);
   });
 
-  // ── settings UI ──
+  // ── CONTENT EDITOR ──
+  function loadContentUI() {
+    document.getElementById("ctBadge").value = CONTENT.badge;
+    document.getElementById("ctName").value = CONTENT.name;
+    document.getElementById("ctIntro").value = CONTENT.intro;
+    document.getElementById("ctOrderHead").value = CONTENT.orderHead;
+    const pf = document.getElementById("pricingFields");
+    pf.innerHTML = Object.entries(CONTENT.prices).map(([k, v]) => `
+      <div class="set-field"><label>${esc(k)}</label><input class="mono ct-price" data-k="${esc(k)}" type="number" value="${v}" min="0"></div>`).join("");
+  }
+  document.getElementById("saveContentHero")?.addEventListener("click", () => {
+    CONTENT.badge = document.getElementById("ctBadge").value || DEFAULT_CONTENT.badge;
+    CONTENT.name = document.getElementById("ctName").value || DEFAULT_CONTENT.name;
+    CONTENT.intro = document.getElementById("ctIntro").value || DEFAULT_CONTENT.intro;
+    CONTENT.orderHead = document.getElementById("ctOrderHead").value || DEFAULT_CONTENT.orderHead;
+    LS.set("sa_content", CONTENT);
+    const n = document.getElementById("contentNote1");
+    n.textContent = "Saved — refresh page to see it live ✓";
+    setTimeout(() => n.textContent = "", 3000);
+  });
+  document.getElementById("savePricing")?.addEventListener("click", () => {
+    document.querySelectorAll(".ct-price").forEach(inp => { CONTENT.prices[inp.dataset.k] = Math.max(0, +inp.value || 0); });
+    LS.set("sa_content", CONTENT);
+    // live update cards
+    document.querySelectorAll("#svcGrid .svc").forEach(svc => {
+      const sp = svc.querySelector(".svc-price");
+      const p = svcPrice(svc.dataset.svc);
+      if (sp) sp.textContent = p ? "from $" + p : "let's talk";
+    });
+    const n = document.getElementById("contentNote2");
+    n.textContent = "Prices saved & applied to wizard ✓";
+    setTimeout(() => n.textContent = "", 3000);
+  });
+
+  // ── SETTINGS ──
   function loadSettingsUI() {
-    document.getElementById("setEmail").value = SETTINGS.orderEndpoint || "";
+    document.getElementById("setEmail").value = SETTINGS.endpoint || "";
     document.getElementById("setPass").value = "";
     document.getElementById("setLinkedin").value = SETTINGS.linkedin || "";
     document.getElementById("setGithub").value = SETTINGS.github || "";
+    document.getElementById("setPublicEmail").value = SETTINGS.publicEmail || "";
   }
-  document.getElementById("saveSettings").addEventListener("click", () => {
+  document.getElementById("saveSettings")?.addEventListener("click", () => {
     const ep = document.getElementById("setEmail").value.trim();
-    if (ep && !/^https:\/\/formspree\.io\//.test(ep)) {
-      return document.getElementById("setNote").textContent = "Email endpoint must be a formspree.io URL ⚠";
-    }
-    SETTINGS.orderEndpoint = ep;
+    const n = document.getElementById("setNote");
+    if (ep && !/^https:\/\/formspree\.io\//.test(ep)) { n.textContent = "Endpoint must be formspree.io URL ⚠"; n.className = "note-err"; return; }
+    SETTINGS.endpoint = ep;
     const np = document.getElementById("setPass").value.trim();
     if (np) SETTINGS.passHash = simpleHash(np);
+    LS.set("sa_settings", SETTINGS);
+    n.className = "note-ok"; n.textContent = np ? "Settings + new password saved ✓" : "Settings saved ✓";
+    setTimeout(() => n.textContent = "", 3000);
+  });
+  document.getElementById("saveLinks")?.addEventListener("click", () => {
     SETTINGS.linkedin = document.getElementById("setLinkedin").value.trim() || DEFAULTS.linkedin;
     SETTINGS.github = document.getElementById("setGithub").value.trim() || DEFAULTS.github;
+    SETTINGS.publicEmail = document.getElementById("setPublicEmail").value.trim() || DEFAULTS.publicEmail;
     LS.set("sa_settings", SETTINGS);
-    applySettings();
-    document.getElementById("setNote").textContent = np ? "Settings + password saved ✓" : "Settings saved ✓";
-    setTimeout(() => document.getElementById("setNote").textContent = "", 3000);
+    const n = document.getElementById("setNote2");
+    n.textContent = "Links saved ✓";
+    setTimeout(() => n.textContent = "", 3000);
   });
 })();
 </script>
